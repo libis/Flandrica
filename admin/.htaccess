@@ -1,0 +1,5 @@
+# Added by Sam, this is needed to make changes in the admin section
+<IfModule mod_expires.c>
+    ExpiresActive on
+    Header set Cache-Control "max-age=0"
+</IfModule>
