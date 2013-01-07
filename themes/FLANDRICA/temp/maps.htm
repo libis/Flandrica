@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+
+    <title>Flandrica</title>
+
+    <!-- The CSS framework -->
+    <!--<link rel="stylesheet" href="css/inuit.css">
+    -->
+    <!-- Plugins -->
+    <!--<link rel="stylesheet" href="css/igloos.css">
+    -->
+    <!-- YAHOO RESET CSS -->
+    <!-- removes and neutralizes the inconsistent default styling of HTML elements -->
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- humans.txt -->
+    <link rel="author" href="Wax Interactive">
+
+    <!-- Favicons and the like (avoid using transparent .png) -->
+    <link rel="shortcut icon" href="icon.ico">
+    <link rel="apple-touch-icon-precomposed" href="icon.gif" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/modernizr.custom.56255.js"></script>
+    <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" language="javascript" src="js/init.js"></script>
+
+    <script type="text/javascript">
+      function initializeMaps() {
+        var mapOptions = {
+          center: new google.maps.LatLng(51.027961,4.219596),
+          zoom: 9,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          styles: [
+                  {
+                    "stylers": [
+                      { "invert_lightness": true }
+                    ]
+                  },{
+                    "featureType": "road",
+                    "stylers": [
+                      { "visibility": "off" }
+                    ]
+                  },{
+                    "featureType": "administrative.country",
+                    "stylers": [
+                      { "visibility": "on" },
+                      { "color": "#f05133" },
+                      { "weight": 2.5 }
+                    ]
+                  }
+                ]
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"),
+            mapOptions);
+
+
+
+        setMarkers(map, books);
+      }
+
+        var icons = new Array();
+            icons['default'] = "default.png";
+            icons['grafisch'] =  "grafisch.png";
+            icons['handschrift'] =  "handschrift.png";
+            icons['modern'] =  "moderne_druk.png";
+            icons['oud'] =  "oude_druk.png";
+            icons['periodiek'] =  "periodiek.png";
+
+
+        var places = new Array();
+            places['gent'] = new Array('Gent', 51.044848,3.767853 );
+            places['dendermonde'] = new Array('Dendermonde', 51.029952,4.101276);
+            places['brussel'] = new Array('Brussel', 50.870978,4.344864);
+            places['puurs'] = new Array('Puurs', 51.074626,4.294224);
+            places['antwerpen'] = new Array('Antwerpen', 51.21011,4.402027);
+            places['antwerpen2'] = new Array('Antwerpen2', 51.21011,4.952027);
+
+
+        var books = new Array();
+            books['book1'] = new Array("book1" , "auteur", "jaar", "images/dummy_thumb.gif", "gent", "default");
+            books['book7'] = new Array("book12" , "auteur", "jaar", "images/dummy_thumb.gif", "gent", "default");
+            books['book2'] = new Array("book2" , "auteur", "jaar", "", "dendermonde", "modern");
+            books['book3'] = new Array("book3" , "auteur", "jaar", "", "brussel", "periodiek");
+            books['book4'] = new Array("book4" , "auteur", "jaar", "images/dummy_thumb.gif", "puurs", "handschrift");
+            books['book5'] = new Array("book5" , "auteur", "jaar", "images/dummy_thumb.gif", "antwerpen", "oud");
+            books['book6'] = new Array("book6" , "auteur", "jaar", "images/dummy_thumb.gif", "antwerpen2", "grafisch");
+
+
+
+      function setMarkers(map, locations) {
+        // Add markers to the map
+
+        // Marker sizes are expressed as a Size of X,Y
+        // where the origin of the image (0,0) is located
+        // in the top left of the image.
+
+        // Origins, anchor positions and coordinates of the marker
+        // increase in the X direction to the right and in
+        // the Y direction down.
+        for (icon in icons) {
+            var iconMarker = new google.maps.MarkerImage('images/map_icons/'+icons[icon],
+            // This marker is 20 pixels wide by 32 pixels tall.
+            new google.maps.Size(24, 27),
+            // The origin for this image is 0,0.
+            new google.maps.Point(0,0),
+            // The anchor for this image is the base of the flagpole at 0,32.
+            new google.maps.Point(12, 26));
+            icons[icon] = iconMarker;
+        }
+
+
+            //                              var shadow = new google.maps.MarkerImage('images/beachflag_shadow.png',
+            // The shadow image is larger in the horizontal dimension
+            // while the position and offset are the same as for the main image.
+            /*new google.maps.Size(37, 32),
+            new google.maps.Point(0,0),
+            new google.maps.Point(0, 32)); */
+            // Shapes define the clickable region of the icon.
+            // The type defines an HTML &lt;area&gt; element 'poly' which
+            // traces out a polygon as a series of X,Y points. The final
+            // coordinate closes the poly by connecting to the first
+            // coordinate.
+        var shape = {
+            coord: [1, 1, 1, 24, 26, 24, 26 , 0],
+            type: 'poly'
+        };
+
+        //var infowindow = null;
+
+        var infowindow = new google.maps.InfoWindow({
+                content: "bl",
+                maxWidth: 200,
+            });
+
+        for (bookId in books) {
+
+            var book = books[bookId]
+
+            var bookTitle = book[0];
+            var bookAuthor = book[1];
+            var bookYear = book[2];
+            var bookImg = book[3];
+            var bookTown = book[4];
+            var bookStyle = book[5];
+            var contentString = "<div class='mapsInfoWindow'>";
+
+            bookImg ? contentString = "<div class='mapsInfoWindow img'><img src='"+bookImg+"' width='84' height='70' class='bookImg' style='float: left; margin: 0 10px 10px 0;' />" : null;
+
+
+            contentString += "<h2 class='bookTitle'>"+bookTitle+"</h2><div class='bookAuthor'>"+bookAuthor+"</div><div class'bookYear'>"+bookYear+"</div>";
+
+            contentString += "</div>";
+
+            books[bookId].push(contentString)
+
+            console.log(contentString)
+
+            var myLatLng = new google.maps.LatLng(places[book[4]][1], places[book[4]][2]);
+
+
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                icon: icons[book[5]],
+                shape: shape,
+                title: book[0],
+                html: contentString,
+                //zIndex: beach[3]
+            });
+
+
+
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.setContent(this.html);
+                infowindow.open(map, this);
+            });
+
+
+
+        }
+      }
+
+
+    </script>
+
+</head>
+<body class="nl maps" onload="initializeMaps()">
+    <div class="wrapper">
+        <header>
+            <div class="col logo">
+                <a href="index.htm" class="logo">
+                    <img src="logo.gif" alt="Flandrics" title="Flandrica"></a>
+            </div>
+            <div class="col headerstuff">
+                <div class="grid-geavanceerd col" style="width:124px; border-right:1px solid #e7e7e7; margin:0; padding:0 20px 0 0;">
+                    <p>
+                        <a href="#" id="search_advanced">GEAVANCEERD ZOEKEN</a>
+                    </p>
+                </div>
+                <div class="grid-lang col" style="width:85px; padding:0 0 0 20px; margin:0;">
+                    <p>
+                        <a href="#" class="active">NL</a>
+                        &#124;
+                        <a href="#">FR</a>
+                        &#124;
+                        <a href="#">EN</a>
+                    </p>
+                </div>
+                <div class="search">
+                    <form action="#" method="post">
+                        <input type="text" class="searchfield" title="Zoeken..." alt="Zoeken..." value="ZOEKEN..." name="keywords" maxlength="128" onClick="this.value='';" />
+                    </form>
+                </div>
+            </div>
+        </header>
+        <nav id="mainNav">
+            <ul>
+                <li class="home">
+                    <a href="#">&nbsp;</a>
+                </li>
+                <li class="collectie">
+                    <a href="#" class="dropdown">
+                        de <strong>collectie</strong>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="#">Remoras</a>
+                        </li>
+                        <li>
+                            <a href="#">Tilefishes</a>
+                        </li>
+                        <li>
+                            <a href="#">Bluefishes</a>
+                        </li>
+                        <li>
+                            <a href="#">Tigerfishes</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="thema">
+                    <a href="#" class="dropdown">
+                        op <strong>thema</strong>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="#">Remoras</a>
+                        </li>
+                        <li>
+                            <a href="#">Tilefishes</a>
+                        </li>
+                        <li>
+                            <a href="#">Bluefishes</a>
+                        </li>
+                        <li>
+                            <a href="#">Tigerfishes</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="plaats">
+                    <a href="#" class="dropdown">
+                        op
+                        <strong>plaats</strong>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="#">Remoras</a>
+                        </li>
+                        <li>
+                            <a href="#">Tilefishes</a>
+                        </li>
+                        <li>
+                            <a href="#">Bluefishes</a>
+                        </li>
+                        <li>
+                            <a href="#">Tigerfishes</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="periode">
+                    <a href="#" class="dropdown">
+                        op
+                        <strong>periode</strong>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="#">Remoras</a>
+                        </li>
+                        <li>
+                            <a href="#">Tilefishes</a>
+                        </li>
+                        <li>
+                            <a href="#">Bluefishes</a>
+                        </li>
+                        <li>
+                            <a href="#">Tigerfishes</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="rondleiding last">
+                    <a href="#">
+                        de
+                        <strong>rondleidingen</strong>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="clearfix"></div>
+    </div>
+        <div id="style_one">
+            <div id="wrapper">
+                <div class="wrapper">
+                <div id="map_container">
+                <div id="map_canvas" style="width:100%; height:100%"></div>
+                      </div>
+                  </div>
+            </div>
+        </div>
+    <div id="searchForm">
+        <div class="wrapper">
+            <h3>Geavanceerd zoeken</h3>
+            <a href="#" class="frm_close">Sluiten</a>
+            <form>
+                <fieldset>
+                    <div class="row">
+                        <label>Zoek op kernwoord</label>
+                        <input value="" type="text" />
+                    </div>
+                    <div class="row">
+                        <label>Filter op specifiek veld</label>
+                        <div class="filterRow" rel="1">
+                            <div class="col">
+                                <select id="filter1a">
+                                    <option value="taal" selected>taal</option>
+                                    <option value="titel">Titel</option>
+                                    <option value="auteur">Auteur</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="filter1b">
+                                    <option value="taal" selected>taal</option>
+                                    <option value="titel">Titel</option>
+                                    <option value="auteur">Auteur</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <a href="#" class="frm_minus">&nbsp;</a>
+                                <input value="" type="text" />
+                            </div>
+                        </div>
+                        <div class="filterRow" rel="2">
+                            <div class="col">
+                                <select id="filter2a">
+                                    <option value="taal" selected>taal</option>
+                                    <option value="titel">Titel</option>
+                                    <option value="auteur">Auteur</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="filter2b">
+                                    <option value="taal" selected>taal</option>
+                                    <option value="titel">Titel</option>
+                                    <option value="auteur">Auteur</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <a href="#" class="frm_minus">&nbsp;</a>
+                                <input value="" type="text" />
+                            </div>
+                        </div>
+                        <div class="filterRow" rel="3">
+                            <div class="col">
+                                <select id="filter3a">
+                                    <option value="taal" selected>taal</option>
+                                    <option value="titel">Titel</option>
+                                    <option value="auteur">Auteur</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="filter3b">
+                                    <option value="taal" selected>taal</option>
+                                    <option value="titel">Titel</option>
+                                    <option value="auteur">Auteur</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <a href="#" class="frm_minus">&nbsp;</a>
+                                <input value="" type="text" />
+                            </div>
+                        </div>
+                        <div class="filterRow">
+                            <a href="#" class="frm_plus">veld toevoegen</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="filterID">Zoek op ID</label>
+                            <input id="filterID" value="" type="text" />
+                        </div>
+                        <div class="col">
+                            <label for="filterCollectie">Zoek op Collectie</label>
+                            <select id="filterCollectie">
+                                <option value="taal" selected>taal</option>
+                                <option value="titel">Titel</option>
+                                <option value="auteur">Auteur</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="filterType">Zoek op Type</label>
+                            <select id="filterType">
+                                <option value="taal" selected>taal</option>
+                                <option value="titel">Titel</option>
+                                <option value="auteur">Auteur</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="filterTags">Zoek op Tags</label>
+                            <input id="filterTags" value="" type="text" />
+                        </div>
+                        <div class="col">
+                            <label for="filterFeatured">Featured/Non-featured</label>
+                            <select id="filterFeatured">
+                                <option value="taal" selected>taal</option>
+                                <option value="titel">Titel</option>
+                                <option value="auteur">Auteur</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <input type="submit" value="zoeken" class="frm_search" />
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div id="footerWrapper">
+            <ul>
+                <li>&copy; 2012  Flandrica.be</li>
+                <li>
+                    <a href="#">Disclaimer</a>
+                </li>
+                <li>
+                    <a href="#">Colofon</a>
+                </li>
+                <li>
+                    <a href="#">Wat is Flandrica</a>
+                </li>
+                <li>
+                    <a href="#">Vraagbaak</a>
+                </li>
+                <li class="last">
+                    <a href="#" class="subnav">Instellingen</a>
+                    <ul>
+                        <li>
+                            <a href="#">Remoras</a>
+                        </li>
+                        <li>
+                            <a href="#">Tilefishes</a>
+                        </li>
+                        <li>
+                            <a href="#">Bluefishes</a>
+                        </li>
+                        <li>
+                            <a href="#">Tigerfishes</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="madeby">
+                Made by
+                <strong>shortcut</strong>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

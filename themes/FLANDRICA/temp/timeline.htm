@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+
+    <title>Flandrica</title>
+
+    <!-- The CSS framework -->
+    <!--<link rel="stylesheet" href="css/inuit.css">
+    -->
+    <!-- Plugins -->
+    <!--<link rel="stylesheet" href="css/igloos.css">
+    -->
+    <!-- YAHOO RESET CSS -->
+    <!-- removes and neutralizes the inconsistent default styling of HTML elements -->
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+
+
+    <!-- humans.txt -->
+    <link rel="author" href="Wax Interactive">
+
+    <!-- Favicons and the like (avoid using transparent .png) -->
+    <link rel="shortcut icon" href="icon.ico">
+    <link rel="apple-touch-icon-precomposed" href="icon.gif" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/modernizr.custom.56255.js"></script>
+    <script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+
+    <!-- timeline -->
+    <script src="http://static.simile.mit.edu/timeline/api-2.3.0/timeline-api.js?bundle=true" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/local_example.css" type="text/css">
+    <script src="js/local_data.js" type="text/javascript"></script>
+    <script src="js/timeline_settings.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript" src="js/init.js"></script>
+
+
+
+</head>
+<body class="nl timeline" onload="onLoad();" onresize="onResize();">
+    <div class="wrapper">
+        <header>
+            <div class="col logo">
+                <a href="index.htm" class="logo">
+                    <img src="logo.gif" alt="Flandrics" title="Flandrica"></a>
+            </div>
+            <div class="col headerstuff">
+                <div class="grid-geavanceerd col" style="width:124px; border-right:1px solid #e7e7e7; margin:0; padding:0 20px 0 0;">
+                    <p>
+                        <a href="#" id="search_advanced">GEAVANCEERD ZOEKEN</a>
+                    </p>
+                </div>
+                <div class="grid-lang col" style="width:85px; padding:0 0 0 20px; margin:0;">
+                    <p>
+                        <a href="#" class="active">NL</a>
+                        &#124;
+                        <a href="#">FR</a>
+                        &#124;
+                        <a href="#">EN</a>
+                    </p>
+                </div>
+                <div class="search">
+                    <form action="#" method="post">
+                        <input type="text" class="searchfield" title="Zoeken..." alt="Zoeken..." value="ZOEKEN..." name="keywords" maxlength="128" onClick="this.value='';" />
+                    </form>
+                </div>
+            </div>
+        </header>
+        <nav id="mainNav">
+            <ul>
+                <li class="home">
+                    <a href="#">&nbsp;</a>
+                </li>
+                <li class="collectie">
+                    <a href="#" class="dropdown">
+                        de <strong>collectie</strong>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="#">Remoras</a>
+                        </li>
+                        <li>
+                            <a href="#">Tilefishes</a>
+                        </li>
+                        <li>
+                            <a href="#">Bluefishes</a>
+                        </li>
+                        <li>
+                            <a href="#">Tigerfishes</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="thema">
+                    <a href="#" class="dropdown">
+                        op <strong>thema</strong>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="#">Remoras</a>
+                        </li>
+                        <li>
+                            <a href="#">Tilefishes</a>
+                        </li>
+                        <li>
+                            <a href="#">Bluefishes</a>
+                        </li>
+                        <li>
+                            <a href="#">Tigerfishes</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="plaats">
+                    <a href="#" class="dropdown">
+                        op
+                        <strong>plaats</strong>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="#">Remoras</a>
+                        </li>
+                        <li>
+                            <a href="#">Tilefishes</a>
+                        </li>
+                        <li>
+                            <a href="#">Bluefishes</a>
+                        </li>
+                        <li>
+                            <a href="#">Tigerfishes</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="periode">
+                    <a href="#" class="dropdown">
+                        op
+                        <strong>periode</strong>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="#">Remoras</a>
+                        </li>
+                        <li>
+                            <a href="#">Tilefishes</a>
+                        </li>
+                        <li>
+                            <a href="#">Bluefishes</a>
+                        </li>
+                        <li>
+                            <a href="#">Tigerfishes</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="rondleiding last">
+                    <a href="#">
+                        de
+                        <strong>rondleidingen</strong>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+</div>
+        <div class="clearfix"></div>
+        <div id="style_one">
+            <div id="wrapper">
+                <div class="wrapper">
+                    <div id="container" class="timeline">
+                        <div id="tl" class="timeline-default" style="height: 450px; margin-top: 20px; margin-bottom: 20px;"></div>
+                    </div>
+                    <div class="clearfix">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+
+    
+    <div id="searchForm">
+        <div class="wrapper">
+            <h3>Geavanceerd zoeken</h3>
+            <a href="#" class="frm_close">Sluiten</a>
+            <form>
+                <fieldset>
+                    <div class="row">
+                        <label>Zoek op kernwoord</label>
+                        <input value=""></input>
+                </div>
+                <div class="row">
+                    <label>Filter op specifiek veld</label>
+                    <div class="filterRow" rel="1">
+                        <div class="col">
+                            <select id="filter1a">
+                                <option value="taal" selected>taal</option>
+                                <option value="titel">Titel</option>
+                                <option value="auteur">Auteur</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select id="filter1b">
+                                <option value="taal" selected>taal</option>
+                                <option value="titel">Titel</option>
+                                <option value="auteur">Auteur</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <a href="#" class="frm_minus">&nbsp;</a>
+                            <input></input>
+                    </div>
+                </div>
+                <div class="filterRow" rel="2">
+                    <div class="col">
+                        <select id="filter2a">
+                            <option value="taal" selected>taal</option>
+                            <option value="titel">Titel</option>
+                            <option value="auteur">Auteur</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select id="filter2b">
+                            <option value="taal" selected>taal</option>
+                            <option value="titel">Titel</option>
+                            <option value="auteur">Auteur</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <a href="#" class="frm_minus">&nbsp;</a>
+                        <input></input>
+                </div>
+            </div>
+            <div class="filterRow" rel="3">
+                <div class="col">
+                    <select id="filter3a">
+                        <option value="taal" selected>taal</option>
+                        <option value="titel">Titel</option>
+                        <option value="auteur">Auteur</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <select id="filter3b">
+                        <option value="taal" selected>taal</option>
+                        <option value="titel">Titel</option>
+                        <option value="auteur">Auteur</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <a href="#" class="frm_minus">&nbsp;</a>
+                    <input></input>
+            </div>
+        </div>
+        <div class="filterRow">
+            <a href="#" class="frm_plus">veld toevoegen</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <label for="filterID">Zoek op ID</label>
+            <input id="filterID"></input>
+    </div>
+    <div class="col">
+        <label for="filterCollectie">Zoek op Collectie</label>
+        <select id="filterCollectie">
+            <option value="taal" selected>taal</option>
+            <option value="titel">Titel</option>
+            <option value="auteur">Auteur</option>
+        </select>
+    </div>
+    <div class="col">
+        <label for="filterType">Zoek op Type</label>
+        <select id="filterType">
+            <option value="taal" selected>taal</option>
+            <option value="titel">Titel</option>
+            <option value="auteur">Auteur</option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <label for="filterTags">Zoek op Tags</label>
+        <input id="filterTags"></input>
+</div>
+<div class="col">
+    <label for="filterFeatured">Featured/Non-featured</label>
+    <select id="filterFeatured">
+        <option value="taal" selected>taal</option>
+        <option value="titel">Titel</option>
+        <option value="auteur">Auteur</option>
+    </select>
+</div>
+</div>
+<div class="row">
+<input type="submit" value="zoeken" class="frm_search"></input>
+</div>
+</fieldset>
+</form>
+</div>
+</div>
+<footer>
+<div id="footerWrapper">
+<ul>
+<li>&copy; 2012  Flandrica.be</li>
+<li>
+<a href="#">Disclaimer</a>
+</li>
+<li>
+<a href="#">Colofon</a>
+</li>
+<li>
+<a href="#">Wat is Flandrica</a>
+</li>
+<li>
+<a href="#">Vraagbaak</a>
+</li>
+<li class="last">
+<a href="#" class="subnav">Instellingen</a>
+<ul>
+<li>
+<a href="#">Remoras</a>
+</li>
+<li>
+<a href="#">Tilefishes</a>
+</li>
+<li>
+<a href="#">Bluefishes</a>
+</li>
+<li>
+<a href="#">Tigerfishes</a>
+</li>
+</ul>
+</li>
+</ul>
+<div class="madeby">
+Made by
+<strong>shortcut</strong>
+</div>
+</div>
+</footer>
+</body>
+</html>
