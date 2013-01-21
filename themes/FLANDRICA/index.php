@@ -72,4 +72,5 @@
 	});
 </script>
 
-<?php foot(); ?>
+<?php 
+foot(); ?>

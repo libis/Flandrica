@@ -1,9 +1,10 @@
-<?php
+<?php /*
 
 	if($_GET['type'] == 'tentoon'){
 		/**
 		* Create the parent feed
 		*/
+/*
 		$feed = new Zend_Feed_Writer_Feed;
 		$feed->setTitle('Tentoonstellingen');
 		$feed->setLink(abs_uri('home'));
@@ -17,7 +18,8 @@
 		 * Add one or more entries. Note that entries must
 		 * be manually added once created.
 		 */
-		$entry = $feed->createEntry();
+/*
+$entry = $feed->createEntry();
 
 		//get exhibits
 		$exhibits = exhibit_builder_recent_exhibits(10);
@@ -42,6 +44,7 @@
 		/**
 		* Create the parent feed
 		*/
+/*
 		$feed = new Zend_Feed_Writer_Feed;
 		$feed->setTitle('Objecten');
 		$feed->setLink(abs_uri('home'));
@@ -55,6 +58,7 @@
 		 * Add one or more entries. Note that entries must
 		 * be manually added once created.
 		 */
+/*
 		$entry = $feed->createEntry();
 
 		//get items and exhibits
@@ -83,6 +87,7 @@
 		/**
 	    * Create the parent feed
 	    */
+/*
 	    $feed = new Zend_Feed_Writer_Feed;
 	    $feed->setTitle('Laatste nieuws');
 	    $feed->setLink(abs_uri('home'));
@@ -95,6 +100,7 @@
 	    * Add one or more entries. Note that entries must
 	    * be manually added once created.
 	    */
+/*
 	    $entry = $feed->createEntry();
 
 
@@ -142,4 +148,23 @@
     * Render the resulting feed to Atom 1.0 and assign to $out.
     * You can substitute "atom" with "rss" to generate an RSS 2.0 feed.
     */
-   echo $feed->export('atom');?>
+/*
+   echo $feed->export('atom');
+   */
+//get items and exhibits
+$items = get_items(array("recent"=>"true"),5);//TODO:welk type?
+$exhibits = exhibit_builder_recent_exhibits(5);
+$recents = array();
+
+//get items and exhibits in one array
+for($i=0;$i<=10;$i++):
+    if($items[$i])
+            $recents[]=$items[$i];
+    if($exhibits[$i])
+            $recents[]=$exhibits[$i];
+endfor;
+//var_dump($recents);
+$atom = new ItemAtom($recents);
+echo $atom->getFeed();
+
+ ?>

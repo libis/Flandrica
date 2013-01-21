@@ -2,7 +2,6 @@
 /**
  * The shared neatlinetime-json browse view for Items
  */
-
 $neatlineTimeEvents = array();
 while (loop_items()) {
     $itemTitle = item('Dublin Core', 'Title',array('snippet' => 25));
@@ -74,22 +73,22 @@ while (loop_items()) {
                 //icon - Joris
                 switch(item('Item Type Metadata','Materiaal')){
                 	case "oude druk":
-                		$icon =  "http://flandrica.be.halotest.cc.kuleuven.be/themes/FLANDRICA/images/map_icons/oude_druk.png";
+                		$icon =  WEB_THEME."/FLANDRICA/images/map_icons/oude_druk.png";
                 		break;
                 	case "handschrift":
-                		$icon = "http://flandrica.be.halotest.cc.kuleuven.be/themes/FLANDRICA/images/map_icons/handschrift.png";
+                		$icon = WEB_THEME."/FLANDRICA/images/map_icons/handschrift.png";
                 		break;
                 	case "periodiek":
-                		$icon = "http://flandrica.be.halotest.cc.kuleuven.be/themes/FLANDRICA/images/map_icons/periodiek.png";
+                		$icon = WEB_THEME."/FLANDRICA/images/map_icons/periodiek.png";
                 		break;
                 	case "grafisch en documentair materiaal":
-                		$icon = "http://flandrica.be.halotest.cc.kuleuven.be/themes/FLANDRICA/images/map_icons/grafisch.png";
+                		$icon = WEB_THEME."/FLANDRICA/images/map_icons/grafisch.png";
                 		break;
                 	case "moderne druk":
-                		$icon = "http://flandrica.be.halotest.cc.kuleuven.be/themes/FLANDRICA/images/map_icons/moderne_druk.png";
+                		$icon = WEB_THEME."/FLANDRICA/images/map_icons/moderne_druk.png";
                 		break;
                 	default:
-                		$icon = "http://flandrica.be.halotest.cc.kuleuven.be/themes/FLANDRICA/images/map_icons/default.png";
+                		$icon = WEB_THEME."/FLANDRICA/images/map_icons/default.png";
                 }
 
                 $neatlineTimeEvent['icon'] = $icon;

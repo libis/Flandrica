@@ -50,7 +50,7 @@ class ItemAtom
         $feedElement->appendChild($feedTitleElement);
         
         // feed/subtitle
-        if ($feedSubtitle = get_option('description')) {
+        if ($feedSubtitle = 'De meest recente items en tentoonstellingen') {
             $feedSubtitleElement = $doc->createElement('subtitle');
             $feedSubtitleElement->appendChild($doc->createCDATASection($feedSubtitle));
             $feedElement->appendChild($feedSubtitleElement);
@@ -122,67 +122,125 @@ class ItemAtom
         $feedLinkLastElement->setAttribute('href', $feedLinks['last']);
         $feedElement->appendChild($feedLinkLastElement);
         
-        // feed/entry
+             
         foreach ($items as $item) {
-            $feedEntryElement = $doc->createElement('entry');
-            
-            // feed/entry/id
-            $feedEntryIdElement = $doc->createElement('id');
-            $feedEntryIdElement->appendChild($doc->createTextNode(abs_item_uri($item)));
-            $feedEntryElement->appendChild($feedEntryIdElement);
-            
-            // feed/entry/title
-            if (!$feedEntryTitle = item('Dublin Core', 'Title', null, $item)) {
-                $feedEntryTitle = 'Untitled';
+            if(get_class($item)=="Item"){
+                $feedEntryElement = $doc->createElement('entry');
+
+                // feed/entry/id
+                $feedEntryIdElement = $doc->createElement('id');
+                $feedEntryIdElement->appendChild($doc->createTextNode(abs_item_uri($item)));
+                $feedEntryElement->appendChild($feedEntryIdElement);
+
+                // feed/entry/title
+                if (!$feedEntryTitle = item('Dublin Core', 'Title', null, $item)) {
+                    $feedEntryTitle = 'Untitled';
+                }
+                $feedEntryTitleElement = $doc->createElement('title');
+                $feedEntryTitleElement->appendChild($doc->createCDATASection($feedEntryTitle));
+                $feedEntryElement->appendChild($feedEntryTitleElement);
+
+                // feed/entry/summary
+                if ($feedEntrySummary = 'Item/Nieuws-item') {
+                    $feedEntrySummaryElement = $doc->createElement('summary');
+                    $feedEntrySummaryElement->appendChild($doc->createCDATASection($feedEntrySummary));
+                    $feedEntryElement->appendChild($feedEntrySummaryElement);
+                }
+
+                // feed/entry/updated
+                $feedEntryUpdated = $doc->createElement('updated', date(DATE_ATOM, strtotime(item('Date Modified', null, null, $item))));
+                $feedEntryElement->appendChild($feedEntryUpdated);
+
+                // feed/entry/link[rel=alternate]
+                $feedEntryLinkAlternateElement = $doc->createElement('link');
+                $feedEntryLinkAlternateElement->setAttribute('rel', 'alternate');
+                $feedEntryLinkAlternateElement->setAttribute('type', 'text/html');
+                $feedEntryLinkAlternateElement->setAttribute('href', abs_item_uri($item));
+                $feedEntryElement->appendChild($feedEntryLinkAlternateElement);
+
+                // feed/entry/link[rel=enclosure]
+                /*foreach ($item->Files as $file) {
+                    $feedEntryLinkEnclosureElement = $doc->createElement('link');
+                    $feedEntryLinkEnclosureElement->setAttribute('rel', 'enclosure');
+                    $feedEntryLinkEnclosureElement->setAttribute('href', $file->getWebPath('archive'));
+                    $feedEntryLinkEnclosureElement->setAttribute('type', $file->mime_browser);
+                    $feedEntryLinkEnclosureElement->setAttribute('length', $file->size);
+                    $feedEntryElement->appendChild($feedEntryLinkEnclosureElement);
+                }*/
+
+                // feed/entry/category
+                foreach ($item->Tags as $tag) {
+                    $feedEntryCategoryElement = $doc->createElement('category');
+                    $feedEntryCategoryElement->setAttribute('term', $tag->name);
+                    $feedEntryElement->appendChild($feedEntryCategoryElement);
+                }
+
+                // feed/entry/content
+                $feedEntryContentElement = $doc->createElement('content');
+                $feedEntryContentElement->setAttribute('type', 'html');
+                $feedEntryContentElement->appendChild($doc->createCDATASection(item('Dublin Core', 'Description', null, $item)));
+                $feedEntryElement->appendChild($feedEntryContentElement);
+
+                $feedElement->appendChild($feedEntryElement);
+            }else{
+                /*
+                
+                if($recent->description)
+                        $entry->setContent($recent->description);
+               
+                $entry->setDateModified(time());
+                $entry->setDateCreated(time());*/
+                
+                $feedEntryElement = $doc->createElement('entry');
+
+                // feed/entry/id
+                $feedEntryIdElement = $doc->createElement('id');
+                $feedEntryIdElement->appendChild($doc->createTextNode(abs_item_uri($item)));
+                $feedEntryElement->appendChild($feedEntryIdElement);
+
+                // feed/entry/title
+                if (!$feedEntryTitle = $item->title) {
+                    $feedEntryTitle = 'Untitled';
+                }
+                $feedEntryTitleElement = $doc->createElement('title');
+                $feedEntryTitleElement->appendChild($doc->createCDATASection($feedEntryTitle));
+                $feedEntryElement->appendChild($feedEntryTitleElement);
+
+                // feed/entry/summary
+                if ($feedEntrySummary = 'Tentoonstelling') {
+                    $feedEntrySummaryElement = $doc->createElement('summary');
+                    $feedEntrySummaryElement->appendChild($doc->createCDATASection($feedEntrySummary));
+                    $feedEntryElement->appendChild($feedEntrySummaryElement);
+                }
+
+                // feed/entry/updated
+                $feedEntryUpdated = $doc->createElement('updated', date(DATE_ATOM,time()));
+                $feedEntryElement->appendChild($feedEntryUpdated);
+
+                // feed/entry/link[rel=alternate]
+                $feedEntryLinkAlternateElement = $doc->createElement('link');
+                $feedEntryLinkAlternateElement->setAttribute('rel', 'alternate');
+                $feedEntryLinkAlternateElement->setAttribute('type', 'text/html');
+                $feedEntryLinkAlternateElement->setAttribute('href', abs_uri(exhibit_builder_exhibit_uri($item)));
+                $feedEntryElement->appendChild($feedEntryLinkAlternateElement);
+
+                // feed/entry/category
+                foreach ($item->Tags as $tag) {
+                    $feedEntryCategoryElement = $doc->createElement('category');
+                    $feedEntryCategoryElement->setAttribute('term', $tag->name);
+                    $feedEntryElement->appendChild($feedEntryCategoryElement);
+                }
+
+                // feed/entry/content
+                $feedEntryContentElement = $doc->createElement('content');
+                $feedEntryContentElement->setAttribute('type', 'html');
+                $feedEntryContentElement->appendChild($doc->createCDATASection($item->description));
+                $feedEntryElement->appendChild($feedEntryContentElement);
+
+                $feedElement->appendChild($feedEntryElement);
+                
             }
-            $feedEntryTitleElement = $doc->createElement('title');
-            $feedEntryTitleElement->appendChild($doc->createCDATASection($feedEntryTitle));
-            $feedEntryElement->appendChild($feedEntryTitleElement);
-            
-            // feed/entry/summary
-            if ($feedEntrySummary = item('Dublin Core', 'Description', null, $item)) {
-                $feedEntrySummaryElement = $doc->createElement('summary');
-                $feedEntrySummaryElement->appendChild($doc->createCDATASection($feedEntrySummary));
-                $feedEntryElement->appendChild($feedEntrySummaryElement);
-            }
-            
-            // feed/entry/updated
-            $feedEntryUpdated = $doc->createElement('updated', date(DATE_ATOM, strtotime(item('Date Modified', null, null, $item))));
-            $feedEntryElement->appendChild($feedEntryUpdated);
-            
-            // feed/entry/link[rel=alternate]
-            $feedEntryLinkAlternateElement = $doc->createElement('link');
-            $feedEntryLinkAlternateElement->setAttribute('rel', 'alternate');
-            $feedEntryLinkAlternateElement->setAttribute('type', 'text/html');
-            $feedEntryLinkAlternateElement->setAttribute('href', abs_item_uri($item));
-            $feedEntryElement->appendChild($feedEntryLinkAlternateElement);
-            
-            // feed/entry/link[rel=enclosure]
-            foreach ($item->Files as $file) {
-                $feedEntryLinkEnclosureElement = $doc->createElement('link');
-                $feedEntryLinkEnclosureElement->setAttribute('rel', 'enclosure');
-                $feedEntryLinkEnclosureElement->setAttribute('href', $file->getWebPath('archive'));
-                $feedEntryLinkEnclosureElement->setAttribute('type', $file->mime_browser);
-                $feedEntryLinkEnclosureElement->setAttribute('length', $file->size);
-                $feedEntryElement->appendChild($feedEntryLinkEnclosureElement);
-            }
-            
-            // feed/entry/category
-            foreach ($item->Tags as $tag) {
-                $feedEntryCategoryElement = $doc->createElement('category');
-                $feedEntryCategoryElement->setAttribute('term', $tag->name);
-                $feedEntryElement->appendChild($feedEntryCategoryElement);
-            }
-            
-            // feed/entry/content
-            $feedEntryContentElement = $doc->createElement('content');
-            $feedEntryContentElement->setAttribute('type', 'html');
-            $feedEntryContentElement->appendChild($doc->createCDATASection(show_item_metadata(array(), $item)));
-            $feedEntryElement->appendChild($feedEntryContentElement);
-            
-            $feedElement->appendChild($feedEntryElement);
         }
-        
         $doc->appendChild($feedElement);
         
         $this->_feed = $doc;

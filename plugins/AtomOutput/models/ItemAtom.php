@@ -73,11 +73,13 @@ class ItemAtom
         foreach ($this->_items as $item) {
             set_current_item($item);
             $entries[] = array('title' => strip_tags(item('Dublin Core', 'Title', array('no_escape'=>true))), 
-                               'link' => abs_item_uri($item), 
-                               'description' => strip_tags(item('Dublin Core', 'Description', array('no_escape'=>true))), 
-                               'content' => show_item_metadata(), 
-                               'category' => $this->_buildCategories($item), 
-                               'enclosure' => $this->_buildEnclosures($item));
+                               'link' => abs_item_uri($item).'tttttttttt', 
+                               'description' => 'afbeelding', 
+                               'content' => strip_tags(item('Dublin Core', 'Description', array('no_escape'=>true))));
+            
+                               //, 
+                               //'category' => $this->_buildCategories($item), 
+                               //'enclosure' => $this->_buildEnclosures($item));
         }
         return $entries;
     }

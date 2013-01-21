@@ -1,3 +1,4 @@
 <?php 
-$atom = new ItemAtom($items);
+
+$atom = new ItemAtom($recents);
 echo $atom->getFeed();
