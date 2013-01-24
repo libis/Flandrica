@@ -182,7 +182,15 @@ var RoundAbout = (function () {
 			minOpacity : 0.2,
 			shape : 'square',
 			duration : settings.cycleDuration,
-			clickToFocus : true
+			clickToFocus : true,
+                        clickToFocusCallback : function () {                            
+                           clearDescription();                            
+                           jQuery(el).find(".rotator").roundabout("getChildInFocus");
+
+                           setTimeout(function () {
+                                animEndedCallback();
+                           }, settings.cycleDuration + settings.cycleDuration / 10);
+                        }
 		});
 
 		jQuery(el).find(".next").on("click", function (e) {
@@ -196,9 +204,6 @@ var RoundAbout = (function () {
 		});
 		loadTooltips();
 		showChildDescription();
-
-
-
 	};
 
 	animateTo = function (functionName) {
@@ -218,8 +223,6 @@ var RoundAbout = (function () {
 
 	loadTooltips = function(){
 		//console.log("enableThumbnail");
-
-
 		// initialize tooltip
 		$(".rotator li img").tooltip({
 
