@@ -5,7 +5,7 @@ $headers[] = 'Connection: Keep-Alive';
 $headers[] = 'Content-type: application/xml;charset=UTF-8';
 $user_agent = 'Mozilla/5.0 (Windows NT 6.1; rv:10.0) Gecko/20100101 Firefox/10.0';
 
-$ch = curl_init('http://libis-t-rosetta-1.libis.kuleuven.be/lias/cgi/find_pid?search=%25'.$_GET['search'].'%25&max_results=50');
+$ch = curl_init('http://resolver.lias.be/find_pid?search=%25'.$_GET['search'].'%25&max_results=50');
 
 //set options
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -14,7 +14,7 @@ curl_setopt($ch, CURLOPT_USERAGENT, $user_agent);
 curl_setopt($ch, CURLOPT_HEADER, 0);
 
 //proxy
-curl_setopt($ch, CURLOPT_PROXY,'icts-http-gw.cc.kuleuven.be:8080');
+curl_setopt($ch, CURLOPT_PROXY,get_option('digitool_proxy'));
 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
