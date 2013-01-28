@@ -1,4 +1,4 @@
-<?php head(array('bodyid'=>'home')); ?>
+<?php head(array('bodyid'=>'home','bodyclass'=>'home')); ?>
 
 <div class="cycle" id="cycle">
         <ul class="rotator"></ul>
