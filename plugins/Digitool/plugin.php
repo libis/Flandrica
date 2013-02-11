@@ -608,7 +608,7 @@ function digitool_get_thumbnail_array($item){
  **/
 function digitool_get_image_from_file($pid){
         $settings = array('w'=>800,'scale'=>true);
-	return resize($pid,$settings);
+	return WEB_ROOT.resize($pid,$settings);
 }
 
 /**
