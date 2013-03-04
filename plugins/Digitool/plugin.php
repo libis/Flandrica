@@ -509,7 +509,6 @@ function digitool_simple_gallery_flandrica($item,$link_rood="#"){
 		return $html;
 	}else{
 		foreach($url as $u){
-
 			$thumb = $thumb_url.$u->pid."&custom_att_3=stream";
 			$digi = $view_url.$u->pid;
 
@@ -525,7 +524,7 @@ function digitool_simple_gallery_flandrica($item,$link_rood="#"){
 
 			$html.= "<div class='tooltip' ><div class='slideTitle'>".$titel."<span class='slideAuthor'></span></div><span class='slidePlace'></span></div>";
 			$html.= "</a>";
-			$i++;
+			$i++;                        
 		}
 	}
 	return $html;
@@ -608,6 +607,7 @@ function digitool_get_thumbnail_array($item){
  **/
 function digitool_get_image_from_file($pid){
         $settings = array('w'=>800,'scale'=>true);
+        //also returns the file when already exists
 	return "http://".$_SERVER['HTTP_HOST'].resize($pid,$settings);
 }
 
@@ -637,10 +637,12 @@ function digitool_get_image_from_file($pid){
  * @return new URL for resized image.
  */
 function resize($pid,$opts=null){
+        if($pid == "")
+            return false;
     
         $view_url = get_option('digitool_view');
-
 	$imagePath = urldecode($view_url.$pid."&custom_att_3=stream");
+        
 	# start configuration
 	$cacheFolder = "/".ARCHIVE_DIR.'/files/'; # path to your cache folder, must be writeable by web server
         $remoteFolder = "/".ARCHIVE_DIR.'/files/'; # path to the folder you wish to download remote images into
@@ -669,45 +671,45 @@ function resize($pid,$opts=null){
 	$filename = $pid.".jpg";
 	$local_filepath = $remoteFolder.$filename;
 	$download_image = true;
-	if(file_exists($remoteFolder.$pid."_w800.jpg")):
-		// Sam: if file exists toegevoegd anders een exception
-		if(file_exists($local_filepath)):
-		if(filemtime($local_filepath) < strtotime('+'.$opts['cache_http_minutes'].' minutes')):
-			//return filemtime($local_filepath).' - '.strtotime('+'.$opts['cache_http_minutes'].' minutes');
-			$download_image = false;
-		endif;
-		$download_image = false;
-		endif;
-		// Sam: toegevoegd anders werden de bestanden altijd gedownload
-		$download_image = false;
+	if(file_exists($remoteFolder.$pid."_w800.jpg")):           
+            // Sam: if file exists toegevoegd anders een exception
+            if(file_exists($local_filepath)):
+                if(filemtime($local_filepath) < strtotime('+'.$opts['cache_http_minutes'].' minutes')):
+                    //return filemtime($local_filepath).' - '.strtotime('+'.$opts['cache_http_minutes'].' minutes');
+                    $download_image = false;
+                endif;
+                $download_image = false;
+            endif;
+            // Sam: toegevoegd anders werden de bestanden altijd gedownload
+            $download_image = false;
 	endif;
-	if($download_image == true):
-		
-		$vo_http_client = new Zend_Http_Client();
-		$config = array(
-				'adapter'    => 'Zend_Http_Client_Adapter_Proxy',
-				'proxy_host' => get_option('digitool_proxy'),
-				'proxy_port' => 8080
-		);
-		$vo_http_client->setConfig($config);
-		$vo_http_client->setUri($imagePath);
+        
+	if($download_image == true):            
+            $vo_http_client = new Zend_Http_Client();
+            $config = array(
+                            'adapter'    => 'Zend_Http_Client_Adapter_Proxy',
+                            'proxy_host' => get_option('digitool_proxy'),
+                            'proxy_port' => 8080
+            );
+            $vo_http_client->setConfig($config);
+            $vo_http_client->setUri($imagePath);
 
-		$vo_http_response = $vo_http_client->request();
-		$thumb = $vo_http_response->getBody();
-		//die($thumb);
+            $vo_http_response = $vo_http_client->request();
+            $thumb = $vo_http_response->getBody();
+            //die($thumb);
 
-		file_put_contents($local_filepath,$thumb);
+            file_put_contents($local_filepath,$thumb);
 
 	endif;
 	$imagePath = $local_filepath;
 	endif;
 
 	if(file_exists($imagePath) == false):
-	// Sam: toegevoegd anders moet het moeder bestand er altijd staan Er stond Document root + $imagepath
-	$imagePath = $remoteFolder.$pid."_w800.jpg";
-	if(file_exists($imagePath) == false):
-	return 'image not found';
-	endif;
+            // Sam: toegevoegd anders moet het moeder bestand er altijd staan Er stond Document root + $imagepath
+            $imagePath = $remoteFolder.$pid."_w800.jpg";
+            if(file_exists($imagePath) == false):
+                return 'image not found';
+            endif;
 	endif;
 
 	if(isset($opts['w'])): $w = $opts['w']; endif;
@@ -717,28 +719,29 @@ function resize($pid,$opts=null){
 
 	// If the user has requested an explicit output-filename, do not use the cache directory.
 	if(false !== $opts['output-filename']) :
-	$newPath = $opts['output-filename'];
+            $newPath = $opts['output-filename'];
 	else:
-	if(!empty($w) and !empty($h)):
-	$newPath = $cacheFolder.$filename.'_w'.$w.'_h'.$h.(isset($opts['crop']) && $opts['crop'] == true ? "_cp" : "").(isset($opts['scale']) && $opts['scale'] == true ? "_sc" : "").'.'.$ext;
-	elseif(!empty($w)):
-	$newPath = $cacheFolder.$filename.'_w'.$w.'.'.$ext;
-	elseif(!empty($h)):
-	$newPath = $cacheFolder.$filename.'_h'.$h.'.'.$ext;
-	else:
-	return false;
-	endif;
+            if(!empty($w) and !empty($h)):
+                $newPath = $cacheFolder.$filename.'_w'.$w.'_h'.$h.(isset($opts['crop']) && $opts['crop'] == true ? "_cp" : "").(isset($opts['scale']) && $opts['scale'] == true ? "_sc" : "").'.'.$ext;
+            elseif(!empty($w)):
+                $newPath = $cacheFolder.$filename.'_w'.$w.'.'.$ext;
+            elseif(!empty($h)):
+                $newPath = $cacheFolder.$filename.'_h'.$h.'.'.$ext;
+            else:
+                return false;
+            endif;
 	endif;
 
 	$create = true;
 
-	if(file_exists($newPath) == true):
-	$create = false;
-	$origFileTime = date("YmdHis",filemtime($imagePath));
-	$newFileTime = date("YmdHis",filemtime($newPath));
-	if($newFileTime < $origFileTime): # Not using $opts['expire-time'] ??
-	$create = true;
-	endif;
+	if(file_exists($newPath) == true):            
+            $create = false;
+            $origFileTime = date("YmdHis",filemtime($imagePath));
+            $newFileTime = date("YmdHis",filemtime($newPath));
+            if($newFileTime < $origFileTime): # Not using $opts['expire-time'] ??
+                 echo $remoteFolder.$pid."_w800.jpg  <br><br>";
+                $create = true;
+            endif;
 	endif;
 
 	if($create == true):
@@ -748,15 +751,15 @@ function resize($pid,$opts=null){
 	$resize = $w;
 
 	if($width > $height):
-	$resize = $w;
-	if(true === $opts['crop']):
-	$resize = "x".$h;
-	endif;
-	else:
-	$resize = "x".$h;
-	if(true === $opts['crop']):
-	$resize = $w;
-	endif;
+            $resize = $w;
+            if(true === $opts['crop']):
+                $resize = "x".$h;
+            endif;
+        else:
+            $resize = "x".$h;
+            if(true === $opts['crop']):
+                $resize = $w;
+            endif;
 	endif;
 
 	if(true === $opts['scale']):
