@@ -7,6 +7,7 @@ function OmekaMap(mapDivId, center, options) {
 OmekaMap.prototype = {
 
     map: null,
+    mc: null,
     mapDivId: null,
     mapSize: 'small',
     markers: [],
@@ -59,8 +60,9 @@ OmekaMap.prototype = {
                 infoWindow.open(marker.getMap(), marker);
             });
         }
-
-        return marker;
+        //for clusterer
+        this.mc.addMarker(marker);
+        //return marker;
     },
 
     initMap: function () {
@@ -132,6 +134,15 @@ OmekaMap.prototype = {
                            {title: "(" + this.center.latitude + ',' + this.center.longitude + ")"},
                            this.center.markerHtml);
         }
+        
+        //The markercluster's options
+        var mcOptions = {gridSize: 50, maxZoom: 15, styles: [{
+            height: 53,
+            url: "/themes/FLANDRICA/images/cluster.png",
+            width: 53
+            }]};
+        //Construct an empty markerclusterer object
+        this.mc = new MarkerClusterer(this.map, [], mcOptions);
     }
 };
 
