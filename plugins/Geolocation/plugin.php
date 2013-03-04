@@ -258,7 +258,6 @@ function geolocation_scripts()
     $ht = '';
     $ht .= geolocation_load_google_maps();
     $ht .= js('map');
-    $ht .= js('markerclusterer');
     return $ht;
 }
 
@@ -271,9 +270,7 @@ function geolocation_scripts()
  */
 function geolocation_load_google_maps()
 {
-    $html = '<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>';
-    //$html .= '<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js"></script>';
-    return $html;
+    return '<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>';
 }
 
 /**
