@@ -7,6 +7,7 @@ function OmekaMap(mapDivId, center, options) {
 OmekaMap.prototype = {
 
     map: null,
+    mc: null,
     mapDivId: null,
     mapSize: 'small',
     markers: [],
@@ -49,7 +50,7 @@ OmekaMap.prototype = {
 
 
         var marker = new google.maps.Marker(options);
-
+        
 
         if (bindHtml) {
             google.maps.event.addListener(marker, 'click', function () {
@@ -59,8 +60,10 @@ OmekaMap.prototype = {
                 infoWindow.open(marker.getMap(), marker);
             });
         }
-
-        return marker;
+        
+        this.mc.addMarker(marker);
+        
+        //return marker;
     },
 
     initMap: function () {
@@ -118,8 +121,6 @@ OmekaMap.prototype = {
 
         this.map = new google.maps.Map(document.getElementById(this.mapDivId), mapOptions);
 
-
-
         if (!this.center) {
             alert('Error: The center of the map has not been set!');
             return;
@@ -132,6 +133,15 @@ OmekaMap.prototype = {
                            {title: "(" + this.center.latitude + ',' + this.center.longitude + ")"},
                            this.center.markerHtml);
         }
+        
+        //The markercluster's options
+        var mcOptions = {gridSize: 50, maxZoom: 15, styles: [{
+            height: 53,
+            url: "/themes/FLANDRICA/images/cluster.png",
+            width: 53
+            }]};
+        //Construct an empty markerclusterer object
+        this.mc = new MarkerClusterer(this.map, [], mcOptions);        
     }
 };
 
@@ -219,7 +229,7 @@ OmekaMapBrowse.prototype = {
         balloon = balloon.replace('$[namewithlink]', titleWithLink).replace('$[description]', body).replace('$[Snippet]', snippet);
 
         // Build a marker, add HTML for it
-        this.addMarker(latitude, longitude, {icon:icon, title: title}, balloon);
+        this.addMarker(latitude, longitude, {icon:icon, title: title}, balloon);        
     },
 
     // Calculate the zoom level given the 'range' value
@@ -326,16 +336,11 @@ OmekaMapForm.prototype = {
     setMarker: function (point) {
         var that = this;
 
-
-
-
         // Get rid of existing markers.
         this.clearForm();
 
         // Add the marker
         var marker = this.addMarker(point.lat(), point.lng());
-
-
 
         // Pan the map to the marker
         that.map.panTo(point);
