@@ -789,4 +789,22 @@ function resize($pid,$opts=null){
 	# return cache file path
 	return str_replace($_SERVER['DOCUMENT_ROOT'],'',$newPath);
 }
+
+// Calculates restricted dimensions with a maximum of $goal_width by $goal_height 
+function digitool_resize_dimensions($goal_width,$goal_height,$width,$height) { 
+    $return = array('width' => $width, 'height' => $height); 
+
+    // If the ratio > goal ratio and the width > goal width resize down to goal width 
+    if ($width/$height > $goal_width/$goal_height && $width > $goal_width) { 
+        $return['width'] = $goal_width; 
+        $return['height'] = $goal_width/$width * $height; 
+    } 
+    // Otherwise, if the height > goal, resize down to goal height 
+    else if ($height > $goal_height) { 
+        $return['width'] = $goal_height/$height * $width; 
+        $return['height'] = $goal_height; 
+    } 
+
+    return $return; 
+}
 ?>
