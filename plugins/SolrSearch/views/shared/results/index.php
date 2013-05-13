@@ -7,7 +7,7 @@
   $session = new Zend_Session_Namespace('style');
 
   $style= $session->style;
-  $perPage = $session->perPage;
+  $perPage = get_option('solr_search_rows');
 
 ?>
  <div class="clearfix"></div>
