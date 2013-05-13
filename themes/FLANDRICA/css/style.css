@@ -171,6 +171,7 @@ ul,li{list-style-type:none;margin:0;padding:0}
 #sidebar-left img,#sidebar img{float:left;margin-right:10px;}
 .more{color:#666;padding-left:20px;background:transparent url(images/more.gif) no-repeat 0 50%; font-size: 14px; text-transform: uppercase;}
 .blok{margin:0; padding:10px 20px 5px}
+.blok-left{margin:0; padding:10px 0px 5px}
 .blok.meer{padding:20px;}
 .blok.meer p{margin-bottom: 0;}
 .zebra .blok{padding:10px 20px;clear:both;}
@@ -474,7 +475,7 @@ form label{line-height:25px;}
 	max-width: 160px;
 	text-align: left;
 	padding: 5px;
-	z-index: 2;
+	z-index: 3002;
 	line-height: 15px;
   }
 
