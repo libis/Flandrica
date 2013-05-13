@@ -135,10 +135,17 @@ OmekaMap.prototype = {
                            this.center.markerHtml);
         }
         
+        var pathArray = window.location.pathname.split( '/' );
+        if(pathArray[1].search("test")>=0){
+            url = 'http://'+window.location.hostname+'/flandrica_test/items/map/'
+        }else{
+            url = 'http://'+window.location.hostname+'/items/map/'
+        }
+        
         //The markercluster's options
         var mcOptions = {gridSize: 50, maxZoom: 15, styles: [{
             height: 53,
-            url: "/themes/FLANDRICA/images/cluster.png",
+            url: url,
             width: 53
             }]};
         //Construct an empty markerclusterer object
