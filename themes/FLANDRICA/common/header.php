@@ -11,11 +11,12 @@
     <?php echo auto_discovery_link_tags(); ?>
 
     <!-- EXTRA RSS -->
-	<link rel="alternate" type="application/rss+xml" title="Flandrica RSS Tentoonstellingen" href="/items/browse?output=rss2&amp;type=tentoon" />
+    <!--
+        <link rel="alternate" type="application/rss+xml" title="Flandrica RSS Tentoonstellingen" href="/items/browse?output=rss2&amp;type=tentoon" />
 	<link rel="alternate" type="application/atom+xml" title="Flandrica Atom Tentoonstellingen" href="/items/browse?output=atom&amp;type=tentoon" />
 	<link rel="alternate" type="application/rss+xml" title="Flandrica RSS Objecten" href="/items/browse?output=rss2&amp;type=object" />
 	<link rel="alternate" type="application/atom+xml" title="Flandrica Atom Objecten" href="/items/browse?output=atom&amp;type=object" />
-
+    -->    
 	<!-- YAHOO RESET CSS -->
     <!-- removes and neutralizes the inconsistent default styling of HTML elements -->
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css" />
