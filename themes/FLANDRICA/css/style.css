@@ -253,7 +253,7 @@ table p,#mainNav ul li.home a,#style_two #main{margin:0}
 .cycle { width: 960px; height: 448px; background: url("../images/slider_bg.png") repeat scroll center center #2F2828; position: relative; overflow: hidden; }
 .cycle .rotator { width: 700px; height: 448px; margin: 0px auto; }
 .cycle .rotator li {line-height: 200px; width: 400px; height: 400px; list-style:none; /*overflow: hidden;*/ text-align: center; position: relative;}
-.cycle .rotator li img { max-width: 100%; max-height: 100%;vertical-align: middle;}
+.cycle .rotator li img { max-width: 100%; max-height: 100%;vertical-align: bottom;}
 
 .cycle .next, .cycle .prev { width: 62px; height: 62px; position: absolute; top: 196px; text-indent: -9999px; z-index: 300; }
 .cycle .next { right: 0px; background: url(../images/right.png); }
