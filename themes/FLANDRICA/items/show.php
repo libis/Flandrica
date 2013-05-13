@@ -197,10 +197,11 @@
                         </table>
                     </div>
 
-					<!-- Tentoonstellingen -->
-					<?php if (Libis_link_to_related_exhibits(get_current_item())):?>
+                    <!-- Tentoonstellingen -->
+                    <?php $exhibits = Libis_link_to_related_exhibits_home(get_current_item());?>
+                    <?php if ($exhibits):?>
 
-                    	<?php echo Libis_link_to_related_exhibits_home(get_current_item());?>
+                    <?php echo $exhibits;?>
 
                     <?php endif; ?>
                 </div>

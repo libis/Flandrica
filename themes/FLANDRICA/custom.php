@@ -416,20 +416,21 @@ function Libis_link_to_related_exhibits_home($item) {
 	WHERE isp.item_id = ?";
 
 	$exhibits = $db->getTable("Exhibit")->fetchObjects($select,$item->id);
-
-
-	echo '<aside class="blok2 right background-gray">';
-	echo '<div class="subtitle">te zien in rondleiding</div>';
-
-	echo '<h2><a href="'.exhibit_builder_exhibit_uri($exhibits[0]).'">'.$exhibits[0]->title.'</a></h2>';
-	//echo '<img src="images/dummy.jpg" class="left" />';
-	echo '<a style="float:left;width:150px;" href="'.exhibit_builder_exhibit_uri($exhibits[0]).'">' .Libis_get_first_image_exhibit($exhibits[0]) .'</a>';
-	echo '<p>'.snippet_by_word_count($exhibits[0]->description,20).'</p>';
-	echo '<p class="more" ><a href="'.exhibit_builder_exhibit_uri($exhibits[0]).'">Rondleiding</a></p>';
-
-	echo "</aside>";
-
-
+        if(!empty($exhibits)){
+            echo '<aside class="blok2 right background-gray">';
+            echo '<div class="subtitle">te zien in rondleiding</div>';
+        
+            foreach($exhibits as $exhibit){                
+                echo '<h2><a href="'.exhibit_builder_exhibit_uri($exhibit).'">'.$exhibit->title.'</a></h2>';
+                //echo '<img src="images/dummy.jpg" class="left" />';
+                echo '<a style="float:left;width:150px;" href="'.exhibit_builder_exhibit_uri($exhibit).'">' .Libis_get_first_image_exhibit($exhibit) .'</a>';
+                echo '<p>'.snippet_by_word_count($exhibit->description,20).'</p>';
+                echo '<p class="more" ><a href="'.exhibit_builder_exhibit_uri($exhibit).'">Rondleiding</a></p>';
+            }    
+            echo "</aside>";
+        }else{
+            return false;
+        }
 }
 
 
