@@ -28,6 +28,7 @@ function digitool_install()
     set_option('digitool_cgi','');
     set_option('digitool_thumb','');
     set_option('digitool_view','');
+    set_option('digitool_save','');
 }
 
 /**
@@ -42,6 +43,7 @@ function digitool_uninstall(){
     delete_option('digitool_cgi');
     delete_option('digitool_thumb');
     delete_option('digitool_view');
+    delete_option('digitool_save');
 }
 
 //link to config_form.php
@@ -63,6 +65,8 @@ function digitool_config() {
         
         if($_POST["view"])
                 set_option('digitool_view',$_POST['view']);
+        if($_POST["save"])
+                set_option('digitool_save',$_POST['save']);
 }
 
 function digitool_admin_form($item){
@@ -644,8 +648,8 @@ function resize($pid,$opts=null){
 	$imagePath = urldecode($view_url.$pid."&custom_att_3=stream");
         
 	# start configuration
-	$cacheFolder = ARCHIVE_DIR.'/files/'; # path to your cache folder, must be writeable by web server
-        $remoteFolder = ARCHIVE_DIR.'/files/'; # path to the folder you wish to download remote images into
+	$cacheFolder = get_option('digitool_save'); # path to your cache folder, must be writeable by web server
+        $remoteFolder = get_option('digitool_save'); # path to the folder you wish to download remote images into
 
 	$defaults = array('crop' => false, 'scale' => 'false', 'thumbnail' => false, 'maxOnly' => false,
 			'canvas-color' => 'transparent', 'output-filename' => false,
