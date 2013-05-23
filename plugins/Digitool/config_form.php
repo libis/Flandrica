@@ -29,7 +29,7 @@
 <div class="field">
 	<label>File depot</label>
 	<div class="inputs">
-		<input type="text" name="view" size="60" value="<?php echo(get_option('digitool_save'));?>">	
+		<input type="text" name="save" size="60" value="<?php echo(get_option('digitool_save'));?>">	
 	</div>
 	<p class="explanation">Where to cache your files</p>
 </div>
