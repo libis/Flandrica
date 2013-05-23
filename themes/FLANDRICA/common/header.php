@@ -43,10 +43,7 @@
 	<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
 	<?php queue_js('modernizr.custom.56255');?>
 	<?php queue_js('jquery.roundabout.min');?>
-	<?php queue_js('jquery.roundabout-shapes.min');?>
-
-	<?php queue_js('markerclusterer');?>
-	
+	<?php queue_js('jquery.roundabout-shapes.min');?>	
 	<?php queue_js('custom_form_elements');?>
 	<?php queue_js('lightbox');?>
 	<script>function LightboxDelegate(url,caption) {
