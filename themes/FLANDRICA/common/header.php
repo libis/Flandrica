@@ -46,7 +46,7 @@
 	<?php queue_js('jquery.roundabout-shapes.min');?>
 
 	<?php queue_js('markerclusterer');?>
-	<script src="http://static.simile.mit.edu/timeline/api-2.3.0/timeline-api.js?bundle=true" type="text/javascript"></script>
+	
 	<?php queue_js('custom_form_elements');?>
 	<?php queue_js('lightbox');?>
 	<script>function LightboxDelegate(url,caption) {

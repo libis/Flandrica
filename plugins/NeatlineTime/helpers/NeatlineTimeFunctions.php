@@ -194,7 +194,7 @@ function timeline_delete_button($timeline = null)
 function queue_timeline_assets()
 {
     $headScript = __v()->headScript();
-    $headScript->appendFile(src('neatline-time-scripts.js', 'javascripts'));
+    
 
     // Check useInternalJavascripts in config.ini.
     $config = Omeka_Context::getInstance()->getConfig('basic');
@@ -211,10 +211,12 @@ function queue_timeline_assets()
         $headScript->appendFile(src('timeline-api.js', 'javascripts/simile/timeline-api'));
     } else {
         $headScript->appendFile('http://api.simile-widgets.org/timeline/2.3.1/timeline-api.js?bundle=true');
+                                 
+        
     }
-
+    $headScript->appendFile(src('neatline-time-scripts.js', 'javascripts'));
     $headScript->appendScript('SimileAjax.History.enabled = false; window.jQuery = SimileAjax.jQuery');
-
+    
     queue_css('neatlinetime-timeline');
 }
 
