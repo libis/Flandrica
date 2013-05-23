@@ -644,8 +644,8 @@ function resize($pid,$opts=null){
 	$imagePath = urldecode($view_url.$pid."&custom_att_3=stream");
         
 	# start configuration
-	$cacheFolder = "/".ARCHIVE_DIR.'/files/'; # path to your cache folder, must be writeable by web server
-        $remoteFolder = "/".ARCHIVE_DIR.'/files/'; # path to the folder you wish to download remote images into
+	$cacheFolder = ARCHIVE_DIR.'/files/'; # path to your cache folder, must be writeable by web server
+        $remoteFolder = ARCHIVE_DIR.'/files/'; # path to the folder you wish to download remote images into
 
 	$defaults = array('crop' => false, 'scale' => 'false', 'thumbnail' => false, 'maxOnly' => false,
 			'canvas-color' => 'transparent', 'output-filename' => false,
@@ -739,7 +739,7 @@ function resize($pid,$opts=null){
             $origFileTime = date("YmdHis",filemtime($imagePath));
             $newFileTime = date("YmdHis",filemtime($newPath));
             if($newFileTime < $origFileTime): # Not using $opts['expire-time'] ??
-                 echo $remoteFolder.$pid."_w800.jpg  <br><br>";
+                //echo $remoteFolder.$pid."_w800.jpg  <br><br>";
                 $create = true;
             endif;
 	endif;

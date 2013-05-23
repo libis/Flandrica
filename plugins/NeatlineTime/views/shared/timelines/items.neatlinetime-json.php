@@ -25,10 +25,6 @@ while (loop_items()) {
     */
     //EINDE
 
-    if ($file = get_db()->getTable('File')->findWithImages(item('id'), 0)) {
-        $fileUrl = file_display_uri($file, 'square_thumbnail');
-    }
-
     //get dates
     $itemDates = item('Dublin Core', 'Date','all');
 
@@ -92,10 +88,6 @@ while (loop_items()) {
                 }
 
                 $neatlineTimeEvent['icon'] = $icon;
-
-                if ($fileUrl) {
-                    $neatlineTimeEvent['image'] = $fileUrl;
-                }
 
                 $neatlineTimeEvent['description'] = $itemDescription;
                 $neatlineTimeEvents[] = $neatlineTimeEvent;
