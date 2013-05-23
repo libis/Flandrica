@@ -743,7 +743,6 @@ function resize($pid,$opts=null){
             $origFileTime = date("YmdHis",filemtime($imagePath));
             $newFileTime = date("YmdHis",filemtime($newPath));
             if($newFileTime < $origFileTime): # Not using $opts['expire-time'] ??
-                echo $remoteFolder.$pid."_w800.jpg  <br><br>";
                 $create = true;
             endif;
 	endif;
