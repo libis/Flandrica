@@ -14,30 +14,45 @@
                 ]]></text>
             </BalloonStyle>
         </Style>
+ <?php
+        //Zend_Session::start();
+        $session = new Zend_Session_Namespace('style');
+        $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+        
+        if ($session->from == 'solr' || $session->from == 'show') {
+            $locationSolr = array();        
+            if($session->items){
+                $locations = $session->locations;
+                foreach($session->items as $id){
+                    $item = get_item_by_id($id);
+                    $items[] = $item;
+                    $locs = geolocation_get_location_for_item($item);
+                    if(!empty($locs)){
+                        if(sizeof($locs)>1){
+                            foreach($locs as $loc){
+                                $locationsSolr = $locationSolr + $loc; 
+                            }
+                        }else{
+                             $locationsSolr = $locationSolr + $locs;
+                        }    
+                    }
+                }
 
-        <?php
+                $locations = $locationsSolr;
+                echo(sizeof($session->items));
+                set_items_for_loop($items);
+            }
+        }
+       
         while(loop_items()):
         $item = get_current_item();
         $locationR = $locations[$item->id];
         foreach($locationR as $location){
         ?>
         <Placemark>
-            <name><![CDATA[<?php echo item('Dublin Core', 'Title',array('snippet' => 25));?>]]></name>
-            <namewithlink><![CDATA[<?php echo link_to_item(item('Dublin Core', 'Title',array('snippet' => 10)), array('class' => 'bookTitle')); ?>]]></namewithlink>
-
+            
             <description><![CDATA[<?php
-	            if(digitool_item_has_digitool_url($item)){
-	            	echo link_to_item(digitool_get_thumb($item, true, false,100,"bookImg"));
-	            }
-	            echo "<h2 class='bookTitle'>".link_to_item(item('Dublin Core', 'Title',array('snippet' => 25)))."</h2>";
-	            $itemDescription = item('Dublin Core', 'Creator') ? item('Dublin Core', 'Creator')."<br>" : '';
-	            $itemDescription .= item('Dublin Core', 'Publisher') ? item('Dublin Core', 'Publisher')."<br>" : '';
-
-	            $itemDescription .= item('Item Type Metadata', 'Creatie plaats') ? item('Item Type Metadata', 'Creatie plaats')."<br>" : '';
-
-	            $itemDescription .= item('Item Type Metadata', 'Periode') ? item('Item Type Metadata', 'Periode') : '';
-
-	            echo "<div class='bookAuthor'>".$itemDescription."</div>";
+	           echo $item->id;
 	            //echo "<div class='bookYear'>".item('Item Type Metadata', 'Periode')."</div>";
 	            ?>
             ]]></description>

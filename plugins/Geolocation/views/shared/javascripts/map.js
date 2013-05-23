@@ -8,6 +8,7 @@ OmekaMap.prototype = {
 
     map: null,
     mc: null,
+    oms: null,
     mapDivId: null,
     mapSize: 'small',
     markers: [],
@@ -47,22 +48,17 @@ OmekaMap.prototype = {
 
         options.map = this.map;
 
-
-
+        bindHtml = bindHtml.replace(/(<([^>]+)>)/ig,"");
+        bindHtml = bindHtml.replace(/ /g,'');
+        //options.title = bindHtml;
+        options.snippet = bindHtml;
+        
         var marker = new google.maps.Marker(options);
-
-
-        if (bindHtml) {
-            google.maps.event.addListener(marker, 'click', function () {
-                var infoWindow = new google.maps.InfoWindow({
-                    content: bindHtml
-                });
-                infoWindow.open(marker.getMap(), marker);
-            });
-        }
+        
         //for clusterer
         this.mc.addMarker(marker);
-        //return marker;
+        //spider
+        this.oms.addMarker(marker);
     },
 
     initMap: function () {
@@ -120,8 +116,6 @@ OmekaMap.prototype = {
 
         this.map = new google.maps.Map(document.getElementById(this.mapDivId), mapOptions);
 
-
-
         if (!this.center) {
             alert('Error: The center of the map has not been set!');
             return;
@@ -135,9 +129,9 @@ OmekaMap.prototype = {
                            this.center.markerHtml);
         }
         
-         var pathArray = window.location.pathname.split( '/' );
+        var pathArray = window.location.pathname.split( '/' );
         if(pathArray[1].search("test")>=0){
-            url = 'http://'+window.location.hostname+'/themes/FLANDRICA/images/cluster.png'
+            url = 'http://'+window.location.hostname+'/flandrica_test/themes/FLANDRICA/images/cluster.png'
         }else{
             url = 'http://'+window.location.hostname+'/themes/FLANDRICA/images/cluster.png'
         }
@@ -145,11 +139,42 @@ OmekaMap.prototype = {
         //The markercluster's options
         var mcOptions = {gridSize: 50, maxZoom: 15, styles: [{
             height: 53,
-            url: "/themes/FLANDRICA/images/cluster.png",
+            url: url,
             width: 53
             }]};
         //Construct an empty markerclusterer object
         this.mc = new MarkerClusterer(this.map, [], mcOptions);
+        this.oms = new OverlappingMarkerSpiderfier(this.map);
+        
+        this.oms.addListener('click', function(marker) {
+            //bindHtml = bindHtml.replace(/(<([^>]+)>)/ig,"");
+              //  bindHtml = bindHtml.replace(/ /g,'');
+                //alert(document.location.hostname);
+                var infowindow = null;
+                
+                var pathArray = window.location.pathname.split( '/' );
+                if(pathArray[1].search("test")>=0){
+                    url = 'http://'+window.location.hostname+'/flandrica_test/items/map/'
+                }else{
+                    url = 'http://'+window.location.hostname+'/geolocation/map/browse/'
+                }
+                                
+                var request = jQuery.ajax(
+                    {
+                        url: url,
+                        type: 'POST',                        
+                        data: {id:marker.snippet},
+                        async: false,                       
+                        success: function(data){
+                            var result = jQuery(data).filter('div.mapsInfoWindow').html();
+                                infowindow = new google.maps.InfoWindow({
+                                content: result
+                            });
+                            infowindow.open(marker.getMap(), marker);
+                        }
+                    }
+                );
+          });
     }
 };
 
@@ -160,10 +185,6 @@ function OmekaMapBrowse(mapDivId, center, options) {
 
     //XML loads asynchronously, so need to call for further config only after it has executed
     this.loadKmlIntoMap(this.options.uri, this.options.params);
-
-    //clusterer (not working at the moment
-   //this.mc = new MarkerClusterer(bmap,this.markers);
-
 }
 
 OmekaMapBrowse.prototype = {

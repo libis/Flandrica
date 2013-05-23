@@ -258,6 +258,7 @@ function geolocation_scripts()
     $ht = '';
     $ht .= geolocation_load_google_maps();
     $ht .= js('map');
+    $ht .= js('spider');
     $ht .= js('markerclusterer');
     return $ht;
 }
