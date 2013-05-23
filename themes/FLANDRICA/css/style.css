@@ -164,6 +164,9 @@ ul,li{list-style-type:none;margin:0;padding:0}
 #style_two #content{margin-right:310px; margin-top: 10px;}
 #style_two #sidebar{width:280px;float:right;padding:0 15px; margin-top: 10px;}
 
+.fadein { position:relative; width:280px; height:390px; }
+.fadein img { position:absolute; left:0; top:0; }
+
 #style_three #main{padding-top:10px; position: relative;}
 #style_three h2{margin: 5px 0;}
 

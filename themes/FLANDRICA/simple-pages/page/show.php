@@ -26,11 +26,26 @@ if (simple_pages_is_home_page(get_current_simple_page())) {
             </div>
         </div>
         <div id="sidebar">
+            <div class="fadein">
         	<img src="<?php echo img('info-campagne-b1-275.png');?>"/>
+                <img src="<?php echo img('info-campagne-b2-275.png');?>"/>
+                <img src="<?php echo img('info-campagne-b3-275.png');?>"/>
+            </div>
 	</div>
         <div class="clearfix">&nbsp;</div>
     </div>
 	</div>
 
 </div>
+<script>
+    jQuery(document).ready(function(){
+        $('.fadein img:gt(0)').hide();
+        setInterval(function(){
+        $('.fadein :first-child').fadeOut()
+         .next('img').fadeIn()
+         .end().appendTo('.fadein');}, 
+        7000);
+    });
+</script>
+
 <?php endif;echo foot(); ?>
