@@ -18,7 +18,6 @@ else
 }
 //-->
 </SCRIPT>
- <?php echo $_post['pgnum'];?>
 <div class="resultNav">
     <ul class="listNav">           
     <form action='<?php echo curPageURL();?>' name='numbox' method='post'>

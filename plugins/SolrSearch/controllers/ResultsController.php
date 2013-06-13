@@ -69,7 +69,7 @@ class SolrSearch_ResultsController extends Omeka_Controller_Action
     	}
         
         if(!empty($_POST['pgnum'])){
-            echo "<br><br>rrrr".$_POST['pgnum'];
+            
             $request = $this->getRequest();      
             if(is_numeric($_POST['pgnum'])){
                 $pgnum = abs($_POST['pgnum']);  
