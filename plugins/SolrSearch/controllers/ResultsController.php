@@ -67,6 +67,22 @@ class SolrSearch_ResultsController extends Omeka_Controller_Action
 
     		set_option('solr_search_rows',$_POST['perPage']);
     	}
+        
+        if(!empty($_POST['pgnum'])){
+            echo "<br><br>rrrr".$_POST['pgnum'];
+            $request = $this->getRequest();      
+            if(is_numeric($_POST['pgnum'])){
+                $pgnum = abs($_POST['pgnum']);  
+            }else{
+                $pgnum = $request->get('page') or $pgnum = 1;
+            }                
+            $results = $this->_search($facets, $start, $search_rows);            
+            $total = $results->response->numFound / get_option('solr_search_rows');
+            if($pgnum > $total){$pgnum = $total;}
+            $request->setParam('page',ceil($pgnum));
+            var_dump($request);
+       
+    	}
 
 		//end of hack
 
@@ -102,6 +118,7 @@ class SolrSearch_ResultsController extends Omeka_Controller_Action
         $facets = $this->_getSearchFacets();
         $pagination = $this->_getPagination();
         $page = $pagination['page'];
+        
         $search_rows = $pagination['per_page'];
         //echo "<br><br>++++++".$search_rows;
         $start = ($page - 1) * $search_rows;

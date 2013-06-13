@@ -8,6 +8,7 @@
 
   $style= $session->style;
   $perPage = get_option('solr_search_rows');
+  $pgnum = $_POST['pgnum'];
 
 ?>
  <div class="clearfix"></div>
