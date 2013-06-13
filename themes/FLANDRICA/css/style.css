@@ -246,7 +246,7 @@ table p,#mainNav ul li.home a,#style_two #main{margin:0}
 #mainNav li:hover ul,#mainNav li.sfhover ul,footer li:hover ul,footer li.sfhover ul{left:auto}
 #sidebar .content,.blok .content{margin-left:160px}
 .zebra .blok .content{width:450px;}
-
+.rondleidingContent{margin-left:160px}
 #style_one #right .blok .content{margin-left:0;}
 .field-field-images{float:left;margin-right:20px;}
 

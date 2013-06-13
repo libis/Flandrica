@@ -25,7 +25,7 @@ head(array('title'=>$title, 'bodyid' => 'exhibit', 'bodyclass'=>'browse'));
 			    	<?php $exhibitCount++; ?>
 			    	   	<div class="blok <?php if ($exhibitCount%2==1) echo ' evenRondleiding'; else echo ' odd'; ?>">
 							<div class="col"><?php echo Libis_get_first_image_exhibit(exhibit_builder_get_current_exhibit());?></div>
-				    		<div class="content">
+				    		<div class="rondleidingContent">
 					    		<h2><?php echo link_to_exhibit(); ?></h2>
 					    		<?php
 				    				//remove heading tags to get a readable snippet
