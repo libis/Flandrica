@@ -124,7 +124,10 @@ var NeatlineTime={
 		if(f!=null){
 			var g=a.createElement("img");
 			g.src=f;e.event.bubble.imageStyler(g);
-			d.appendChild(g)
+                        b!=null?(y=a.createElement("a"),
+			y.href=b,y.appendChild(g),
+			d.appendChild(y)):d.appendChild(g);
+			
 		}
 			f=a.createElement("div");
 			g=a.createElement("span");
