@@ -7,6 +7,12 @@ env:
   - DB=mysql
 before_script:
   - pear install pear/PHP_CodeSniffer
+  - pear config-set auto_discover 1
+  - pear install pear.phpunit.de/phpcpd
+  - pear install pear.phpunit.de/PHP_CodeCoverage
+  - pear channel-discover pear.phpmd.org
+  - pear channel-discover pear.pdepend.org
+  - pear install --alldeps phpmd/PHP_PMD
   - phpenv rehash
 script:
 - phpcs
