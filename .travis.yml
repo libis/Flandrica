@@ -5,6 +5,7 @@ php:
 env:
   - DB=mysql
 before_script:
+  - printf "\n" | pecl install imagick
   - pear install pear/PHP_CodeSniffer
   - pear config-set auto_discover 1
   - pear install pear.phpunit.de/phpcpd
