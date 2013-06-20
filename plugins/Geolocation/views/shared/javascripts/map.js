@@ -133,7 +133,7 @@ OmekaMap.prototype = {
         if(pathArray[1].search("test")>=0){
             url = 'http://'+window.location.hostname+'/flandrica_test/themes/FLANDRICA/images/cluster.png'
         }else{
-            url = 'http://'+window.location.hostname+'/themes/FLANDRICA/images/cluster.png'
+            url = '/themes/FLANDRICA/images/cluster.png'
         }
         
         //The markercluster's options
