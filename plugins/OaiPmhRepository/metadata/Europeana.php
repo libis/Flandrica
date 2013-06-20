@@ -88,11 +88,6 @@ extends OaiPmhRepository_Metadata_Abstract {
         $ese['isShownBy'] = digitool_get_thumb_url($this->item);
         $ese['isShownAt'] = item_uri('show',$this->item);
 
-
-        foreach($dc as $k => $v) {
-            $this->appendNewElement($europeana, 'dc:' . $k, $v);
-        }
-
         foreach($ese as $k => $v) {
             $this->appendNewElement($europeana, 'ese:'.$k, $v);
         }
