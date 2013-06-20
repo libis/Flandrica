@@ -46,14 +46,20 @@ extends OaiPmhRepository_Metadata_Abstract {
         $europeana->setAttribute('xmlns:ese', self::DC_NAMESPACE_URI);
         $europeana->setAttribute('xmlns:xsi', parent::XML_SCHEMA_NAMESPACE_URI);
         $europeana->setAttribute('xsi:schemaLocation', self::METADATA_NAMESPACE . ' ' . self::METADATA_SCHEMA);
-        $europeana->setAttribute('xmlns:dcterms',self::DC_TERMS_NAMESPACE);
         
+        $metadataSection = $this->appendNewElement($europeana, 'dmdSec');
+        $metadataSection->setAttribute('ID', 'dmd-' . $this->item->id);
+        $dcWrap = $this->appendNewElement($metadataSection, 'mdWrap');
+        $dcWrap->setAttribute('MDTYPE', 'DC');
+
+        $dcXml = $this->appendNewElement($dcWrap, 'xmlData');
+        $dcXml->setAttribute('xmlns:dc', self::DC_NAMESPACE_URI);
+
         $dcElementNames = array( 'title', 'creator', 'subject', 'description',
                                  'publisher', 'contributor', 'date', 'type',
                                  'format', 'identifier', 'source', 'language',
-                                 'relation', 'coverage', 'rights' );       
-        
-        //Create the dublin core metadata from an array of objects
+                                 'relation', 'coverage', 'rights' );
+
         foreach($dcElementNames as $elementName)
         {
             $upperName = Inflector::camelize($elementName);
@@ -61,7 +67,7 @@ extends OaiPmhRepository_Metadata_Abstract {
                 $upperName, 'Dublin Core');
             foreach($dcElements as $elementText)
             {
-                $this->appendNewElement($europeana,
+                $this->appendNewElement($dcXml,
                     'dc:'.$elementName, $elementText->text);
             }
         }
