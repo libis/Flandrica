@@ -34,11 +34,8 @@ class OaiPmhRepository_Metadata_CdwaLite extends OaiPmhRepository_Metadata_Abstr
      * and further children for each of the Dublin Core fields present in the
      * item.
      */
-    public function appendMetadata() 
+    public function appendMetadata($metadataElement) 
     {
-        $metadataElement = $this->document->createElement('metadata');
-        $this->parentElement->appendChild($metadataElement);   
-        
         $cdwaliteWrap = $this->document->createElementNS(
             self::METADATA_NAMESPACE, 'cdwalite:cdwaliteWrap');
         $metadataElement->appendChild($cdwaliteWrap);
@@ -88,8 +85,12 @@ class OaiPmhRepository_Metadata_CdwaLite extends OaiPmhRepository_Metadata_Abstr
          * Non-repeatable, implode for inclusion of many creators.
          */
         $creators = $this->item->getElementTextsByElementNameAndSetName('Creator', 'Dublin Core');
+
+        $creatorTexts = array();
         foreach($creators as $creator) $creatorTexts[] = $creator->text;
-        $creatorText = count($creators) >= 1 ? implode(',', $creatorTexts) : 'Unknown';
+        if (count($creatorTexts) == 0) $creatorTexts[] = 'Unknown';
+        
+        $creatorText = implode(', ', $creatorTexts);
         $this->appendNewElement($descriptive, 'cdwalite:displayCreator', $creatorText);
         
         /* Creator => indexingCreatorWrap->indexingCreatorSet->nameCreatorSet->nameCreator
@@ -97,12 +98,11 @@ class OaiPmhRepository_Metadata_CdwaLite extends OaiPmhRepository_Metadata_Abstr
          * Also include roleCreator, fill with 'Unknown', required.
          */
         $indexingCreatorWrap = $this->appendNewElement($descriptive, 'cdwalite:indexingCreatorWrap');
-        if(count($creators) == 0) $creators[] = 'Unknown';       
-        foreach($creators as $creator) 
+        foreach($creatorTexts as $creator) 
         {
             $indexingCreatorSet = $this->appendNewElement($indexingCreatorWrap, 'cdwalite:indexingCreatorSet');
             $nameCreatorSet = $this->appendNewElement($indexingCreatorSet, 'cdwalite:nameCreatorSet');
-            $this->appendNewElement($nameCreatorSet, 'cdwalite:nameCreator', $creator->text);
+            $this->appendNewElement($nameCreatorSet, 'cdwalite:nameCreator', $creator);
             $this->appendNewElement($indexingCreatorSet, 'cdwalite:roleCreator', 'Unknown');
         }
         

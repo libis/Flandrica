@@ -70,7 +70,7 @@ class OaiPmhRepository_ResponseGenerator extends OaiPmhRepository_OaiXmlGenerato
             self::OAI_PMH_NAMESPACE_URI.' '.self::OAI_PMH_SCHEMA_URI);
     
         $responseDate = $this->document->createElement('responseDate', 
-            self::unixToUtc(time()));
+            OaiPmhRepository_Date::unixToUtc(time()));
         $root->appendChild($responseDate);
         
         $this->metadataFormats = $this->getFormats();
@@ -81,8 +81,7 @@ class OaiPmhRepository_ResponseGenerator extends OaiPmhRepository_OaiXmlGenerato
     private function _loadConfig()
     {
         $iniFile = OAI_PMH_REPOSITORY_PLUGIN_DIRECTORY
-                 . DIRECTORY_SEPARATOR
-                 . 'config.ini';
+                 . '/config.ini';
 
         $ini = new Zend_Config_Ini($iniFile, 'oai-pmh-repository');
 
@@ -223,7 +222,7 @@ class OaiPmhRepository_ResponseGenerator extends OaiPmhRepository_OaiXmlGenerato
             'baseURL'           => OAI_PMH_BASE_URL,
             'protocolVersion'   => self::OAI_PMH_PROTOCOL_VERSION,
             'adminEmail'        => get_option('administrator_email'),
-            'earliestDatestamp' => self::unixToUtc(0),
+            'earliestDatestamp' => OaiPmhRepository_Date::unixToUtc(0),
             'deletedRecord'     => 'no',
             'granularity'       => self::OAI_GRANULARITY_STRING);
         $identify = $this->createElementWithChildren(
@@ -294,8 +293,8 @@ class OaiPmhRepository_ResponseGenerator extends OaiPmhRepository_OaiXmlGenerato
         if(!$this->error) {
             $getRecord = $this->document->createElement('GetRecord');
             $this->document->documentElement->appendChild($getRecord);
-            $record = new $this->metadataFormats[$metadataPrefix]($item, $getRecord);
-            $record->appendRecord();
+            $record = new $this->metadataFormats[$metadataPrefix]($item, $this->document);
+            $record->appendRecord($getRecord);
         }
     }
     
@@ -323,8 +322,8 @@ class OaiPmhRepository_ResponseGenerator extends OaiPmhRepository_OaiXmlGenerato
             $listMetadataFormats = $this->document->createElement('ListMetadataFormats');
             $this->document->documentElement->appendChild($listMetadataFormats);
             foreach($this->metadataFormats as $format) {
-                $formatObject = new $format(null, $listMetadataFormats);
-                $formatObject->declareMetadataFormat();
+                $formatObject = new $format(null, $this->document);
+                $formatObject->declareMetadataFormat($listMetadataFormats);
             }
         }
     }
@@ -365,18 +364,18 @@ class OaiPmhRepository_ResponseGenerator extends OaiPmhRepository_OaiXmlGenerato
      */
     private function initListResponse()
     {
-        $from = $this->_getParam('from');
-        $until = $this->_getParam('until');
+        $fromDate = null;
+        $untilDate = null;
         
-        if($from)
-            $fromDate = self::utcToDb($from);
-        if($until)
-            $untilDate = self::utcToDb($until);
+        if(($from = $this->_getParam('from')))
+            $fromDate = OaiPmhRepository_Date::utcToDb($from);
+        if(($until= $this->_getParam('until')))
+            $untilDate = OaiPmhRepository_Date::utcToDb($until);
         
         $this->listResponse($this->query['verb'], 
                             $this->query['metadataPrefix'],
                             0,
-                            $this->query['set'],
+                            $this->_getParam('set'),
                             $fromDate,
                             $untilDate);
     }
@@ -422,16 +421,17 @@ class OaiPmhRepository_ResponseGenerator extends OaiPmhRepository_OaiXmlGenerato
         
         $itemTable = get_db()->getTable('Item');
         $select = $itemTable->getSelect();
+        $alias = $itemTable->getTableAlias();
         $itemTable->filterByPublic($select, true);
         if($set)
             $itemTable->filterByCollection($select, $set);
         if($from) {
-            $select->where('i.modified >= ? OR i.added >= ?', $from);
-            $select->group('i.id');
+            $select->where("$alias.modified >= ? OR $alias.added >= ?", $from);
+            $select->group("$alias.id");
         }
         if($until) {
-            $select->where('i.modified <= ? OR i.added <= ?', $until);
-            $select->group('i.id');
+            $select->where("$alias.modified <= ? OR $alias.added <= ?", $until);
+            $select->group("$alias.id");
         }
         
         // Total number of rows that would be returned
@@ -453,8 +453,8 @@ class OaiPmhRepository_ResponseGenerator extends OaiPmhRepository_OaiXmlGenerato
             $verbElement = $this->document->createElement($verb);
             $this->document->documentElement->appendChild($verbElement);
             foreach($items as $item) {
-                $record = new $this->metadataFormats[$metadataPrefix]($item, $verbElement);
-                $record->$method();
+                $record = new $this->metadataFormats[$metadataPrefix]($item, $this->document);
+                $record->$method($verbElement);
                 // Drop Item from memory explicitly
                 release_object($this->item);
             }
@@ -468,7 +468,7 @@ class OaiPmhRepository_ResponseGenerator extends OaiPmhRepository_OaiXmlGenerato
 
                 $tokenElement = $this->document->createElement('resumptionToken', $token->id);
                 $tokenElement->setAttribute('expirationDate',
-                    self::dbToUtc($token->expiration));
+                    OaiPmhRepository_Date::dbToUtc($token->expiration));
                 $tokenElement->setAttribute('completeListSize', $rows);
                 $tokenElement->setAttribute('cursor', $cursor);
                 $verbElement->appendChild($tokenElement);
@@ -505,7 +505,7 @@ class OaiPmhRepository_ResponseGenerator extends OaiPmhRepository_OaiXmlGenerato
             $resumptionToken->from = $from;
         if($until)
             $resumptionToken->until = $until;
-        $resumptionToken->expiration = self::unixToDb(
+        $resumptionToken->expiration = OaiPmhRepository_Date::unixToDb(
             time() + ($this->_tokenExpirationTime * 60 ) );
         $resumptionToken->save();
         

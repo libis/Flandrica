@@ -26,12 +26,12 @@ abstract class OaiPmhRepository_Metadata_Abstract extends OaiPmhRepository_OaiXm
      * @var Item
      */
     protected $item;
-    
+
     /**
-     * Parent DOMElement element for XML output.
-     * @var DOMElement
+     * Document to append to.
+     * @var DOMDocument
      */
-    protected $parentElement;
+    protected $document;
     
     /**
      * Metadata_Abstract constructor
@@ -39,16 +39,15 @@ abstract class OaiPmhRepository_Metadata_Abstract extends OaiPmhRepository_OaiXm
      * Sets base class properties.
      *
      * @param Item item Item object whose metadata will be output.
-     * @param DOMElement element Parent element for XML output.
+     * @param DOMDocument $document
      */
-    public function __construct($item = null, $element = null)
+    public function __construct($item = null, $document = null)
     {
         if($item) {
             $this->item = $item;
         }
-        if($element) {
-            $this->parentElement = $element;
-            $this->document = $element->ownerDocument;
+        if($document) {
+            $this->document = $document;
         }
     }
     
@@ -60,53 +59,38 @@ abstract class OaiPmhRepository_Metadata_Abstract extends OaiPmhRepository_OaiXm
      *
      * @uses appendHeader
      * @uses appendMetadata
+     * @param DOMElement $parentElement
      */
-    public function appendRecord()
+    public function appendRecord($parentElement)
     {
         $record = $this->document->createElement('record');
-        $this->parentElement->appendChild($record);
+        $parentElement->appendChild($record);
+        $this->appendHeader($record);
         
-        // Sets the parent of the next append functions
-        $this->parentElement = $record;
-        $this->appendHeader();
-        $this->appendMetadata();
+        $metadata = $this->document->createElement('metadata');
+        $record->appendChild($metadata);
+        $this->appendMetadata($metadata);
     }
     
     /**
      * Appends the record's header to the XML response.
      *
      * Adds the identifier, datestamp and setSpec to a header element, and
-     * appends in to the document.  
+     * appends in to the document.
      *
-     * @uses appendHeader
-     * @uses appendMetadata
+     * @param DOMElement $parentElement
      */
-    public function appendHeader()
+    public function appendHeader($parentElement)
     {
-        $table = get_db()->getTable('EntitiesRelations');
-        $select = $table->getSelect();
-        $select->where('relationship_id = 1 OR relationship_id = 2')
-               ->where('type = ?', 'Item')
-               ->where('relation_id = ?', $this->item->id)
-               ->order('time DESC');
-        $relation = $table->fetchObject($select);
-        
         $headerData['identifier'] = 
             OaiPmhRepository_OaiIdentifier::itemToOaiId($this->item->id);
-        // $headerData['datestamp'] = self::dbToUtc($this->item->modified);
-        if($relation && $relation->time)
-            $headerData['datestamp'] = self::dbToUtc($relation->time);
-        else
-            $headerData['datestamp'] = self::dbToUtc($this->item->added);
-        
-        release_object($relation);
+        $headerData['datestamp'] = OaiPmhRepository_Date::dbToUtc($this->item->modified);
         
         $collectionId = $this->item->collection_id;
         if ($collectionId)
             $headerData['setSpec'] = $collectionId;
         
-        $this->createElementWithChildren(
-            $this->parentElement, 'header', $headerData);
+        $this->createElementWithChildren($parentElement, 'header', $headerData);
     }
     
     /**
@@ -114,14 +98,15 @@ abstract class OaiPmhRepository_Metadata_Abstract extends OaiPmhRepository_OaiXm
      *
      * Declares the metadataPrefix, schema URI, and namespace for the oai_dc
      * metadata format.
+     *
+     * @param DOMElement $parentElement
      */    
-    public function declareMetadataFormat()
+    public function declareMetadataFormat($parentElement)
     {
         $elements = array( 'metadataPrefix'    => $this->getMetadataPrefix(),
                            'schema'            => $this->getMetadataSchema(),
                            'metadataNamespace' => $this->getMetadataNamespace() );
-        $this->createElementWithChildren(
-            $this->parentElement, 'metadataFormat', $elements);
+        $this->createElementWithChildren($parentElement, 'metadataFormat', $elements);
     }
     
     /**
@@ -147,6 +132,8 @@ abstract class OaiPmhRepository_Metadata_Abstract extends OaiPmhRepository_OaiXm
     
     /**
      * Appends the metadata for one Omeka item to the XML document.
+     *
+     * @param DOMElement $parentElement
      */
-    abstract public function appendMetadata();
+    abstract public function appendMetadata($parentElement);
 }

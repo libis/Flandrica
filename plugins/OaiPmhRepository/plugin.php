@@ -14,8 +14,7 @@
 define('OAI_PMH_BASE_URL', WEB_ROOT.'/oai-pmh-repository/request');
 define('OAI_PMH_REPOSITORY_PLUGIN_DIRECTORY', dirname(__FILE__));
 define('OAI_PMH_REPOSITORY_METADATA_DIRECTORY', OAI_PMH_REPOSITORY_PLUGIN_DIRECTORY
-                                              . DIRECTORY_SEPARATOR
-                                              . 'metadata');
+                                              . '/metadata');
 
 oaipmh_add_hooks_and_filters();
 
@@ -123,7 +122,7 @@ function oaipmh_repository_get_server_name()
 {
     $name = preg_replace('/[^a-z0-9\-\.]/i', '', $_SERVER['SERVER_NAME']);
     if ($name == 'localhost') {
-        $name = 'default.must.change';
+        $name = 'flandrica.be';
     }
     return $name;
 }
