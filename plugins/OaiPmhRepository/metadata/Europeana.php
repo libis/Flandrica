@@ -60,8 +60,7 @@ extends OaiPmhRepository_Metadata_Abstract {
                                  'format', 'identifier', 'source', 'language',
                                  'relation', 'coverage', 'rights' );
 
-        foreach($dcElementNames as $elementName)
-        {
+        foreach($dcElementNames as $elementName){
             $upperName = Inflector::camelize($elementName);
             $dcElements = $this->item->getElementTextsByElementNameAndSetName(
                 $upperName, 'Dublin Core');
@@ -71,13 +70,6 @@ extends OaiPmhRepository_Metadata_Abstract {
                     'dc:'.$elementName, $elementText->text);
             }
         }
-
-        /*$dcterms = array(
-            'created' => date('Y-m-d',strtotime($this->item['created'])),
-            'medium' => $this->item['materialTerm'],
-            'isPartOf' => self::SOURCE,
-            'provenance' => self::PROVENANCE
-        );*/
 
         $ese = array();
         $ese['provider'] = 'Flandrica.be';
