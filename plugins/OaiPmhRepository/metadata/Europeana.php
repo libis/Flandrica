@@ -36,8 +36,7 @@ extends OaiPmhRepository_Metadata_Abstract {
     public function appendMetadata($metadataElement) {
         $europeana = $this->document->createElementNS(
             self::METADATA_NAMESPACE, 'ese:record');
-        $metadataElement->appendChild($europeana);
-    
+        $metadataElement->appendChild($europeana);    
         
         $metadataElement = $this->document->createElement('metadata');
     
@@ -47,14 +46,6 @@ extends OaiPmhRepository_Metadata_Abstract {
         $europeana->setAttribute('xmlns:xsi', parent::XML_SCHEMA_NAMESPACE_URI);
         $europeana->setAttribute('xsi:schemaLocation', self::METADATA_NAMESPACE . ' ' . self::METADATA_SCHEMA);
         
-        $metadataSection = $this->appendNewElement($europeana, 'dmdSec');
-        $metadataSection->setAttribute('ID', 'dmd-' . $this->item->id);
-        $dcWrap = $this->appendNewElement($metadataSection, 'mdWrap');
-        $dcWrap->setAttribute('MDTYPE', 'DC');
-
-        $dcXml = $this->appendNewElement($dcWrap, 'xmlData');
-        $dcXml->setAttribute('xmlns:dc', self::DC_NAMESPACE_URI);
-
         $dcElementNames = array( 'title', 'creator', 'subject', 'description',
                                  'publisher', 'contributor', 'date', 'type',
                                  'format', 'identifier', 'source', 'language',
@@ -66,8 +57,7 @@ extends OaiPmhRepository_Metadata_Abstract {
                 $upperName, 'Dublin Core');
             foreach($dcElements as $elementText)
             {
-                $this->appendNewElement($dcXml,
-                    'dc:'.$elementName, $elementText->text);
+                $this->appendNewElement($europeana, 'dc:'.$elementName, $elementText->text);
             }
         }
 
