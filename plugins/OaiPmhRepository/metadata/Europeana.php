@@ -54,71 +54,67 @@ extends OaiPmhRepository_Metadata_Abstract {
                                  'relation', 'coverage', 'rights' );       
         
         //Create the dublin core metadata from an array of objects
-        if(!array_key_exists('0',$this->item)) {    
-           
-            foreach($dcElementNames as $elementName)
+        foreach($dcElementNames as $elementName)
+        {
+            $upperName = Inflector::camelize($elementName);
+            $dcElements = $this->item->getElementTextsByElementNameAndSetName(
+                $upperName, 'Dublin Core');
+            foreach($dcElements as $elementText)
             {
-                $upperName = Inflector::camelize($elementName);
-                $dcElements = $this->item->getElementTextsByElementNameAndSetName(
-                    $upperName, 'Dublin Core');
-                foreach($dcElements as $elementText)
-                {
-                    $this->appendNewElement($europeana,
-                        'dc:'.$elementName, $elementText->text);
-                }
+                $this->appendNewElement($europeana,
+                    'dc:'.$elementName, $elementText->text);
             }
-            
-            /*$dcterms = array(
-                'created' => date('Y-m-d',strtotime($this->item['created'])),
-                'medium' => $this->item['materialTerm'],
-                'isPartOf' => self::SOURCE,
-                'provenance' => self::PROVENANCE
-            );*/
-            
-            $ese = array();
-            $ese['provider'] = 'Flandrica.be';
-            $ese['data_provider'] = item('Item Type Metadata','Link organisatie',array(),$this->item);
-            $ese['type'] = 'IMAGE';
-            $ese['rights'] = 'http://creativecommons.org/publicdomain/zero/1.0/';
-            $ese['object'] = digitool_get_thumb_url($this->item);
-            $ese['isShownBy'] = digitool_get_thumb_url($this->item);
-            $ese['isShownAt'] = item_uri('show',$this->item);
+        }
 
-                 
-            foreach($dc as $k => $v) {
-                $this->appendNewElement($europeana, 'dc:' . $k, $v);
-            }
-            
-            foreach($ese as $k => $v) {
-                $this->appendNewElement($europeana, 'ese:'.$k, $v);
-            }
+        /*$dcterms = array(
+            'created' => date('Y-m-d',strtotime($this->item['created'])),
+            'medium' => $this->item['materialTerm'],
+            'isPartOf' => self::SOURCE,
+            'provenance' => self::PROVENANCE
+        );*/
+
+        $ese = array();
+        $ese['provider'] = 'Flandrica.be';
+        $ese['data_provider'] = item('Item Type Metadata','Link organisatie',array(),$this->item);
+        $ese['type'] = 'IMAGE';
+        $ese['rights'] = 'http://creativecommons.org/publicdomain/zero/1.0/';
+        $ese['object'] = digitool_get_thumb_url($this->item);
+        $ese['isShownBy'] = digitool_get_thumb_url($this->item);
+        $ese['isShownAt'] = item_uri('show',$this->item);
+
+
+        foreach($dc as $k => $v) {
+            $this->appendNewElement($europeana, 'dc:' . $k, $v);
+        }
+
+        foreach($ese as $k => $v) {
+            $this->appendNewElement($europeana, 'ese:'.$k, $v);
         }
     }
 
-
     /**
-* Returns the OAI-PMH metadata prefix for the output format.
-*
-* @return string Metadata prefix
-*/
+    * Returns the OAI-PMH metadata prefix for the output format.
+    *
+    * @return string Metadata prefix
+    */
     public function getMetadataPrefix() {
         return self::METADATA_PREFIX;
     }
 
     /**
-* Returns the XML schema for the output format.
-*
-* @return string XML schema URI
-*/
+    * Returns the XML schema for the output format.
+    *
+    * @return string XML schema URI
+    */
     public function getMetadataSchema() {
         return self::METADATA_SCHEMA;
     }
 
     /**
-* Returns the XML namespace for the output format.
-*
-* @return string XML namespace URI
-*/
+    * Returns the XML namespace for the output format.
+    *
+    * @return string XML namespace URI
+    */
     public function getMetadataNamespace() {
         return self::METADATA_NAMESPACE;
     }
