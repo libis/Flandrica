@@ -840,8 +840,9 @@ div.black{
         .timeline-event-bubble-image {
           float: left;
           padding-bottom: 5px;
-          width:100px;
+          max-width:100px;
           padding-right: 5px;
+          max-height:140px;
         }
 
         .timeline-event-bubble-title{
@@ -871,6 +872,8 @@ div.black{
         .timeline div.simileAjax-bubble-contentContainer{
         	padding: 10px;
         	border:1px solid #EEE;
+                height:150px;
+                
         }
 
         .timeline .timeline-event-bubble-title{
