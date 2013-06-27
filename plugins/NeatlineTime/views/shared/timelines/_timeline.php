@@ -10,7 +10,7 @@
     jQuery(document).ready(function() {
         NeatlineTime.loadTimeline(
             '<?php echo neatlinetime_timeline_id(); ?>',
-            '<?php echo neatlinetime_json_uri_for_timeline()."&".time().'/'; ?>'
+            '<?php echo neatlinetime_json_uri_for_timeline()."&".time(); ?>'
         );
     });
 </script>

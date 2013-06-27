@@ -230,7 +230,7 @@ function queue_timeline_assets()
 function neatlinetime_json_uri_for_timeline($timeline = null)
 {
     $timeline = $timeline ? $timeline : get_current_timeline();
-    $route = 'neatline-time/timelines/items/'.$timeline->id.'?output=neatlinetime-json';
+    $route = 'neatline-time/timelines/items/'.$timeline->id.'/?output=neatlinetime-json';
     return uri($route);
 }
 
