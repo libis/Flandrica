@@ -2858,12 +2858,6 @@
 		<priority>0.5</priority>
 	</url>
 	<url>
-		<loc>http://www.flandrica.be/items</loc>
-		<lastmod>2012-11-14T09:29:46+01:00</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.5</priority>
-	</url>
-	<url>
 		<loc>http://www.flandrica.be/items/exhibits</loc>
 		<lastmod>2012-11-14T09:29:46+01:00</lastmod>
 		<changefreq>weekly</changefreq>
