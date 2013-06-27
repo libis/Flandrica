@@ -31,22 +31,29 @@ while (loop_items()) {
     //turn dates into events
     if (!empty($itemDates)) {
         foreach ($itemDates as $itemDate) {
+            if((date('Y-m-d', strtotime($itemDate)) == $itemDate)||
+               (date('M d,Y', strtotime($itemDate)) == $itemDate)|| 
+               (date('d M Y', strtotime($itemDate)) == $itemDate)){
+                $dateArray[0] = $itemDate;
+            }else{
         	$itemDescription .= $itemDate ."<br>";
 
-            $neatlineTimeEvent = array();
-            $itemDate = preg_replace("/[^0-9]/","", $itemDate);
-            if(strlen($itemDate)==4){
-            	$itemDate = "January 01 ".$itemDate." 00:00:00 GMT-0600";
-            }
-            else{
-            	if(strlen($itemDate)==8){
-            		$first_half = substr($itemDate,0,4);
-            		$second_half = substr($itemDate,4);
-            		$itemDate = "January 01 ".$first_half." 00:00:00 GMT-0600/January 01 ".$second_half." 00:00:00 GMT-0600";
-            	}
-            }
-            $dateArray = explode('/', $itemDate);
+                $neatlineTimeEvent = array();
+                $itemDate = str_replace('?', '0', $itemDate);//replace question marks with zeros
+                $itemDate = preg_replace("/[^0-9]/","", $itemDate);//remove everything but numbers
+                if(strlen($itemDate)==4){
 
+                    $itemDate = "January 01 ".$itemDate." 00:00:00 GMT-0600";
+                }
+                else{
+                    if(strlen($itemDate)==8){
+                            $first_half = substr($itemDate,0,4);
+                            $second_half = substr($itemDate,4);
+                            $itemDate = "January 01 ".$first_half." 00:00:00 GMT-0600/January 01 ".$second_half." 00:00:00 GMT-0600";
+                    }
+                }
+                $dateArray = explode('/', $itemDate);
+            }
 
             if ($dateArray[0]) {
                 $neatlineTimeEvent['start'] = $dateArray[0];
