@@ -290,7 +290,7 @@ class OaiPmhRepository_ResponseGenerator extends OaiPmhRepository_OaiXmlGenerato
             $this->throwError(self::OAI_ERR_ID_DOES_NOT_EXIST);
         }
 
-        if(!$this->error) {
+        if(!$this->error && item_has_type('Flandrica-object',$item)) {
             $getRecord = $this->document->createElement('GetRecord');
             $this->document->documentElement->appendChild($getRecord);
             $record = new $this->metadataFormats[$metadataPrefix]($item, $this->document);

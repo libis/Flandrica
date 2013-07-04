@@ -63,12 +63,13 @@ extends OaiPmhRepository_Metadata_Abstract {
 
         $ese = array();
         $ese['provider'] = 'Flandrica.be';
-        $ese['data_provider'] = item('Item Type Metadata','Link organisatie',array(),$this->item);
+        $Collection = get_collection_for_item($this->item);
+        $ese['dataProvider'] = $Collection->name;;
         $ese['type'] = 'IMAGE';
         $ese['rights'] = 'http://creativecommons.org/publicdomain/zero/1.0/';
         $ese['object'] = digitool_get_thumb_url($this->item);
         $ese['isShownBy'] = digitool_get_thumb_url($this->item);
-        $ese['isShownAt'] = item_uri('show',$this->item);
+        $ese['isShownAt'] = WEB_ROOT.item_uri('show',$this->item);
 
         foreach($ese as $k => $v) {
             $this->appendNewElement($europeana, 'ese:'.$k, $v);
