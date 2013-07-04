@@ -230,7 +230,7 @@ function Libis_getNieuws($number){
 
 		$html .= "<div class='blok-left'><h2>".link_to_item(item('Dublin Core','Title'))."</h2>";
 		if(item_has_thumbnail()){
-			$html .= "<div style='float:left;width:150px;'>".item_thumbnail()."</div>";
+			$html .= "<div style='float:left;width:150px;'>".item_thumbnail(array("width"=>"140"))."</div>";
 			$html .= "<div class='content'>";
 		}else{
 			$html .= "<div class='content' style='margin-left:10px;'>";
