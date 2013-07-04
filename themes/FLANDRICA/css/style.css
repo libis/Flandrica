@@ -263,7 +263,7 @@ table p,#mainNav ul li.home a,#style_two #main{margin:0}
 .cycle .next { right: 0px; background: url(../images/right.png); }
 .cycle .prev { left: 0px; background: url(../images/left.png); }
 
-.cycle .description { position: absolute; left: 530px; bottom: 50px; z-index: 301; }
+.cycle .description { position: absolute; left: 530px; bottom: 50px; z-index: 281; }
 .cycle .description div { margin: 6px; position: relative; }
 .cycle .description div span {
 	text-transform: uppercase; font-family: 'proxima_nova_rgbold';
@@ -478,10 +478,10 @@ form label{line-height:25px;}
 	max-width: 160px;
 	text-align: left;
 	padding: 5px;
-	z-index: 3002;
+	
 	line-height: 15px;
   }
-
+  
   .slideTitle{
   	color: #E84427;
   	font-family: 'proxima_nova_rgbold';
