@@ -64,7 +64,7 @@ extends OaiPmhRepository_Metadata_Abstract {
         $ese = array();
         $ese['provider'] = 'Flandrica.be';
         $Collection = get_collection_for_item($this->item);
-        $ese['dataProvider'] = $Collection->name;;
+        //$ese['dataProvider'] = $Collection->name;;
         $ese['type'] = 'IMAGE';
         $ese['rights'] = 'http://creativecommons.org/publicdomain/zero/1.0/';
         $ese['object'] = digitool_get_thumb_url($this->item);
