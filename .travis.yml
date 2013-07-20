@@ -19,4 +19,5 @@ before_script:
   - phpenv rehash
 script:
   - phpunit -c application/tests/phpunit.xml
-  - phpcs --standard=PEAR --extensions=php --ignore=*/libraries/*,*/archive/* .
+  - phpcs --standard=PSR2 --extensions=php --ignore=*/libraries/*,*/archive/* .
+  - phpmd . text codesize,unusedcode,naming,design --ignore=application/libraries/,application/archive/
