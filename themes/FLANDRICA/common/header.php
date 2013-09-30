@@ -109,16 +109,16 @@ session_start();
 						?>
 
 		            </li>
-		            <li class="thema"><a href="<?php echo uri('themas')?>">op <strong>thema</strong></a>
+		            <li class="thema"><a href="<?php echo uri('themas')?>"><?php echo __('by');?> <strong><?php echo __('theme');?></strong></a>
 
 		            </li>
-		            <li class="plaats"><a href="<?php echo uri('geolocation/map/browse/')?>">op <strong>plaats</strong></a>
+		            <li class="plaats"><a href="<?php echo uri('geolocation/map/browse/')?>"><?php echo __('by');?> <strong><?php echo __('location');?></strong></a>
 
 		            </li>
-		            <li class="periode"><a href="<?php echo uri('neatline-time/timelines/show/1/')?>" >op <strong>periode</strong></a>
+		            <li class="periode"><a href="<?php echo uri('neatline-time/timelines/show/1/')?>" ><?php echo __('by');?> <strong><?php echo __('periode');?></strong></a>
 
 		            </li>
-		            <li class="rondleiding last"><a href="<?php echo html_escape(uri('exhibits/browse/'));?>" class="dropdown">de <strong>rondleidingen</strong></a>
+		            <li class="rondleiding last"><a href="<?php echo html_escape(uri('exhibits/browse/'));?>" class="dropdown"><?php echo __('the');?> <strong><?php echo __('tours');?></strong></a>
 		        	<?php $exhibits = exhibit_builder_get_exhibits();
 						if($exhibits){
 							echo "<ul>";
