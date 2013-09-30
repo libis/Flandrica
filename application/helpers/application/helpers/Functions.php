@@ -310,3 +310,27 @@ function body_tag($attributes = array()) {
     }
     return "<body>\n";
 }
+
+function get_language_for_omeka_switch(){
+    if(isset($_GET['lang'])){
+        $get_language=transform_language_id_for_omeka($_GET['lang']);
+    }elseif(isset($_SESSION['get_language'])){
+        $get_language=$_SESSION['get_language'];
+    }else{
+        $get_language='en_US';
+    }
+    //echo $_GET['lang'];
+    return $get_language;
+}
+
+function transform_language_id_for_omeka($language_id){
+
+    $omekatypearray=array("en" => "", "nl" => "nl_BE", "fr" => "fr","de"=>"de_DE");
+
+    foreach($omekatypearray as $key=>$omekatypearray){
+        if($key==$language_id){
+            $type=$omekatypearray;    
+        }
+    }
+    return $type;
+}

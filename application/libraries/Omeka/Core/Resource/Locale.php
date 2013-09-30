@@ -30,12 +30,24 @@ class Omeka_Core_Resource_Locale extends Zend_Application_Resource_Locale {
             array('automatic_serialization' => true),
             array('file_name_prefix' => 'omeka_i18n_cache'));
 
-        if (($locale = $config->locale)) {
+        //if (($locale = $config->locale)) {
+        //AANPASSING TAAL-SWITCHER
+        if(isset($_SESSION['get_language'])){
+            $get_language=$_SESSION['get_language'];
+            
+        }else{
+            $get_language='nl_BE';
+        }
+        
+        $locale = $get_language;
+        if(strlen($locale)>0){            
+        //END AANPASSING TAAL-SWITCHER    
             $this->setOptions(array(
                 'default' => $locale,
                 'cache' => $cache
-            ));
+            ));            
             $this->_setTranslate($locale, $cache);
+            
         }
 
         return parent::init();
@@ -64,4 +76,6 @@ class Omeka_Core_Resource_Locale extends Zend_Application_Resource_Locale {
             // translation.
         }
     }
+
+  
 }
