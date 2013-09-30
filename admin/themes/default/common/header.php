@@ -1,7 +1,5 @@
 <?php
 session_start();
-// store session data
-$_SESSION['get_language']= get_language_for_omeka_switch();
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo get_html_lang(); ?>">

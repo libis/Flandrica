@@ -1,7 +1,7 @@
 # Translation template for Omeka.
 # Copyright (C) 2011 Roy Rosenzweig Center for History and New Media
 # This file is distributed under the same license as the Omeka package.
-# 
+#
 # Translators:
 # Peter Baan <exnihilo@xs4all.nl>, 2011, 2012.
 # Sam Alloing <>, 2011.
@@ -10,20 +10,22 @@ msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
 "POT-Creation-Date: 2011-11-22 16:18-0500\n"
-"PO-Revision-Date: 2012-01-31 10:33+0000\n"
-"Last-Translator: Peter Baan <exnihilo@xs4all.nl>\n"
-"Language-Team: Dutch (Belgium) (http://www.transifex.net/projects/p/omeka/team/nl_BE/)\n"
+"PO-Revision-Date: 2013-09-30 13:36+0100\n"
+"Last-Translator: \n"
+"Language-Team: Dutch (Belgium) (http://www.transifex.net/projects/p/omeka/"
+"team/nl_BE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl_BE\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
 
 # Dublin Core description
 msgid ""
-"The Dublin Core metadata element set. These elements are common to all Omeka"
-" resources, including items, files, collections, exhibits, and entities. See"
-" http://dublincore.org/documents/dces/."
+"The Dublin Core metadata element set. These elements are common to all Omeka "
+"resources, including items, files, collections, exhibits, and entities. See "
+"http://dublincore.org/documents/dces/."
 msgstr ""
 "Dublin Core Metadata Element Set. Alle Omeka-bronnen hebben deze elementen "
 "gemeenschappelijk, waaronder bestanden, collecties, tentoonstellingen en "
@@ -116,8 +118,8 @@ msgid ""
 "The item type metadata element set, consisting of all item type elements "
 "bundled with Omeka and all item type elements created by an administrator."
 msgstr ""
-"De itemtype metadata elementenset, bestaande uit alle met Omeka meegeleverde"
-" itemtype-elementen en alle itemtype-elementen die door een beheerder zijn "
+"De itemtype metadata elementenset, bestaande uit alle met Omeka meegeleverde "
+"itemtype-elementen en alle itemtype-elementen die door een beheerder zijn "
 "aangemaakt."
 
 # Omeka Legacy File
@@ -128,8 +130,8 @@ msgstr "Omeka <em>legacy</em> bestand"
 msgid ""
 "The metadata element set that, in addition to the Dublin Core element set, "
 "was included in the `files` table in previous versions of Omeka. These "
-"elements are common to all Omeka files. This set may be deprecated in future"
-" versions."
+"elements are common to all Omeka files. This set may be deprecated in future "
+"versions."
 msgstr ""
 "De metadata elementenset die, in aanvulling op de Dublin Core elementenset, "
 "was opgenomen in de `files` tabel in eerdere versies van Omeka. Alle Omeka-"
@@ -643,11 +645,11 @@ msgstr ""
 #: admin/themes/default/error/405.php:11
 #, php-format
 msgid ""
-"You must use a different method to access this URL. If you reached this page"
-" by following a link or clicking a button in Omeka, please contact the %s."
+"You must use a different method to access this URL. If you reached this page "
+"by following a link or clicking a button in Omeka, please contact the %s."
 msgstr ""
-"U dient deze URL op een andere manier op te vragen. Wanneer u op deze pagina"
-" terecht kwam via een link of door op een knop in Omeka te klikken, kunt u "
+"U dient deze URL op een andere manier op te vragen. Wanneer u op deze pagina "
+"terecht kwam via een link of door op een knop in Omeka te klikken, kunt u "
 "contact opnemen met de %s."
 
 #: admin/themes/default/files/edit.php:8
@@ -809,8 +811,8 @@ msgstr "Plugins beheren"
 
 #: admin/themes/default/index.php:65
 msgid ""
-"Manage your general settings for the site, including title, description, and"
-" themes."
+"Manage your general settings for the site, including title, description, and "
+"themes."
 msgstr ""
 "Beheer de algemene instellingen van de site, zoals titel, beschrijving en "
 "thema's."
@@ -1116,8 +1118,8 @@ msgstr "Verwijder dit item"
 #: admin/themes/default/items/files-form.php:4
 msgid ""
 "The path to Image Magick has not been set. No derivative images will be "
-"created. If you would like Omeka to create derivative images, please add the"
-" path to your settings form."
+"created. If you would like Omeka to create derivative images, please add the "
+"path to your settings form."
 msgstr ""
 "Het pad naar ImageMagick is niet ingesteld. Er zullen geen afgeleide "
 "afbeeldingen worden aangemaakt. Voeg het pad toe aan uw instellingen, "
@@ -1223,14 +1225,12 @@ msgstr ""
 #: admin/themes/default/plugins/browse.php:24
 msgid ""
 "Add new plugins by downloading them from the <a href=\"http://omeka.org/add-"
-"ons/plugins/\">Omeka Plugins Directory</a>, or <a "
-"href=\"http://omeka.org/codex/Plugin_Writing_Best_Practices\">write your "
-"own</a>!"
+"ons/plugins/\">Omeka Plugins Directory</a>, or <a href=\"http://omeka.org/"
+"codex/Plugin_Writing_Best_Practices\">write your own</a>!"
 msgstr ""
-"Voeg nieuwe plugins toe door ze te downloaden uit de <a "
-"href=\"http://omeka.org/add-ons/plugins/\">Omeka Plugins Directory</a>, of "
-"<a href=\"http://omeka.org/codex/Plugin_Writing_Best_Practices\">schrijf uw "
-"eigen plugin</a>!"
+"Voeg nieuwe plugins toe door ze te downloaden uit de <a href=\"http://omeka."
+"org/add-ons/plugins/\">Omeka Plugins Directory</a>, of <a href=\"http://"
+"omeka.org/codex/Plugin_Writing_Best_Practices\">schrijf uw eigen plugin</a>!"
 
 #: admin/themes/default/plugins/config.php:2
 #, php-format
@@ -1423,14 +1423,12 @@ msgstr "Thema wisselen"
 #: admin/themes/default/themes/browse.php:48
 msgid ""
 "Add new themes by downloading them from the <a href=\"http://omeka.org/add-"
-"ons/themes/\">Omeka Theme Directory</a>, or <a "
-"href=\"http://omeka.org/codex/Theme_Writing_Best_Practices\">design your "
-"own</a>!"
+"ons/themes/\">Omeka Theme Directory</a>, or <a href=\"http://omeka.org/codex/"
+"Theme_Writing_Best_Practices\">design your own</a>!"
 msgstr ""
-"Voeg nieuwe thema's door ze te downloaden uit de <a href=\"http://omeka.org"
-"/add-ons/themes/\">Omeka Theme Directory</a>, of <a "
-"href=\"http://omeka.org/codex/Theme_Writing_Best_Practices\">ontwerp uw "
-"eigen thema</a>!"
+"Voeg nieuwe thema's door ze te downloaden uit de <a href=\"http://omeka.org/"
+"add-ons/themes/\">Omeka Theme Directory</a>, of <a href=\"http://omeka.org/"
+"codex/Theme_Writing_Best_Practices\">ontwerp uw eigen thema</a>!"
 
 #: admin/themes/default/themes/config.php:2
 #, php-format
@@ -1827,8 +1825,8 @@ msgid ""
 "Unable to reset password. Please verify that the information is correct and "
 "contact an administrator if necessary."
 msgstr ""
-"Niet in staat wachtwoord opnieuw in te stellen. Gelieve te controleren of de"
-" informatie correct is.  Neem indien nodig contact op met een beheerder."
+"Niet in staat wachtwoord opnieuw in te stellen. Gelieve te controleren of de "
+"informatie correct is.  Neem indien nodig contact op met een beheerder."
 
 #: application/controllers/UsersController.php:129
 msgid "Please follow this link to reset your password:"
@@ -1900,11 +1898,11 @@ msgstr "Welkom!"
 #: application/controllers/UsersController.php:296
 #, php-format
 msgid ""
-"Your account for the %s archive has been created. Please click the following"
-" link to activate your account:"
+"Your account for the %s archive has been created. Please click the following "
+"link to activate your account:"
 msgstr ""
-"Uw account voor het %s archief is aangemaakt. Klik op de volgende link om uw"
-" account te activeren:"
+"Uw account voor het %s archief is aangemaakt. Klik op de volgende link om uw "
+"account te activeren:"
 
 #: application/controllers/UsersController.php:299
 #, php-format
@@ -1994,8 +1992,7 @@ msgstr "Items per pagina (admin)"
 
 #: application/forms/GeneralSettings.php:86 application/forms/Install.php:148
 msgid ""
-"Limit the number of items displayed per page in the administrative "
-"interface."
+"Limit the number of items displayed per page in the administrative interface."
 msgstr ""
 "Beperk het aantal getoonde items per pagina in de beheerders-interface."
 
@@ -2017,8 +2014,8 @@ msgstr "Inschakelen Prototype"
 
 #: application/forms/GeneralSettings.php:106
 msgid ""
-"Enable the Prototype JavaScript library. This may be required for some older"
-" plugins."
+"Enable the Prototype JavaScript library. This may be required for some older "
+"plugins."
 msgstr ""
 "Schakel de Prototype JavaScript bibliotheek in. Dit kan vereist zijn voor "
 "sommige oudere plugins."
@@ -2123,8 +2120,7 @@ msgstr "Schakel validatie bij bestandsupload uit"
 
 #: application/forms/SecuritySettings.php:29
 msgid ""
-"Check this field if you would like to allow any file to be uploaded to "
-"Omeka."
+"Check this field if you would like to allow any file to be uploaded to Omeka."
 msgstr ""
 "Vink dit veld aan als u wilt toestaan dat elk soort bestand in Omeka kan "
 "worden geupload."
@@ -2238,7 +2234,8 @@ msgstr "Invoer toevoegen"
 
 #: application/helpers/ElementForm.php:286
 #, php-format
-msgid "Cannot display a form input for \"%s\" if element type name is not given!"
+msgid ""
+"Cannot display a form input for \"%s\" if element type name is not given!"
 msgstr ""
 "Kan geen formulierinvoer voor \"%s\" tonen als elementtypenaam niet is "
 "ingevoerd!"
@@ -2342,8 +2339,8 @@ msgid ""
 "Element name is ambiguous! There is more than one element set containing an "
 "element named \"%s\"!"
 msgstr ""
-"Elementnaam is niet eenduidig! Er is meer dan een elementset die een element"
-" bevat met de naam \"%s\"!"
+"Elementnaam is niet eenduidig! Er is meer dan een elementset die een element "
+"bevat met de naam \"%s\"!"
 
 #: application/models/ActsAsElementText.php:317
 #: application/models/ActsAsElementText.php:324
@@ -2354,7 +2351,8 @@ msgstr "Er is geen element met de naam \"%s\"!"
 #: application/models/ActsAsElementText.php:328
 #, php-format
 msgid "There is no element named \"%1$s\" in the set named \"%2$s\"!"
-msgstr "Er is geen element met de naam \"%1$s\" in de set met de naam \"%2$s\"!"
+msgstr ""
+"Er is geen element met de naam \"%1$s\" in de set met de naam \"%2$s\"!"
 
 #: application/models/ActsAsElementText.php:484
 msgid "Element texts are not formatted correctly!"
@@ -2378,8 +2376,7 @@ msgstr "Kan het element met het datatype \"%s\" niet valideren!"
 
 #: application/models/ActsAsElementText.php:735
 msgid "Cannot save element text for records that are not yet persistent!"
-msgstr ""
-"Kan geen elementtekst opslaan voor records die nog niet constant zijn!"
+msgstr "Kan geen elementtekst opslaan voor records die nog niet constant zijn!"
 
 #: application/models/Collection.php:107
 msgid "Collectors must be either a string or an array."
@@ -2431,7 +2428,8 @@ msgstr "%1$s bestaat reeds voor elementset #%2$s"
 #: application/models/Element.php:252
 #, php-format
 msgid "Cannot set element set ID: set named \"%s\" does not exist."
-msgstr "Kan elementset ID niet instellen: de set met de naam \"%s\" bestaat niet."
+msgstr ""
+"Kan elementset ID niet instellen: de set met de naam \"%s\" bestaat niet."
 
 #: application/models/ElementSet.php:119
 msgid "Name of element set must be unique."
@@ -2470,8 +2468,8 @@ msgstr "Kan het lokale pad voor een opgeslagen bestanden niet vinden."
 msgid ""
 "Files cannot be attached to an item that is not persistent in the database!"
 msgstr ""
-"Bestanden kunnen niet gehecht worden aan een item dat niet constant is in de"
-" database."
+"Bestanden kunnen niet gehecht worden aan een item dat niet constant is in de "
+"database."
 
 #: application/models/Item.php:398
 msgid "Cannot add an existing file to an item!"
@@ -2484,8 +2482,8 @@ msgstr "Bestand moet geldig zijn voor het verbonden kan worden aan een item!"
 #: application/models/ItemBuilder.php:141
 msgid "Cannot add tags to an item if no Entity is available to tag."
 msgstr ""
-"Kan geen tags toevoegen aan een item als er geen entiteit beschikbaar is die"
-" van een tag kan worden voorzien."
+"Kan geen tags toevoegen aan een item als er geen entiteit beschikbaar is die "
+"van een tag kan worden voorzien."
 
 #: application/models/ItemBuilder.php:265
 msgid "Must specify a file transfer type when attaching files to an item!"
@@ -2496,8 +2494,8 @@ msgstr ""
 #: application/models/ItemPermissions.php:34
 #, php-format
 msgid ""
-"This SQL statement needs a FROM or JOIN clause equivalent to '%s i' in order"
-" to have permissions checked!"
+"This SQL statement needs a FROM or JOIN clause equivalent to '%s i' in order "
+"to have permissions checked!"
 msgstr ""
 "Dit SQL-statement heeft een FROM of JOIN clause equivalent nodig bij '%s i' "
 "om rechten te kunnen controleren!"
@@ -2528,8 +2526,8 @@ msgid ""
 "Invalid element data. To add elements, you must either pass an element "
 "objects or an array of element metadata."
 msgstr ""
-"Ongeldige element data. Om elementen toe te voegen, dient een element object"
-" door te geven of een lijst van element metadata."
+"Ongeldige element data. Om elementen toe te voegen, dient een element object "
+"door te geven of een lijst van element metadata."
 
 #: application/models/ItemType.php:285
 msgid ""
@@ -2551,11 +2549,11 @@ msgstr "Itemtype bevat geen element met het ID %s!"
 
 #: application/models/ItemType.php:362
 msgid ""
-"Invalid parameter. The hasElement function requires either an element object"
-" or an element id to determine if an item type has an element."
+"Invalid parameter. The hasElement function requires either an element object "
+"or an element id to determine if an item type has an element."
 msgstr ""
-"Ongeldige parameter. De hasElement functie vereist een element object of een"
-" element id om vast te kunnen stellen of een itemtype ook een element heeft."
+"Ongeldige parameter. De hasElement functie vereist een element object of een "
+"element id om vast te kunnen stellen of een itemtype ook een element heeft."
 
 #: application/models/Option.php:28 application/models/Option.php:32
 msgid "Each option must have a unique name."
@@ -2563,8 +2561,7 @@ msgstr "Iedere optie moet een unieke naam hebben."
 
 #: application/models/Orderable.php:101
 msgid "Cannot add a child to a record that does not exist yet!"
-msgstr ""
-"Kan geen <em>child</em> toevoegen aan een record dat nog niet bestaat!"
+msgstr "Kan geen <em>child</em> toevoegen aan een record dat nog niet bestaat!"
 
 #: application/models/Orderable.php:105
 #, php-format
@@ -2752,14 +2749,12 @@ msgstr "Omeka stuitte op een fout"
 #: application/views/scripts/error/index.php:29
 msgid ""
 "To learn how to see more detailed information about this error, see the "
-"Omeka Codex page on <a "
-"href=\"http://omeka.org/codex/Retrieving_error_messages\">retrieving error "
-"messages</a>."
+"Omeka Codex page on <a href=\"http://omeka.org/codex/"
+"Retrieving_error_messages\">retrieving error messages</a>."
 msgstr ""
-"Zie de Omeka Codex pagina over <a "
-"href=\"http://omeka.org/codex/Retrieving_error_messages\">ophalen van "
-"foutmeldingen</a> om te leren hoe u meer gedetailleerde informatie over deze"
-" fout te zien kunt krijgen."
+"Zie de Omeka Codex pagina over <a href=\"http://omeka.org/codex/"
+"Retrieving_error_messages\">ophalen van foutmeldingen</a> om te leren hoe u "
+"meer gedetailleerde informatie over deze fout te zien kunt krijgen."
 
 #: application/views/scripts/functions.php:131
 msgid "Browse All"
@@ -2879,13 +2874,13 @@ msgstr "Uw Omeka database is volledig up-to-date."
 #: application/views/scripts/upgrade/completed.php:13
 #: application/views/scripts/upgrade/migrate.php:18
 msgid ""
-"If you have any questions please refer to <a "
-"href=\"http://omeka.org/codex\">Omeka documentation</a> or post a message on"
-" the <a href=\"http://omeka.org/forums\">Omeka forums</a>."
+"If you have any questions please refer to <a href=\"http://omeka.org/codex"
+"\">Omeka documentation</a> or post a message on the <a href=\"http://omeka."
+"org/forums\">Omeka forums</a>."
 msgstr ""
-"Wanneer u vragen hebt, raadpleeg dan de <a "
-"href=\"http://omeka.org/codex\">Omeka documentatie</a> of plaats een bericht"
-" op de <a href=\"http://omeka.org/forums\">Omeka forums</a>."
+"Wanneer u vragen hebt, raadpleeg dan de <a href=\"http://omeka.org/codex"
+"\">Omeka documentatie</a> of plaats een bericht op de <a href=\"http://omeka."
+"org/forums\">Omeka forums</a>."
 
 #: application/views/scripts/upgrade/index.php:10
 msgid "Upgrade Your Omeka Database"
@@ -3004,3 +2999,28 @@ msgstr "Omeka installatie"
 
 msgid "Random items"
 msgstr "Willekeurige items"
+
+# #######################
+# Flandrica translations#
+# #######################
+# Main Menu
+msgid "the"
+msgstr "de"
+
+msgid "by"
+msgstr "op"
+
+msgid "collection"
+msgstr "collectie"
+
+msgid "theme"
+msgstr "thema"
+
+msgid "location"
+msgstr "plaats"
+
+msgid "periode"
+msgstr "periode"
+
+msgid "tours"
+msgstr "rondleidingen"

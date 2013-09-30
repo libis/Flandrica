@@ -36,10 +36,10 @@ class Omeka_Core_Resource_Locale extends Zend_Application_Resource_Locale {
             $get_language=$_SESSION['get_language'];
             
         }else{
-            $get_language='nl_BE';
+            $get_language= $config->locale;
         }
         
-        $locale = $get_language;
+        $locale = get_language_for_omeka_switch();
         if(strlen($locale)>0){            
         //END AANPASSING TAAL-SWITCHER    
             $this->setOptions(array(

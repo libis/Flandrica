@@ -1,7 +1,5 @@
 <?php
 session_start();
-// store session data
-$_SESSION['get_language']=get_language_for_omeka_switch();
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo get_html_lang(); ?>">
@@ -94,7 +92,7 @@ $_SESSION['get_language']=get_language_for_omeka_switch();
 			<nav id="mainNav">
 		    	<ul >
 		        	<li class="home"><a href="<?php echo uri(''); ?>">&nbsp;</a></li>
-		            <li class="collectie"><a href="<?php echo uri('solr-search/results/?solrfacet=collection:*'); ?>" class="dropdown">de <strong>collectie</strong></a>
+		            <li class="collectie"><a href="<?php echo uri('solr-search/results/?solrfacet=collection:*'); ?>" class="dropdown"><?php echo __('the');?> <strong><?php echo __('collection');?></strong></a>
 		            	<?php
 
 							$collections = get_collections();
