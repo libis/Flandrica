@@ -130,12 +130,33 @@
     </div>
     <footer>
         <div id="footerWrapper">
-        <ul>
-            <li><a href="<?php echo uri('over-flandrica-be/'); ?>">Over Flandrica.be</a></li>
-            <li><a href="<?php echo uri('partners/'); ?>">Partners</a></li>
-            <li><a href="<?php echo uri('colofon/'); ?>">Colofon</a></li>
-            <li><a href="<?php echo uri('gebruiksvoorwaarden/'); ?>">Gebruiksvoorwaarden</a></li>
-            <li class="last"><a href="<?php echo uri('contact/'); ?>">Contact</a></li>
+        <?php
+        
+        if($_SESSION['lang']){
+            $lang = $_SESSION['lang'];
+            if($lang == "nl_BE"){$lang="";}
+        }else{
+            $lang = "";
+        }
+        
+        $pages = get_db()->getTable('SimplePagesPage')->findAllPagesOrderBySlug();
+       
+        ?>    
+        <ul>           
+            <?php if(Libis_page_exists($lang.'/over-flandrica-be',$pages)){?>
+                <li><a href="<?php echo uri($lang.'/over-flandrica-be/'); ?>"><?php echo __("About Flandrica");?></a></li>
+            <?php } ?>
+            <?php if(Libis_page_exists($lang.'/partners',$pages)){?>    
+                <li><a href="<?php echo uri($lang.'/partners/'); ?>"><?php echo __("Partners");?></a></li>
+            <?php } ?>
+            <?php if(Libis_page_exists($lang.'/colofon',$pages)){?>
+                <li><a href="<?php echo uri($lang.'/colofon/'); ?>"><?php echo __("Colophon");?></a></li>
+            <?php } ?>
+            <?php if(Libis_page_exists($lang.'/gebruiksvoorwaarden',$pages)){?>
+                <li><a href="<?php echo uri($lang.'/gebruiksvoorwaarden/'); ?>"><?php echo __("Conditions of use");?></a></li>
+            <?php } ?>
+            <li class="last"><a href="<?php echo uri('contact/'); ?>"><?php echo __("Contact");?></a></li>
+            
         </ul>
         <div class="madeby">&copy; <a href="http://www.vlaamse-erfgoedbibliotheek.be">Vlaamse Erfgoedbibliotheek</a></div>
         	<div class="sponsors">

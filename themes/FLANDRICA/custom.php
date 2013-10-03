@@ -275,13 +275,13 @@ function Libis_getRondleidingen($number){
 
 		$html .= "";
 		$html .= "<p>".snippet_by_word_count($exhibit->description,40)."</p>";
-		$html .= "<h3>" .exhibit_builder_link_to_exhibit($exhibit,"Naar de rondleiding",array('class'=>'more')). "</h3>";
+		$html .= "<h3>" .exhibit_builder_link_to_exhibit($exhibit,__("To the tour"),array('class'=>'more')). "</h3>";
 		$html .= "</div>";
 
 	}
 	return $html;
 	$html .= "<div class='blok meer'>";
-	$html .= "<p><a href='".uri('exhibits')."' class='more'><strong>meer rondleidingen</strong></a></p>";
+	$html .= "<p><a href='".uri('exhibits')."' class='more'><strong><?php echo __('more tours');?></strong></a></p>";
 	$html .= "</div>";
 }
 
@@ -576,4 +576,12 @@ function Libis_geolocation_google_map($divId = 'map', $options = array()) {
     return $ht;
 }
 
+function Libis_page_exists($needle, $pages){
+    foreach ($pages as $page) {
+       if ($page['slug'] === $needle) {
+           return true;
+       }
+    }
+    return false;
+}
 ?>

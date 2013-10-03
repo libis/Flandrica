@@ -6,7 +6,7 @@
                     <a href="<?php echo html_escape(uri('')); ?>">Home</a>
                 </li>
                  <li>
-                     <a href="<?php echo html_escape(uri('exhibits/browse/'));?>">Rondleidingen</a>
+                     <a href="<?php echo html_escape(uri('exhibits/browse/'));?>"><?php echo __("Tours");?></a>
                 </li>
                 <li>
                      <a href="<?php echo html_escape(uri('exhibits/show/' . $exhibit['slug']));?>"><?php echo html_escape($exhibit['title']); ?></a>

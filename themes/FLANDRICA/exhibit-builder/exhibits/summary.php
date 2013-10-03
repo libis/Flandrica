@@ -4,7 +4,7 @@
     	<ul>
         	<li><a href="<?php echo html_escape(uri('')); ?>">Home</a></li>
               <li>
-                     <a href="<?php echo html_escape(uri('exhibits/browse/'));?>">Rondleidingen</a>
+                     <a href="<?php echo html_escape(uri('exhibits/browse/'));?>"><?php echo __("Tours")?></a>
                 </li>
             <li><?php echo html_escape($exhibit['title']); ?></li>
         </ul>
@@ -36,7 +36,7 @@
 
 	                    <?php
 	                    	if($uri){
-	                    		echo '<a href="'.$uri. '" class="more">Start de rondleiding</a>';
+                                    echo '<a href="'.$uri. '" class="more">'. __("Start the tour").'</a>';
 	                    	}
 	                    ?>
 
@@ -51,12 +51,12 @@
 
         <div id="sidebar">
                 <nav id="rondleiding_quicknav">
-                    <h2>In deze rondleiding</h2>
+                    <h2><?php echo __("In this tour");?></h2>
                     <?php echo exhibit_builder_section_nav(); ?>
 
                 </nav>
-                <h1>Colofon</h1>
-				<?php echo html_escape(exhibit('credits')); ?>
+                <h1><?php echo __("Colophon");?></h1>
+                    <?php echo html_escape(exhibit('credits')); ?>
 		</div>
 
         <div class="clearfix">&nbsp;</div>

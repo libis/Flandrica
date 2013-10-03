@@ -32,14 +32,14 @@ class Omeka_Core_Resource_Locale extends Zend_Application_Resource_Locale {
 
         //if (($locale = $config->locale)) {
         //AANPASSING TAAL-SWITCHER
-        if(isset($_SESSION['get_language'])){
-            $get_language=$_SESSION['get_language'];
-            
-        }else{
-            $get_language= $config->locale;
+        $locale = get_language_for_omeka_switch();
+        
+        if(!$locale){
+            $locale= $config->locale;
+            if($_SESSION['lang']='en'){$locale="en_US";}
         }
         
-        $locale = get_language_for_omeka_switch();
+       
         if(strlen($locale)>0){            
         //END AANPASSING TAAL-SWITCHER    
             $this->setOptions(array(

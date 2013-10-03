@@ -10,18 +10,18 @@
 <div id="style_one">
     <div id="wrapper" class="cf">
     	<div id="sidebar-left">
-    		<div class="rubriek-l">Info</div>
+    		<div class="rubriek-l"><?php echo __('Info');?></div>
     		<?php echo Libis_getNieuws(1);?>
 
 		</div>
     	<div id="container">
             <div id="content">
                 <div id="right">
-                  <div class="rubriek">Nieuws</div>
+                  <div class="rubriek"><?php echo __('News');?></div>
                 	<?php echo feedCollector_show();?>
                 </div>
                 <div id="main">
-                  <div class="rubriek">Rondleidingen</div>
+                  <div class="rubriek"><?php echo __('Tours');?></div>
                 	<?php echo Libis_getRondleidingen(3);?>
                 </div>
             </div>

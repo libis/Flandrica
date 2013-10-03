@@ -8,7 +8,7 @@ head(array('title'=>$title, 'bodyid' => 'exhibit', 'bodyclass'=>'browse'));
         	<li>
             	<a href="<?php echo html_escape(uri('')); ?>">Home</a>
             </li>
-            <li>Rondleidingen</li>
+            <li><?php echo __("Tours");?></li>
 		</ul>
     </div>
     <div id="style_three">
@@ -18,7 +18,7 @@ head(array('title'=>$title, 'bodyid' => 'exhibit', 'bodyclass'=>'browse'));
             <div id="content">
                 <div id="main" class="zebra">
                 <div class="blok odd">
-                	<h1>Rondleidingen</h1>
+                	<h1><?php echo __("Tours");?></h1>
                 </div>
                 <?php $exhibitCount = 0; ?>
 			    <?php while(loop_exhibits()): ?>
@@ -34,7 +34,7 @@ head(array('title'=>$title, 'bodyid' => 'exhibit', 'bodyclass'=>'browse'));
 				    				$description = preg_replace('~<h1>.*?</h1>~is', '', $description);
 				    			?>
 					    		<p><?php echo snippet($description,0,300); ?></p>
-					    		<p><a href="<?php echo exhibit_builder_exhibit_uri();?>" class="more">Start de Rondleiding</a></p>
+					    		<p><a href="<?php echo exhibit_builder_exhibit_uri();?>" class="more"><?php echo __("Start the tour");?></a></p>
 					    	</div>
 				    	</div>
 				    <?php endwhile; ?>

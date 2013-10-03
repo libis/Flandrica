@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
 "POT-Creation-Date: 2011-11-22 16:18-0500\n"
-"PO-Revision-Date: 2013-09-30 13:36+0100\n"
+"PO-Revision-Date: 2013-09-30 15:35+0100\n"
 "Last-Translator: \n"
 "Language-Team: Dutch (Belgium) (http://www.transifex.net/projects/p/omeka/"
 "team/nl_BE/)\n"
@@ -3001,9 +3001,9 @@ msgid "Random items"
 msgstr "Willekeurige items"
 
 # #######################
-# Flandrica translations#
+# theme/Flandrica translations#
 # #######################
-# Main Menu
+# header.php
 msgid "the"
 msgstr "de"
 
@@ -3019,8 +3019,88 @@ msgstr "thema"
 msgid "location"
 msgstr "plaats"
 
-msgid "periode"
+msgid "period"
 msgstr "periode"
 
 msgid "tours"
 msgstr "rondleidingen"
+
+# index.php
+msgid "Info"
+msgstr "Info"
+
+msgid "News"
+msgstr "Nieuws"
+
+msgid "Tours"
+msgstr "Rondleidingen"
+
+msgid "SEARCH..."
+msgstr "ZOEKEN..."
+
+# custom.php - Libis_getRondleidingen
+msgid "To the tour"
+msgstr "Naar de rondleiding"
+
+msgid "more tours"
+msgstr "meer rondleidingen"
+
+#contact form
+msgid "Contact us"
+msgstr "Contacteer ons"
+
+msgid "Name:"
+msgstr "Naam gebruiker:"
+
+msgid "Email:"
+msgstr "E-mail gebruiker:"
+
+msgid "Ask extra information"
+msgstr "Vraag naar bijkomende informatie"
+
+msgid "Subject"
+msgstr "Onderwerp"
+
+msgid "Report missing data"
+msgstr "Melden lacune",
+
+msgid "Ask extra information"
+msgstr "Vraag naar bijkomende informatie"
+
+msgid "Report copyright problem"
+msgstr "Melden copyrightprobleem"
+
+msgid "Question about an object"
+msgstr "Vraag stellen over object",
+
+msgid "Report problems"
+msgstr "Problemen melden"
+
+msgid "Other"
+msgstr "Overig"
+
+msgid "Send"
+msgstr "Verstuur"
+
+#footer
+msgid "About Flandrica"
+msgstr "Over Flandrica.be"
+
+msgid "Partners"
+msgstr "Partners"
+
+msgid "Colophon"
+msgstr "Colofon"
+
+msgid "Send"
+msgstr "Conditions of use"
+
+msgid "Send"
+msgstr "Contact"
+
+#exhibit summary.php
+msgid "Start the tour"
+msgstr "Start de rondleiding"
+
+msgid "In this tour"
+msgstr "In deze rondleiding"

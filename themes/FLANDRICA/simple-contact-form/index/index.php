@@ -6,7 +6,7 @@
     	<div id="container">
             <div id="content">
             	<div id="main" class="padding-left-20 padding-right-20">
-				<h1><?php echo settings('simple_contact_form_contact_page_title'); ?></h1>
+				<h1><?php echo __("Contact us");//echo settings('simple_contact_form_contact_page_title'); ?></h1>
 
 					<div id="simple-contact">
 						<div id="form-instructions">
@@ -19,13 +19,13 @@
 
 					        <div class="field">
 							<?php
-							    echo $this->formLabel('name', 'Naam gebruiker: ');
+							    echo $this->formLabel('name', __('Name:'));
 							    echo $this->formText('name', $name, array('class'=>'textinput')); ?>
 							</div>
 
 					        <div class="field">
 					            <?php
-					            echo $this->formLabel('email', 'E-mail gebruiker: ');
+					            echo $this->formLabel('email',__('Email:'));
 							    echo $this->formText('email', $email, array('class'=>'textinput'));  ?>
 					        </div>
 
@@ -34,19 +34,19 @@
 								if($_GET['onderwerp'])
 									$value = $_GET['onderwerp'];
 								else
-									$value = 'Vraag naar bijkomende informatie';
+									$value = __('Ask extra information');
 
 								$title = new Zend_Form_Element_Select('onderwerp');
-					        	$title->setLabel('Onderwerp')
+                                                                $title->setLabel(__('Subject'))
 					        			//hier een $_GET['onderwerp']
 					        			->setValue($value)
 					        	   	  	->setMultiOptions(array(
-							    		'Melden lacune' => 'Melden lacune',
-							    		'Vraag naar bijkomende informatie' => 'Vraag naar bijkomende informatie',
-							    		'Melden copyrightprobleem' => 'Melden copyrightprobleem',
-							    		'Vraag stellen over object' => 'Vraag stellen over object',
-							   			'Problemen melden' => 'Problemen melden',
-							    		'Overig' => 'Overig'
+							    		__("Ask extra information") => __("Ask extra information"),
+							    		__("Report missing data") => __("Report missing data"),
+							    		__("Report copyright problem") => __("Report copyright problem"),
+							    		__("Question about an object") => __("Question about an object"),
+                                                                        __("Report problems") => __("Report problems"),
+							    		__("Other") => __("Other")
 							    		))
 					              		->setRequired(true)->addValidator('NotEmpty', true);
 					        	echo $title;
@@ -69,7 +69,7 @@
 							</div>
 							<br>
 							<div class="field">
-							  <?php echo $this->formSubmit('send', 'Verstuur'); ?>
+							  <?php echo $this->formSubmit('send', __("Send")); ?>
 							</div>
 
 						    </fieldset>

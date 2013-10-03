@@ -313,14 +313,15 @@ function body_tag($attributes = array()) {
 
 function get_language_for_omeka_switch(){
     if(isset($_GET['lang'])){
-        $get_language=transform_language_id_for_omeka($_GET['lang']);
-    }elseif(isset($_SESSION['get_language'])){
-        $get_language=$_SESSION['get_language'];
+       $_SESSION['lang'] = $_GET['lang'];
+       $_SESSION['lang_po']=transform_language_id_for_omeka($_GET['lang']);
+       return $_SESSION['lang_po'];
+    }elseif(isset($_SESSION['lang_po'])){
+        return $_SESSION['lang_po'];
     }else{
-        $get_language='en_US';
+        return "";
     }
-    //echo $_GET['lang'];
-    return $get_language;
+   
 }
 
 function transform_language_id_for_omeka($language_id){
