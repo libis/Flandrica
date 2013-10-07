@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
 "POT-Creation-Date: 2011-11-22 16:18-0500\n"
-"PO-Revision-Date: 2013-09-30 15:35+0100\n"
+"PO-Revision-Date: 2013-10-07 16:37+0100\n"
 "Last-Translator: \n"
 "Language-Team: Dutch (Belgium) (http://www.transifex.net/projects/p/omeka/"
 "team/nl_BE/)\n"
@@ -3045,7 +3045,7 @@ msgstr "Naar de rondleiding"
 msgid "more tours"
 msgstr "meer rondleidingen"
 
-#contact form
+# contact form
 msgid "Contact us"
 msgstr "Contacteer ons"
 
@@ -3076,7 +3076,7 @@ msgstr "Overig"
 msgid "Send"
 msgstr "Verstuur"
 
-#footer
+# footer
 msgid "About Flandrica"
 msgstr "Over Flandrica.be"
 
@@ -3092,15 +3092,14 @@ msgstr "Gebruiksvoorwaarden"
 msgid "Contact"
 msgstr "Contact"
 
-#exhibit summary.php
+# exhibit summary.php
 msgid "Start the tour"
 msgstr "Start de rondleiding"
 
 msgid "In this tour"
 msgstr "In deze rondleiding"
 
-#search/solr
-
+# search/solr
 msgid "%s RESULTS"
 msgstr "%s RESULTATEN"
 
@@ -3113,7 +3112,7 @@ msgstr "%s resultaten per pagina"
 msgid "got to document"
 msgstr "document bekijken"
 
-#solr paginatie: Page x of y
+# solr paginatie: Page x of y
 msgid "Page"
 msgstr "Pagina"
 
@@ -3132,8 +3131,7 @@ msgstr "Periode"
 msgid "Materials"
 msgstr "Materiaal"
 
-
-#tags
+# tags
 msgid "Geography"
 msgstr "Aardrijkskunde"
 
@@ -3173,7 +3171,7 @@ msgstr "Taal- en letterkunde"
 msgid "Science"
 msgstr "Wetenschappen"
 
-#tags - aardrijkskunde
+# tags - aardrijkskunde
 msgid "General"
 msgstr "Algemeen"
 
@@ -3186,7 +3184,7 @@ msgstr "Klimaat"
 msgid "Travelling"
 msgstr "Reizen"
 
-#tags - christendom
+# tags - christendom
 msgid "Bibles"
 msgstr "Bijbels"
 
@@ -3211,7 +3209,7 @@ msgstr "Preken"
 msgid "Theology"
 msgstr "Theologie"
 
-#tags - dagelijks leven
+# tags - dagelijks leven
 msgid "Almanacs"
 msgstr "Almanakken"
 
@@ -3221,11 +3219,11 @@ msgstr "Kookboeken"
 msgid "Education"
 msgstr "Onderwijs"
 
-#tags - economie
+# tags - economie
 msgid "Infrastructure"
 msgstr "Infrastructuur"
 
-#tags - geschiedenis
+# tags - geschiedenis
 msgid "Archeology"
 msgstr "Archeologie"
 
@@ -3265,7 +3263,7 @@ msgstr "Universiteitsgeschiedenis"
 msgid "Kings and other leaders"
 msgstr "Vorsten en andere leiders"
 
-#tags - kunst
+# tags - kunst
 msgid "Architecture"
 msgstr "Architectuur"
 
@@ -3275,14 +3273,14 @@ msgstr "Beeldende kunsten"
 msgid "Art books"
 msgstr "Kunstenaarsboeken"
 
-#tags - media
+# tags - media
 msgid "Newspapers"
 msgstr "Kranten"
 
 msgid "Pamphlets"
 msgstr "Pamfletten"
 
-#tags - muziek
+# tags - muziek
 msgid "Songs"
 msgstr "Liederen"
 
@@ -3292,11 +3290,11 @@ msgstr "Partituren"
 msgid "Polyphony"
 msgstr "Polyfonie"
 
-#tags - religie
+# tags - religie
 msgid "Islam"
 msgstr "Islam"
 
-#tags - taal- en letterkunde
+# tags - taal- en letterkunde
 msgid "Emblemata"
 msgstr "Emblemata"
 
@@ -3315,7 +3313,7 @@ msgstr "Toneel"
 msgid "Stories"
 msgstr "Verhalen"
 
-#tags - science
+# tags - science
 msgid "Astronomy"
 msgstr "Astronomie"
 
