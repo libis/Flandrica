@@ -101,7 +101,8 @@ blockquote .hr{clear:left;float:left;width:60%;height:22px;background:transparen
 
 header{font-size:.8em;clear:both}
 header .logo{width:72%}
-header .headerstuff{min-width:250px;margin-top:50px;}
+header .headerstuff{min-width:250px;margin-top:32px;}
+.headerstuff a {color:#E84427;}
 
 .logo,.logo img{width:137px;height:90px}
 .grid-geavanceerd,.grid-lang{line-height:48px}

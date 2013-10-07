@@ -584,4 +584,17 @@ function Libis_page_exists($needle, $pages){
     }
     return false;
 }
+
+function Libis_language_widget(){
+    if(!$_SESSION['lang'] || $_SESSION['lang']=='nl'){
+        $html = "<a href='".uri("/?lang=en")."'>EN</a>";
+        $html .= " | NL<br>";
+        return $html;
+    }
+     if($_SESSION['lang']=='en'){
+        $html = "EN";
+        $html .= " | <a href='".uri("/?lang=nl")."'>NL</a><br>";
+        return $html;
+    }   
+}
 ?>
