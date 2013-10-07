@@ -3055,14 +3055,8 @@ msgstr "Naam gebruiker:"
 msgid "Email:"
 msgstr "E-mail gebruiker:"
 
-msgid "Ask extra information"
-msgstr "Vraag naar bijkomende informatie"
-
-msgid "Subject"
-msgstr "Onderwerp"
-
 msgid "Report missing data"
-msgstr "Melden lacune",
+msgstr "Melden lacune"
 
 msgid "Ask extra information"
 msgstr "Vraag naar bijkomende informatie"
@@ -3071,7 +3065,7 @@ msgid "Report copyright problem"
 msgstr "Melden copyrightprobleem"
 
 msgid "Question about an object"
-msgstr "Vraag stellen over object",
+msgstr "Vraag stellen over object"
 
 msgid "Report problems"
 msgstr "Problemen melden"
@@ -3092,10 +3086,10 @@ msgstr "Partners"
 msgid "Colophon"
 msgstr "Colofon"
 
-msgid "Send"
-msgstr "Conditions of use"
+msgid "Conditions of use"
+msgstr "Gebruiksvoorwaarden"
 
-msgid "Send"
+msgid "Contact"
 msgstr "Contact"
 
 #exhibit summary.php
@@ -3104,3 +3098,244 @@ msgstr "Start de rondleiding"
 
 msgid "In this tour"
 msgstr "In deze rondleiding"
+
+#search/solr
+
+msgid "%s RESULTS"
+msgstr "%s RESULTATEN"
+
+msgid "Display"
+msgstr "Weergave"
+
+msgid "%s results per page"
+msgstr "%s resultaten per pagina"
+
+msgid "got to document"
+msgstr "document bekijken"
+
+#solr paginatie: Page x of y
+msgid "Page"
+msgstr "Pagina"
+
+msgid "of"
+msgstr "van"
+
+msgid "Location (creation)"
+msgstr "Plaats (Creatie)"
+
+msgid "Location (subject)"
+msgstr "Plaats (Onderwerp)"
+
+msgid "Period"
+msgstr "Periode"
+
+msgid "Materials"
+msgstr "Materiaal"
+
+
+#tags
+msgid "Geography"
+msgstr "Aardrijkskunde"
+
+msgid "Christianity"
+msgstr "Christendom"
+
+msgid "Daily life"
+msgstr "Dagelijks leven"
+
+msgid "Economy"
+msgstr "Economie"
+
+msgid "Filosophy"
+msgstr "Filosofie"
+
+msgid "History"
+msgstr "Geschiedenis"
+
+msgid "Art"
+msgstr "Kunst"
+
+msgid "Media"
+msgstr "Media"
+
+msgid "Music"
+msgstr "Muziek"
+
+msgid "Law and politics"
+msgstr "Recht en politiek"
+
+msgid "Religion (others)"
+msgstr "Religie (andere)"
+
+msgid "Linguistics and literature"
+msgstr "Taal- en letterkunde"
+
+msgid "Science"
+msgstr "Wetenschappen"
+
+#tags - aardrijkskunde
+msgid "General"
+msgstr "Algemeen"
+
+msgid "Atlases"
+msgstr "Atlassen"
+
+msgid "Climate"
+msgstr "Klimaat"
+
+msgid "Travelling"
+msgstr "Reizen"
+
+#tags - christendom
+msgid "Bibles"
+msgstr "Bijbels"
+
+msgid "Catechisms"
+msgstr "Catechismussen"
+
+msgid "Devotion"
+msgstr "Devotie"
+
+msgid "Prayer book"
+msgstr "Gebedenboeken"
+
+msgid "Saints"
+msgstr "Heiligen"
+
+msgid "Liturgy"
+msgstr "Liturgie"
+
+msgid "Sermons"
+msgstr "Preken"
+
+msgid "Theology"
+msgstr "Theologie"
+
+#tags - dagelijks leven
+msgid "Almanacs"
+msgstr "Almanakken"
+
+msgid "Cookbooks"
+msgstr "Kookboeken"
+
+msgid "Education"
+msgstr "Onderwijs"
+
+#tags - economie
+msgid "Infrastructure"
+msgstr "Infrastructuur"
+
+#tags - geschiedenis
+msgid "Archeology"
+msgstr "Archeologie"
+
+msgid "Biographies"
+msgstr "Biografieën"
+
+msgid "Book & library"
+msgstr "Boek & bibliotheek"
+
+msgid "Conflicts"
+msgstr "Conflicten"
+
+msgid "Heraldry"
+msgstr "Heraldiek"
+
+msgid "Memorial publications"
+msgstr "Gedenkschriften"
+
+msgid "History of the church"
+msgstr "Kerkgeschiedenis"
+
+msgid "Chronicles"
+msgstr "Kronieken"
+
+msgid "Missions"
+msgstr "Missies"
+
+msgid "Numismatics"
+msgstr "Numismatiek"
+
+msgid "Religious polemic"
+msgstr "Religious polemiek"
+
+msgid "History of universities"
+msgstr "Universiteitsgeschiedenis"
+
+msgid "Kings and other leaders"
+msgstr "Vorsten en andere leiders"
+
+#tags - kunst
+msgid "Architecture"
+msgstr "Architectuur"
+
+msgid "Visual arts"
+msgstr "Beeldende kunsten"
+
+msgid "Art books"
+msgstr "Kunstenaarsboeken"
+
+#tags - media
+msgid "Newspapers"
+msgstr "Kranten"
+
+msgid "Pamphlets"
+msgstr "Pamfletten"
+
+#tags - muziek
+msgid "Songs"
+msgstr "Liederen"
+
+msgid "Sheet music"
+msgstr "Partituren"
+
+msgid "Polyphony"
+msgstr "Polyfonie"
+
+#tags - religie
+msgid "Islam"
+msgstr "Islam"
+
+#tags - taal- en letterkunde
+msgid "Emblemata"
+msgstr "Emblemata"
+
+msgid "Poetry"
+msgstr "Poëzie"
+
+msgid "Novels"
+msgstr "Romans"
+
+msgid "Linguistics"
+msgstr "Taalkunde"
+
+msgid "Theatre"
+msgstr "Toneel"
+
+msgid "Stories"
+msgstr "Verhalen"
+
+#tags - science
+msgid "Astronomy"
+msgstr "Astronomie"
+
+msgid "Zoology"
+msgstr "Dierkunde"
+
+msgid "Encyclopedia"
+msgstr "Encyclopedieën"
+
+msgid "Fossils"
+msgstr "Fossielen"
+
+msgid "Physics"
+msgstr "Fysica"
+
+msgid "Medicine"
+msgstr "Geneeskunde"
+
+msgid "Botany"
+msgstr "Plantkunde"
+
+msgid "Mathematics"
+msgstr "Wiskunde"

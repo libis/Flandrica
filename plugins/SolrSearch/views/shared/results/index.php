@@ -16,10 +16,10 @@
     <div id="wrapper" class="cf">
 
     	<div class="topresults">
-            <div class="resultCount"><?php echo __('%s RESULTATEN', $results->response->numFound); ?></div>
+            <div class="resultCount"><?php echo __('%s RESULTS', $results->response->numFound); ?></div>
 
             <div class="resultDisplay">
-                <span class="weergaveLabel">Weergave</span>
+                <span class="weergaveLabel"><?php echo __("Display"); ?></span>
                 <?php
 	            	//get url
 	            	$uri = SolrSearch_ViewHelpers::getBaseUrl();
@@ -40,9 +40,9 @@
             <div class="resultsPerPage">
             	<form action='<?php echo curPageURL();?>' method="post">
                 <select name="perPage" onchange="this.form.submit()">
-                  <option <?php if($perPage==8){echo 'selected="selected"';}?> value="8">8 resultaten per pagina</option>
-                  <option <?php if($perPage==16){echo 'selected="selected"';}?> value="16">16 resultaten per pagina</option>
-                  <option <?php if($perPage==32){echo 'selected="selected"';}?> value="32">32 resultaten per pagina</option>
+                  <option <?php if($perPage==8){echo 'selected="selected"';}?> value="8"><?php echo __('%s results per page', 8); ?></option>
+                  <option <?php if($perPage==16){echo 'selected="selected"';}?> value="16"><?php echo __('%s results per page', 16); ?></option>
+                  <option <?php if($perPage==32){echo 'selected="selected"';}?> value="32"><?php echo __('%s results per page', 32); ?></option>
                 </select>
                 </form>
             </div>
@@ -145,7 +145,7 @@
 									</p>
 					            <?php endif; ?>
 
-					           <p><a href="<?php echo item_uri('show',$item);?>" class="more">document bekijken</a></p>
+					           <p><a href="<?php echo item_uri('show',$item);?>" class="more"><?php echo __("go to document");?></a></p>
 
 					    	</div>
 
@@ -188,7 +188,7 @@
 		            <?php $props = get_object_vars($values); ?>
 		            <?php if (!empty($props)): ?>
 		            	<section>
-		                <h3 style="clear:both;" class="facet"><?php echo SolrSearch_QueryHelpers::parseFacet($facet); ?></h3>
+		                <h3 style="clear:both;" class="facet"><?php echo __(SolrSearch_QueryHelpers::parseFacet($facet)); ?></h3>
 		                    <ul>
 							<?php foreach($values as $label => $count): ?>
 		                        <li><?php echo SolrSearch_QueryHelpers::createFacetHtml($query, $facet, $label, $count); ?></li>
