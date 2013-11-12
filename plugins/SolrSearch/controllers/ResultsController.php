@@ -79,8 +79,7 @@ class SolrSearch_ResultsController extends Omeka_Controller_Action
             $results = $this->_search($facets, $start, $search_rows);            
             $total = $results->response->numFound / get_option('solr_search_rows');
             if($pgnum > $total){$pgnum = $total;}
-            $request->setParam('page',ceil($pgnum));
-            var_dump($request);
+            $request->setParam('page',ceil($pgnum));            
        
     	}
 

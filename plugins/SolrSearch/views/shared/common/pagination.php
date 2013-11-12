@@ -1,4 +1,3 @@
-<?php //var_dump($this);?>
 <SCRIPT LANGUAGE="javascript">
 <!--
 function submitenter(myfield,e)
