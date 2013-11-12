@@ -5,7 +5,7 @@
   head(array('title' => $pageTitle, 'id' => 'items', 'bodyclass' => 'browse'));
 
   $session = new Zend_Session_Namespace('style');
-
+  
   $style= $session->style;
   $perPage = get_option('solr_search_rows');
   $pgnum = $_POST['pgnum'];

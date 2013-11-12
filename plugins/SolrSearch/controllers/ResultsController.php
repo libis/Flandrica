@@ -44,14 +44,10 @@ class SolrSearch_ResultsController extends Omeka_Controller_Action
     		$session->perPage="5";
     		$session->style="list";
     	}
-
-    	//$session = Zend_Registry::get('session');
-
-    	if(!empty($_GET['style'])){
+        
+       	if(!empty($_GET['style'])){
     		//if style changed
-
     		if($_GET['style'] != $session->style){
-
 	    		//set style
     			$session->style = $_GET['style'];
     			//if new style is gallery, set default perpage to 20
