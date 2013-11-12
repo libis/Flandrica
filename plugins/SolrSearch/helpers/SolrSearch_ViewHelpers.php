@@ -293,7 +293,7 @@ class SolrSearch_ViewHelpers
         echo"_________--";
         echo htmlspecialchars($facetq, ENT_QUOTES)."<br>";*/
         $searchpath = $uri . '?solrq=' . $params['q'] . '&solrfacet=' . htmlspecialchars($facetq, ENT_QUOTES);
-        $a = '<a href="' . $searchpath .'" reg="tag">' . $label . '</a>';
+        $a = '<a href="' . $searchpath .'" reg="tag" rel="nofollow">' . $label . '</a>';
 
         return $a;
     }
