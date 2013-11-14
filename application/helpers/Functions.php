@@ -326,7 +326,7 @@ function get_language_for_omeka_switch(){
 
 function transform_language_id_for_omeka($language_id){
 
-    $omekatypearray=array("en" => "", "nl" => "nl_BE", "fr" => "fr","de"=>"de_DE");
+    $omekatypearray=array("en" => "en_US", "nl" => "nl_BE", "fr" => "fr","de"=>"de_DE");
 
     foreach($omekatypearray as $key=>$omekatypearray){
         if($key==$language_id){

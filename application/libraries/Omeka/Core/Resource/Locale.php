@@ -36,12 +36,8 @@ class Omeka_Core_Resource_Locale extends Zend_Application_Resource_Locale {
         
         if(!$locale){
             $locale= $config->locale;
-             if(isset($SESSION['lang'])){
-                if($_SESSION['lang']=='en'){$locale="en_US";}
-            }  
         }
-        
-       
+               
         if(strlen($locale)>0){            
         //END AANPASSING TAAL-SWITCHER    
             $this->setOptions(array(
