@@ -22,7 +22,7 @@
                 </div>
                 <div id="main">
                   <div class="rubriek">Rondleidingen</div>
-                	<?php echo Libis_getRondleidingen(3);?>
+                	<?php echo Libis_getRondleidingen(4);?>
                 </div>
             </div>
         </div>
