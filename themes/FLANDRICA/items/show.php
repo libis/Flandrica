@@ -3,7 +3,7 @@
   <div id="subnav">
     	<ul>
         	<li class="first back"><a href="javascript:history.go(-1)">Terug naar overzicht</a></li>
-            <li class="raadplegen"><a href="<?php echo item('Item Type Metadata','Object instelling')?>" target="_blank">Online raadplegen</a></li>
+            <li class="raadplegen"><a class="raad-pop" href="#" >Online raadplegen</a></li>
             <li class="share"><a href="http://www.addthis.com/bookmark.php" style="text-decoration:none;"
         							class="addthis_button">Delen en opslaan</a>
         	</li>
@@ -221,6 +221,20 @@
 		<?php echo digitool_get_image_from_file($_POST['pid']);?>
 	</div>
 	<div id="linkResult" style="display:none;"></div>
+        
+        <!-- HIDDEN / POP-UP DIV -->
+        <?php if(item('Item Type Metadata','Object instelling')): ?>
+        <div id="pop-up">
+            <?php
+                $objArray = item('Item Type Metadata','Object instelling',array('all' => true));
+                echo "<ul>";
+                foreach($objArray as $obj){
+                        echo "<li><a href='".$obj."' target='_blank'>".$obj."</a></li>";
+                }
+                echo "</ul>";
+            ?>          
+        </div>
+        <? endif;?>
 </div>
 
 <script type="text/javascript">
@@ -250,6 +264,31 @@
 				link.attr('rel','lightbox[pages]');
 			});
 		});
+                
+                jQuery('a.raad-pop').hover(function(event) {
+                    event.preventDefault();  
+                    var pTop = jQuery(this).offset().top+52;
+                    var pLeft = jQuery(this).offset().left;
+                    jQuery('div#pop-up').show()
+                      .css('top', pTop)
+                      .css('left',pLeft)
+                      .appendTo('body');
+                }, function() {
+                     ;
+                
+                });
+                
+                //if there are links to digital versions create a pop-up
+                if(jQuery('#pop-up').length != 0) {
+                    jQuery("#pop-up").hover(
+                        function(){
+                          jQuery(this).show();
+                        },
+                        function(){
+                            jQuery(this).hide()
+                        }
+                      );
+                }
 		//lightbox.start(jQuery(this));
 		//jQuery('.imagecache-linked').removeAttr('href');
 

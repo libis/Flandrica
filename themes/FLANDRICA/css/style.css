@@ -535,8 +535,11 @@ html #pages-thumbnails{*display:inline-block;*height:100%;*padding: 0 15px;*widt
 
 
 
-#pages-thumbnails a img{
-	margin-right:30px;*margin: 15px;
+#pages-thumbnails a img {
+    margin-right: 30px;
+    max-height: 220px;
+    max-width: 140px;
+    padding-top: 5px;
 }
 
 
@@ -761,6 +764,21 @@ article figure{
 
 article > div{
 	margin-bottom: 10px;
+}
+
+#pop-up{
+        display: none;
+        position: absolute;
+        width: 240px;
+        padding: 10px;
+        background: #fff;
+        color: #000000;
+        border: 1px solid #D5D6D6;
+        font-size: 90%;
+}
+
+#pop-up li{
+    margin-left:15px;
 }
 
 .black{
