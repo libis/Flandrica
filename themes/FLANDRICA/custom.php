@@ -219,8 +219,14 @@ function Libis_set_images(){
 	return $i;
 }
 
-function Libis_getNieuws($number){
-	$items = get_items(array('type'=> '16','recent'=>true),$number);
+function Libis_getNieuws($number,$lang = 'nl'){
+    if($lang == 'nl'):
+        $type="16";
+    elseif($lang == 'en'):
+        $type="17";        
+    endif;
+    
+	$items = get_items(array('type'=> $type,'recent'=>true),$number);
 	//get current date
 	$now= strtotime(date('Y-m-d'));
 
