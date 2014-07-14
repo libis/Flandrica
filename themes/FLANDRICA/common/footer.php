@@ -133,8 +133,8 @@
         <?php
         
         if($_SESSION['lang']){
-            $lang = $_SESSION['lang'];
-            if($lang == "nl_BE"){$lang="";}
+            $lang = $_SESSION['lang']."/";
+            if($lang == "nl/"){$lang="";}
         }else{
             $lang = "";
         }
@@ -143,17 +143,17 @@
        
         ?>    
         <ul>           
-            <?php if(Libis_page_exists($lang.'/over-flandrica-be',$pages)){?>
-                <li><a href="<?php echo uri($lang.'/over-flandrica-be/'); ?>"><?php echo __("About Flandrica");?></a></li>
+            <?php if(Libis_page_exists($lang.'over-flandrica-be',$pages)){?>
+                <li><a href="<?php echo uri($lang.'over-flandrica-be/'); ?>"><?php echo __("About Flandrica");?></a></li>
             <?php } ?>
-            <?php if(Libis_page_exists($lang.'/partners',$pages)){?>    
-                <li><a href="<?php echo uri($lang.'/partners/'); ?>"><?php echo __("Partners");?></a></li>
+            <?php if(Libis_page_exists($lang.'partners',$pages)){?>    
+                <li><a href="<?php echo uri($lang.'partners/'); ?>"><?php echo __("Partners");?></a></li>
             <?php } ?>
-            <?php if(Libis_page_exists($lang.'/colofon',$pages)){?>
-                <li><a href="<?php echo uri($lang.'/colofon/'); ?>"><?php echo __("Colophon");?></a></li>
+            <?php if(Libis_page_exists($lang.'colofon',$pages)){?>
+                <li><a href="<?php echo uri($lang.'colofon/'); ?>"><?php echo __("Colophon");?></a></li>
             <?php } ?>
-            <?php if(Libis_page_exists($lang.'/gebruiksvoorwaarden',$pages)){?>
-                <li><a href="<?php echo uri($lang.'/gebruiksvoorwaarden/'); ?>"><?php echo __("Conditions of use");?></a></li>
+            <?php if(Libis_page_exists($lang.'gebruiksvoorwaarden',$pages)){?>
+                <li><a href="<?php echo uri($lang.'gebruiksvoorwaarden/'); ?>"><?php echo __("Conditions of use");?></a></li>
             <?php } ?>
             <li class="last"><a href="<?php echo uri('contact/'); ?>"><?php echo __("Contact");?></a></li>
             
