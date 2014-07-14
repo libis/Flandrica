@@ -1,0 +1,341 @@
+# Translation template for Flandrica-Omeka.
+# Copyright (C) 2011 Roy Rosenzweig Center for History and New Media
+# This file is distributed under the same license as the Omeka package.
+# Translators:
+# david_veb <david@vlaamse-erfgoedbibliotheek.be>, 2013-2014
+# Susanna <susanna@vlaamse-erfgoedbibliotheek.be>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: flandrica-vertaling\n"
+"POT-Creation-Date: 2011-11-22 16:18-0500\n"
+"PO-Revision-Date: 2014-07-14 10:20+0100\n"
+"Last-Translator: \n"
+"Language-Team: English (http://www.transifex.com/projects/p/flandrica-"
+"vertaling/language/en/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+# #############################
+# theme/Flandrica translations#
+# #############################
+# header.php
+msgid "the"
+msgstr "the"
+
+msgid "by"
+msgstr "by"
+
+msgid "collection"
+msgstr "collection"
+
+msgid "theme"
+msgstr "subject"
+
+msgid "location"
+msgstr "location"
+
+msgid "period"
+msgstr "period"
+
+msgid "tours"
+msgstr "guided tours"
+
+# index.php
+msgid "Info"
+msgstr "Info"
+
+msgid "News"
+msgstr "News"
+
+msgid "Tours"
+msgstr "Guided Tours"
+
+msgid "SEARCH..."
+msgstr "SEARCHING..."
+
+# custom.php - Libis_getRondleidingen
+msgid "To the tour"
+msgstr "To the guided tour"
+
+msgid "more tours"
+msgstr "more guided tours"
+
+msgid "Contact us"
+msgstr "Contact us"
+
+msgid "Name:"
+msgstr "User Name"
+
+msgid "Email:"
+msgstr "User Email"
+
+msgid "Report missing data"
+msgstr "Report hiatus"
+
+msgid "Ask extra information"
+msgstr "Request for additional information"
+
+msgid "Report copyright problem"
+msgstr "Reporting a copyright issue"
+
+msgid "Question about an object"
+msgstr "Inquiring about an object"
+
+msgid "Report problems"
+msgstr "Reporting an issue"
+
+msgid "Other"
+msgstr "Other"
+
+msgid "Send"
+msgstr "Send"
+
+msgid "About Flandrica"
+msgstr "About Flandrica.be"
+
+msgid "Partners"
+msgstr "Partners"
+
+msgid "Colophon"
+msgstr "Colophon"
+
+msgid "Conditions of use"
+msgstr "Terms of Use"
+
+msgid "Contact"
+msgstr "Contact us"
+
+msgid "Start the tour"
+msgstr "Start Guided Tour"
+
+msgid "In this tour"
+msgstr "In this guided tour"
+
+msgid "%s RESULTS"
+msgstr "%s RESULTS"
+
+msgid "Display"
+msgstr "View"
+
+msgid "%s results per page"
+msgstr "%s results per page"
+
+msgid "got to document"
+msgstr "view document"
+
+msgid "Page"
+msgstr "Page"
+
+msgid "of"
+msgstr "of"
+
+msgid "Location (creation)"
+msgstr "Location (Creation)"
+
+msgid "Location (subject)"
+msgstr "Location (Subject)"
+
+msgid "Period"
+msgstr "Period"
+
+msgid "Materials"
+msgstr "Material"
+
+msgid "Geography"
+msgstr "Geography"
+
+msgid "Christianity"
+msgstr "Christianity"
+
+msgid "Daily life"
+msgstr "Daily Life"
+
+msgid "Economy"
+msgstr "Economics"
+
+msgid "Filosophy"
+msgstr "Philosophy"
+
+msgid "History"
+msgstr "History"
+
+msgid "Art"
+msgstr "Art"
+
+msgid "Media"
+msgstr "Media"
+
+msgid "Music"
+msgstr "Music"
+
+msgid "Law and politics"
+msgstr "Law and Politics"
+
+msgid "Religion (others)"
+msgstr "Religion (Other)"
+
+msgid "Linguistics and literature"
+msgstr "Linguistics and Literature Studies"
+
+msgid "Science"
+msgstr "Science"
+
+msgid "General"
+msgstr "General"
+
+msgid "Atlases"
+msgstr "Atlases"
+
+msgid "Climate"
+msgstr "Climate"
+
+msgid "Travelling"
+msgstr "Travel"
+
+msgid "Bibles"
+msgstr "Bibles"
+
+msgid "Catechisms"
+msgstr "Catechisms"
+
+msgid "Devotion"
+msgstr "Devotion"
+
+msgid "Prayer book"
+msgstr "Prayer Books"
+
+msgid "Saints"
+msgstr "Saints"
+
+msgid "Liturgy"
+msgstr "Liturgy"
+
+msgid "Sermons"
+msgstr "Sermons"
+
+msgid "Theology"
+msgstr "Theology"
+
+msgid "Almanacs"
+msgstr "Almanacs"
+
+msgid "Cookbooks"
+msgstr "Cookbooks"
+
+msgid "Education"
+msgstr "Education"
+
+msgid "Infrastructure"
+msgstr "Infrastructure"
+
+msgid "Archeology"
+msgstr "Archaeology"
+
+msgid "Biographies"
+msgstr "Biographies"
+
+msgid "Book & library"
+msgstr "Books & Libraries"
+
+msgid "Conflicts"
+msgstr "Conflicts"
+
+msgid "Heraldry"
+msgstr "Heraldry"
+
+msgid "Memorial publications"
+msgstr "Memoirs"
+
+msgid "History of the church"
+msgstr "Church History"
+
+msgid "Chronicles"
+msgstr "Chronicles"
+
+msgid "Missions"
+msgstr "Missions"
+
+msgid "Numismatics"
+msgstr "Numismatics"
+
+msgid "Religious polemic"
+msgstr "Religious Polemics"
+
+msgid "History of universities"
+msgstr "University History"
+
+msgid "Kings and other leaders"
+msgstr "Monarchs and Other Rulers"
+
+msgid "Architecture"
+msgstr "Architecture"
+
+msgid "Visual arts"
+msgstr "Visual Arts"
+
+msgid "Art books"
+msgstr "Artists' Books"
+
+msgid "Newspapers"
+msgstr "Newspapers"
+
+msgid "Pamphlets"
+msgstr "Pamphlets"
+
+msgid "Songs"
+msgstr "Songs"
+
+msgid "Sheet music"
+msgstr "Sheet Music"
+
+msgid "Polyphony"
+msgstr "Polyphony"
+
+msgid "Islam"
+msgstr "Islam"
+
+msgid "Emblemata"
+msgstr "Emblems"
+
+msgid "Poetry"
+msgstr "Poetry"
+
+msgid "Novels"
+msgstr "Novels"
+
+msgid "Linguistics"
+msgstr "Linguistics"
+
+msgid "Theatre"
+msgstr "Plays"
+
+msgid "Stories"
+msgstr "Stories"
+
+msgid "Astronomy"
+msgstr "Astronomy"
+
+msgid "Zoology"
+msgstr "Zoology"
+
+msgid "Encyclopedia"
+msgstr "Encyclopaedias"
+
+msgid "Fossils"
+msgstr "Fossils"
+
+msgid "Physics"
+msgstr "Physics"
+
+msgid "Medicine"
+msgstr "Medicine"
+
+msgid "Botany"
+msgstr "Botany"
+
+msgid "Mathematics"
+msgstr "Mathematics"
