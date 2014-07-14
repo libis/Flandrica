@@ -767,6 +767,20 @@ article > div{
 	margin-bottom: 10px;
 }
 
+#pop-up{
+    display: none;
+    position: absolute;
+    padding: 10px;
+    background: #fff;
+    color: #000000;
+    border: 1px solid #D5D6D6;
+    font-size: 90%;
+}
+
+#pop-up li{
+    margin-left:15px;
+}
+
 .black{
 	background: #2f2828;
 	color: #fff;
