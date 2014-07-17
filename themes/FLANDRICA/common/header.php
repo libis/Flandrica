@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo get_html_lang(); ?>">
@@ -121,15 +120,19 @@ session_start();
 
 		            </li>
 		            <li class="rondleiding last"><a href="<?php echo html_escape(uri('exhibits/browse/'));?>" class="dropdown"><?php echo __('the');?> <strong><?php echo __('tours');?></strong></a>
-		        	<?php $exhibits = exhibit_builder_get_exhibits();
-						if($exhibits){
-							echo "<ul>";
-			        		foreach($exhibits as $exhibit){
-								echo '<li><a href="'.exhibit_builder_exhibit_uri($exhibit).'">'.$exhibit->title.'</a></li>';
-			        		}
-			        		echo "</ul>";
-						}
+		        	<?php
+                                    $exhibits = exhibit_builder_get_exhibits();
+                                    $lang = libis_get_language();
+                                        if($exhibits){
+                                            echo "<ul>";
+                                        foreach($exhibits as $exhibit){
+                                            if(substr( $exhibit->slug, 0, 2 ) === $lang || ($lang=='nl' && substr( $exhibit->slug, 0, 2 ) !== 'en')):
+                                                echo '<li><a href="'.exhibit_builder_exhibit_uri($exhibit).'">'.$exhibit->title.'</a></li>';
+                                            endif;
+                                        }
+                                        echo "</ul>";
+                                        }
 		        	?>
-					</li>
+                            </li>
 		        </ul>
 		    </nav>

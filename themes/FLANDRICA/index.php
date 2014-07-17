@@ -23,7 +23,7 @@
                 </div>
                 <div id="main">
                   <div class="rubriek"><?php echo __('Tours');?></div>
-                	<?php echo Libis_getRondleidingen(4);?>
+                	<?php echo Libis_getRondleidingen(2);?>
                 </div>
             </div>
         </div>

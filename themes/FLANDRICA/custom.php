@@ -257,38 +257,47 @@ function Libis_getNieuws($number,$lang = 'nl'){
 
 function Libis_getRondleidingen($number){
 	$html ="";
-	$exhibits = exhibit_builder_recent_exhibits($number);
-	foreach($exhibits as $exhibit){
-		$items = get_items(array('exhibit'=> $exhibit->id));
-		$html .= "<div class='blok border-bottom'>";
-		$html .= "<h2>".exhibit_builder_link_to_exhibit($exhibit,$exhibit->title)."</h2>";
+        $i=0;
+        $lang =  libis_get_language();
+	$exhibits = exhibit_builder_recent_exhibits(50);
+	foreach($exhibits as $exhibit):
+            //check language
+            if(substr( $exhibit->slug, 0, 2 ) === $lang || ($lang=='nl' && substr( $exhibit->slug, 0, 2 ) !== 'en')):
+                $items = get_items(array('exhibit'=> $exhibit->id));
+                $html .= "<div class='blok border-bottom'>";
+                $html .= "<h2>".exhibit_builder_link_to_exhibit($exhibit,$exhibit->title)."</h2>";
 
-		if($exhibit->thumbnail){
-			$html .= "<div class='col' style='padding-right:10px;'>";
-			$html .= "<img width=140 src='".digitool_get_thumb_url_by_pid($exhibit->thumbnail)."'>";
-			$html .= "</div>";
-		}else{
-			foreach($items as $item){
-				//get ONE thumb
-				if(digitool_item_has_digitool_url($item)){
-					$html .= "<div class='col' style='padding-left:10px;'>";
-					$html .= digitool_get_thumb($item, true, false,140);
-					$html .= "</div>";
-					break;break;
-				}
-			}
-		}
+                if($exhibit->thumbnail){
+                        $html .= "<div class='col' style='padding-right:10px;'>";
+                        $html .= "<img width=140 src='".digitool_get_thumb_url_by_pid($exhibit->thumbnail)."'>";
+                        $html .= "</div>";
+                }else{
+                        foreach($items as $item){
+                                //get ONE thumb
+                                if(digitool_item_has_digitool_url($item)){
+                                        $html .= "<div class='col' style='padding-left:10px;'>";
+                                        $html .= digitool_get_thumb($item, true, false,140);
+                                        $html .= "</div>";
+                                        break;break;
+                                }
+                        }
+                }               
 
-		$html .= "";
-		$html .= "<p>".snippet_by_word_count($exhibit->description,40)."</p>";
-		$html .= "<h3>" .exhibit_builder_link_to_exhibit($exhibit,__("To the tour"),array('class'=>'more')). "</h3>";
-		$html .= "</div>";
+                $html .= "";
+                $html .= "<p>".snippet_by_word_count($exhibit->description,40)."</p>";
+                $html .= "<h3>" .exhibit_builder_link_to_exhibit($exhibit,__("To the tour"),array('class'=>'more')). "</h3>";
+                $html .= "</div>";
+                
+                $i++;
+                
+            endif;
+            
+            if($i==$number):
+                break;
+            endif;
 
-	}
-	return $html;
-	$html .= "<div class='blok meer'>";
-	$html .= "<p><a href='".uri('exhibits')."' class='more'><strong><?php echo __('more tours');?></strong></a></p>";
-	$html .= "</div>";
+	endforeach;
+	return $html;       
 }
 
 /**
@@ -602,5 +611,13 @@ function Libis_language_widget(){
         $html .= " | <a href='".uri("/?lang=nl")."'>NL</a><br>";
         return $html;
     }   
+}
+
+function libis_get_language(){
+    if(!isset($_SESSION['lang']) || $_SESSION['lang']=='nl'){
+        return "nl";
+    }else{
+        return $_SESSION['lang'];
+    }
 }
 ?>

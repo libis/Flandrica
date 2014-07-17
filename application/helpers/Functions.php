@@ -312,6 +312,24 @@ function body_tag($attributes = array()) {
 }
 
 function get_language_for_omeka_switch(){
+    //if language in slug set language
+    $request = $_SERVER['REQUEST_URI'];
+    
+    $lang_url = '';
+    if (strpos($request,'nl/')!= false) {
+       $lang_url ='nl';
+    }
+    if (strpos($request,'en/')!= false) {
+       $lang_url ='en';
+    }
+           
+    if($lang_url != ''){
+        $_SESSION['lang'] = $lang_url;
+        $_SESSION['lang_po']=transform_language_id_for_omeka($lang_url);
+        return $_SESSION['lang_po'];
+    }
+    
+    //if language change requested (via language menu)     
     if(isset($_GET['lang'])){
        $_SESSION['lang'] = $_GET['lang'];
        $_SESSION['lang_po']=transform_language_id_for_omeka($_GET['lang']);
