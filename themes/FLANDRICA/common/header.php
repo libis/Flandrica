@@ -78,7 +78,7 @@ session_start();
 		    <div class="col headerstuff">
 		        	<!-- <div class="grid-geavanceerd col" style="width:124px; /*border-right:1px solid #e7e7e7;*/ margin:0; padding:0 20px 0 0;"><p><a href="#"  id="search_advanced">GEAVANCEERD ZOEKEN</a></p></div> -->
 					<div class="grid-lang col" style="width:85px; padding:0 0 0 20px; margin:0;"><!--<p><a href="#" class="active">NL</a> &#124; <a href="#">FR</a> &#124; <a href="#">EN</a></p>--></div>
-		            <?php //disable language switcher for now echo Libis_language_widget();?>
+		            <?php echo Libis_language_widget();?>
                             <div class="search">
 		                <form  action="<?php echo uri('solr-search/results/')?>" method="GET">
 		                    <input type="text" class="searchfield" title="Zoeken..." alt="Zoeken..." value="<?php echo __('SEARCH...');?>" name="solrq" maxlength="128" onClick="this.value='';" />
