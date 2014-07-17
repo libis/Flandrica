@@ -221,9 +221,9 @@ function Libis_set_images(){
 
 function Libis_getNieuws($number,$lang = 'nl'){
     if($lang == 'nl'):
-        $type="16";
+        $type="Nieuwsbericht";
     elseif($lang == 'en'):
-        $type="17";        
+        $type="Nieuwsbericht-en";        
     endif;
     
 	$items = get_items(array('type'=> $type,'recent'=>true),$number);
