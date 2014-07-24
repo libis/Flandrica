@@ -12,7 +12,7 @@
     	<div id="sidebar-left">
     		<div class="rubriek-l"><?php echo __('Info');?></div>
                 
-    		<?php echo Libis_getNieuws(1,$_SESSION['lang']);?>
+    		<?php echo Libis_getNieuws(1,libis_get_language());?>
 
 		</div>
     	<div id="container">

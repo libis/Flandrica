@@ -220,9 +220,9 @@ function Libis_set_images(){
 }
 
 function Libis_getNieuws($number,$lang = 'nl'){
-    if($lang == 'nl'):
-        $type="Nieuwsbericht";
-    elseif($lang == 'en'):
+    $type="Nieuwsbericht";
+    
+    if($lang == 'en'):
         $type="Nieuwsbericht-en";        
     endif;
     
