@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flandrica-vertaling\n"
 "POT-Creation-Date: 2011-11-22 16:18-0500\n"
-"PO-Revision-Date: 2014-07-14 10:20+0100\n"
+"PO-Revision-Date: 2014-07-24 15:29+0100\n"
 "Last-Translator: \n"
 "Language-Team: English (http://www.transifex.com/projects/p/flandrica-"
 "vertaling/language/en/)\n"
@@ -145,154 +145,154 @@ msgstr "Period"
 msgid "Materials"
 msgstr "Material"
 
-msgid "Geography"
+msgid "Aardrijkskunde"
 msgstr "Geography"
 
-msgid "Christianity"
+msgid "Christendom"
 msgstr "Christianity"
 
-msgid "Daily life"
+msgid "Dagelijks leven"
 msgstr "Daily Life"
 
-msgid "Economy"
+msgid "Economie"
 msgstr "Economics"
 
-msgid "Filosophy"
+msgid "Filosofie"
 msgstr "Philosophy"
 
-msgid "History"
+msgid "Geschiedenis"
 msgstr "History"
 
-msgid "Art"
+msgid "Kunst"
 msgstr "Art"
 
 msgid "Media"
 msgstr "Media"
 
-msgid "Music"
+msgid "Muziek"
 msgstr "Music"
 
-msgid "Law and politics"
+msgid "Recht en politiek"
 msgstr "Law and Politics"
 
-msgid "Religion (others)"
+msgid "Religie (andere)"
 msgstr "Religion (Other)"
 
-msgid "Linguistics and literature"
+msgid "Taal- en letterkunde"
 msgstr "Linguistics and Literature Studies"
 
-msgid "Science"
+msgid "Wetenschappen"
 msgstr "Science"
 
-msgid "General"
+msgid "Algemeen"
 msgstr "General"
 
-msgid "Atlases"
+msgid "Atlassen"
 msgstr "Atlases"
 
-msgid "Climate"
+msgid "Klimaat"
 msgstr "Climate"
 
-msgid "Travelling"
+msgid "Reizen"
 msgstr "Travel"
 
-msgid "Bibles"
+msgid "Bijbels"
 msgstr "Bibles"
 
-msgid "Catechisms"
+msgid "Catechismussen"
 msgstr "Catechisms"
 
-msgid "Devotion"
+msgid "Devotie"
 msgstr "Devotion"
 
-msgid "Prayer book"
+msgid "Gebedenboeken"
 msgstr "Prayer Books"
 
-msgid "Saints"
+msgid "Heiligen"
 msgstr "Saints"
 
-msgid "Liturgy"
+msgid "Liturgie"
 msgstr "Liturgy"
 
-msgid "Sermons"
+msgid "Preken"
 msgstr "Sermons"
 
-msgid "Theology"
+msgid "Theologie"
 msgstr "Theology"
 
-msgid "Almanacs"
+msgid "Almanakken"
 msgstr "Almanacs"
 
-msgid "Cookbooks"
+msgid "Kookboeken"
 msgstr "Cookbooks"
 
-msgid "Education"
+msgid "Onderwijs"
 msgstr "Education"
 
-msgid "Infrastructure"
+msgid "Infrastructuur"
 msgstr "Infrastructure"
 
-msgid "Archeology"
+msgid "Archeologie"
 msgstr "Archaeology"
 
-msgid "Biographies"
+msgid "Biografieën"
 msgstr "Biographies"
 
-msgid "Book & library"
+msgid "Boek & bibliotheek"
 msgstr "Books & Libraries"
 
-msgid "Conflicts"
+msgid "Conflicten"
 msgstr "Conflicts"
 
-msgid "Heraldry"
+msgid "Heraldiek"
 msgstr "Heraldry"
 
-msgid "Memorial publications"
+msgid "Gedenkschriften"
 msgstr "Memoirs"
 
-msgid "History of the church"
+msgid "Kerkgeschiedenis"
 msgstr "Church History"
 
-msgid "Chronicles"
+msgid "Kronieken"
 msgstr "Chronicles"
 
-msgid "Missions"
+msgid "Missies"
 msgstr "Missions"
 
-msgid "Numismatics"
+msgid "Numismatiek"
 msgstr "Numismatics"
 
-msgid "Religious polemic"
+msgid "Religieuse polemiek"
 msgstr "Religious Polemics"
 
-msgid "History of universities"
+msgid "Universiteitsgeschiedenis"
 msgstr "University History"
 
-msgid "Kings and other leaders"
+msgid "Vorsten en andere leiders"
 msgstr "Monarchs and Other Rulers"
 
-msgid "Architecture"
+msgid "Architectuur"
 msgstr "Architecture"
 
-msgid "Visual arts"
+msgid "Beeldende kunsten"
 msgstr "Visual Arts"
 
-msgid "Art books"
+msgid "Kunstenaarsboeken"
 msgstr "Artists' Books"
 
-msgid "Newspapers"
+msgid "Kranten"
 msgstr "Newspapers"
 
-msgid "Pamphlets"
+msgid "Pamfletten"
 msgstr "Pamphlets"
 
-msgid "Songs"
+msgid "Liederen"
 msgstr "Songs"
 
-msgid "Sheet music"
+msgid "Partituren"
 msgstr "Sheet Music"
 
-msgid "Polyphony"
+msgid "Polyfonie"
 msgstr "Polyphony"
 
 msgid "Islam"
@@ -301,41 +301,47 @@ msgstr "Islam"
 msgid "Emblemata"
 msgstr "Emblems"
 
-msgid "Poetry"
+msgid "Poëzie"
 msgstr "Poetry"
 
-msgid "Novels"
+msgid "Romans"
 msgstr "Novels"
 
-msgid "Linguistics"
+msgid "Taalkunde"
 msgstr "Linguistics"
 
-msgid "Theatre"
+msgid "Toneelstukken"
 msgstr "Plays"
 
-msgid "Stories"
+msgid "Verhalen"
 msgstr "Stories"
 
-msgid "Astronomy"
+msgid "Astronomie"
 msgstr "Astronomy"
 
-msgid "Zoology"
+msgid "Dierkunde"
 msgstr "Zoology"
 
-msgid "Encyclopedia"
+msgid "Encyclopedieën"
 msgstr "Encyclopaedias"
 
-msgid "Fossils"
+msgid "Fossielen"
 msgstr "Fossils"
 
-msgid "Physics"
+msgid "Fysica"
 msgstr "Physics"
 
-msgid "Medicine"
+msgid "Geneeskunde"
 msgstr "Medicine"
 
-msgid "Botany"
+msgid "Plantkunde"
 msgstr "Botany"
 
-msgid "Mathematics"
+msgid "Wiskunde"
 msgstr "Mathematics"
+
+msgid "lees meer"
+msgstr "read more"
+
+msgid "meer nieuws"
+msgstr "more news"

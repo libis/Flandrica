@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
 "POT-Creation-Date: 2011-11-22 16:18-0500\n"
-"PO-Revision-Date: 2013-10-07 16:37+0100\n"
+"PO-Revision-Date: 2014-07-24 15:29+0100\n"
 "Last-Translator: \n"
 "Language-Team: Dutch (Belgium) (http://www.transifex.net/projects/p/omeka/"
 "team/nl_BE/)\n"
@@ -3132,162 +3132,162 @@ msgid "Materials"
 msgstr "Materiaal"
 
 # tags
-msgid "Geography"
+msgid "Aardrijkskunde"
 msgstr "Aardrijkskunde"
 
-msgid "Christianity"
+msgid "Christendom"
 msgstr "Christendom"
 
-msgid "Daily life"
+msgid "Dagelijks leven"
 msgstr "Dagelijks leven"
 
-msgid "Economy"
+msgid "Economie"
 msgstr "Economie"
 
-msgid "Filosophy"
+msgid "Filosofie"
 msgstr "Filosofie"
 
-msgid "History"
+msgid "Geschiedenis"
 msgstr "Geschiedenis"
 
-msgid "Art"
+msgid "Kunst"
 msgstr "Kunst"
 
 msgid "Media"
 msgstr "Media"
 
-msgid "Music"
+msgid "Muziek"
 msgstr "Muziek"
 
-msgid "Law and politics"
+msgid "Recht en politiek"
 msgstr "Recht en politiek"
 
-msgid "Religion (others)"
+msgid "Religie (andere)"
 msgstr "Religie (andere)"
 
-msgid "Linguistics and literature"
+msgid "Taal- en letterkunde"
 msgstr "Taal- en letterkunde"
 
-msgid "Science"
+msgid "Wetenschappen"
 msgstr "Wetenschappen"
 
 # tags - aardrijkskunde
-msgid "General"
+msgid "Algemeen"
 msgstr "Algemeen"
 
-msgid "Atlases"
+msgid "Atlassen"
 msgstr "Atlassen"
 
-msgid "Climate"
+msgid "Klimaat"
 msgstr "Klimaat"
 
-msgid "Travelling"
+msgid "Reizen"
 msgstr "Reizen"
 
 # tags - christendom
-msgid "Bibles"
+msgid "Bijbels"
 msgstr "Bijbels"
 
-msgid "Catechisms"
+msgid "Catechismussen"
 msgstr "Catechismussen"
 
-msgid "Devotion"
+msgid "Devotie"
 msgstr "Devotie"
 
-msgid "Prayer book"
+msgid "Gebedenboeken"
 msgstr "Gebedenboeken"
 
-msgid "Saints"
+msgid "Heiligen"
 msgstr "Heiligen"
 
-msgid "Liturgy"
+msgid "Liturgie"
 msgstr "Liturgie"
 
-msgid "Sermons"
+msgid "Preken"
 msgstr "Preken"
 
-msgid "Theology"
+msgid "Theologie"
 msgstr "Theologie"
 
 # tags - dagelijks leven
-msgid "Almanacs"
+msgid "Almanakken"
 msgstr "Almanakken"
 
-msgid "Cookbooks"
+msgid "Kookboeken"
 msgstr "Kookboeken"
 
-msgid "Education"
+msgid "Onderwijs"
 msgstr "Onderwijs"
 
 # tags - economie
-msgid "Infrastructure"
+msgid "Infrastructuur"
 msgstr "Infrastructuur"
 
 # tags - geschiedenis
-msgid "Archeology"
+msgid "Archeologie"
 msgstr "Archeologie"
 
-msgid "Biographies"
+msgid "Biografieën"
 msgstr "Biografieën"
 
-msgid "Book & library"
+msgid "Boek & bibliotheek"
 msgstr "Boek & bibliotheek"
 
-msgid "Conflicts"
+msgid "Conflicten"
 msgstr "Conflicten"
 
-msgid "Heraldry"
+msgid "Heraldiek"
 msgstr "Heraldiek"
 
-msgid "Memorial publications"
+msgid "Gedenkschriften"
 msgstr "Gedenkschriften"
 
-msgid "History of the church"
+msgid "Kerkgeschiedenis"
 msgstr "Kerkgeschiedenis"
 
-msgid "Chronicles"
+msgid "Kronieken"
 msgstr "Kronieken"
 
-msgid "Missions"
+msgid "Missies"
 msgstr "Missies"
 
-msgid "Numismatics"
+msgid "Numismatiek"
 msgstr "Numismatiek"
 
-msgid "Religious polemic"
+msgid "Religious polemiek"
 msgstr "Religious polemiek"
 
-msgid "History of universities"
+msgid "Universiteitsgeschiedenis"
 msgstr "Universiteitsgeschiedenis"
 
-msgid "Kings and other leaders"
+msgid "Vorsten en andere leiders"
 msgstr "Vorsten en andere leiders"
 
 # tags - kunst
-msgid "Architecture"
+msgid "Architectuur"
 msgstr "Architectuur"
 
-msgid "Visual arts"
+msgid "Beeldende kunsten"
 msgstr "Beeldende kunsten"
 
-msgid "Art books"
+msgid "Kunstenaarsboeken"
 msgstr "Kunstenaarsboeken"
 
 # tags - media
-msgid "Newspapers"
+msgid "Kranten"
 msgstr "Kranten"
 
-msgid "Pamphlets"
+msgid "Pamfletten"
 msgstr "Pamfletten"
 
 # tags - muziek
-msgid "Songs"
+msgid "Liederen"
 msgstr "Liederen"
 
-msgid "Sheet music"
+msgid "Partituren"
 msgstr "Partituren"
 
-msgid "Polyphony"
+msgid "Polyfonie"
 msgstr "Polyfonie"
 
 # tags - religie
@@ -3298,42 +3298,108 @@ msgstr "Islam"
 msgid "Emblemata"
 msgstr "Emblemata"
 
-msgid "Poetry"
+msgid "Poëzie"
 msgstr "Poëzie"
 
-msgid "Novels"
+msgid "Romans"
 msgstr "Romans"
 
-msgid "Linguistics"
+msgid "Taalkunde"
 msgstr "Taalkunde"
 
-msgid "Theatre"
-msgstr "Toneel"
-
-msgid "Stories"
+msgid "Verhalen"
 msgstr "Verhalen"
 
 # tags - science
-msgid "Astronomy"
+msgid "Astronomie"
 msgstr "Astronomie"
 
-msgid "Zoology"
+msgid "Dierkunde"
 msgstr "Dierkunde"
 
-msgid "Encyclopedia"
+msgid "Encyclopedieën"
 msgstr "Encyclopedieën"
 
-msgid "Fossils"
+msgid "Fossielen"
 msgstr "Fossielen"
 
-msgid "Physics"
+msgid "Fysica"
 msgstr "Fysica"
 
-msgid "Medicine"
+msgid "Geneeskunde"
 msgstr "Geneeskunde"
 
-msgid "Botany"
+msgid "Plantkunde"
 msgstr "Plantkunde"
 
-msgid "Mathematics"
+msgid "Wiskunde"
 msgstr "Wiskunde"
+
+msgid "lees meer"
+msgstr "lees meer"
+
+msgid "meer nieuws"
+msgstr "meer nieuws"
+
+msgid "Terug naar overzicht"
+msgstr "Terug naar overzicht"
+
+msgid "Online raadplegen"
+msgstr "Online raadplegen"
+
+msgid "Delen en opslaan"
+msgstr "Delen en opslaan"
+
+msgid "Afdrukken"
+msgstr "Afdrukken"
+
+msgid "Reageren"
+msgstr "Reageren"
+
+msgid "Dit werk online raadplegen"
+msgstr "Dit werk online raadplegen"
+
+msgid "Alternatieve titel"
+msgstr "Alternatieve titel"
+
+msgid "Auteur"
+msgstr "Auteur"
+
+msgid "Jaar"
+msgstr "Jaar"
+
+msgid "Plaats"
+msgstr "Plaats"
+
+msgid "Materiaal"
+msgstr "Materiaal"
+
+msgid "Periode"
+msgstr "Periode"
+
+msgid "Plaats (Onderwerp)"
+msgstr "Plaats (Onderwerp)"
+
+msgid "Erfgoedbibliotheek"
+msgstr "Erfgoedbibliotheek"
+
+msgid "Catalogus"
+msgstr "Catalogus"
+
+msgid "Digitale kopie"
+msgstr "Digitale kopie"
+
+msgid "Zie ook"
+msgstr "Zie ook"
+
+msgid "Literatuurverwijzing"
+msgstr "Literatuurverwijzing"
+
+msgid "Referentiedatabank"
+msgstr "Referentiedatabank"
+
+msgid "Toelichting"
+msgstr "Toelichting"
+
+msgid "Ander exemplaar"
+msgstr "Ander exemplaar"

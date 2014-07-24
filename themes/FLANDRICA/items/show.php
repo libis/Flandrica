@@ -73,7 +73,7 @@
 							<?php if (item('Item Type Metadata', 'Verantwoording')): ?>
 							<p><?php echo item('Item Type Metadata', 'Verantwoording'); ?></p>
 							<?php endif; ?>
-                    	<h3><a href="<?php echo item('Item Type Metadata','Object instelling')?>" target="_blank" class="more">Dit werk online raadplegen</a></h3>
+                    	<h3><a href="<?php echo item('Item Type Metadata','Object instelling')?>" target="_blank" class="more"><?php echo __('Dit werk online raadplegen')?></a></h3>
                     </div>
                     <div>
 	                    <ul class="extra-right">
@@ -93,64 +93,64 @@
                         	<tbody>
 			<!-- Titel-->
 				<?php if(item('Dublin Core','Title')):?>
-					<tr><td class="label">Titel</td>
+					<tr><td class="label"><?php echo __("Title")?></td>
 					<td><?php echo item('Dublin Core','Title');?></td></tr>
 				<?php endif;?>
 				<?php if(item('Dublin Core', 'Alternative Title')):?>
-					<tr><td class="label">Alternatieve titel<td> <?php echo item('Dublin Core', 'Alternative Title');?></td></tr>
+					<tr><td class="label"><?php echo __("Alternatieve titel")?><td> <?php echo item('Dublin Core', 'Alternative Title');?></td></tr>
 				<?php endif; ?>
 			<!-- creator -->
 				<?php if(!empty($auteurs)) { ?>
-				<tr><td class="label">Auteur</td>
+				<tr><td class="label"><?php echo __('Auteur')?></td>
 					<td><?php echo $auteurs;?></td></tr>
 				<?php } ?>
 			<!-- Date created -->
 				<?php if(item('Dublin Core','Date Created')):?>
-					<tr><td class="label">Jaar</td>
+					<tr><td class="label"><?php echo __('Jaar')?></td>
 					<td><?php echo item('Dublin Core','Date Created', array('delimiter' => ', '));?></td></tr>
 				<?php endif;?>
 			<!-- Creatie plaats -->
 				<?php if(item('Item Type Metadata','Creatie plaats')):?>
-					<tr><td class="label">Plaats</td>
+					<tr><td class="label"><?php echo __('Plaats')?></td>
 					<td><?php echo item('Item Type Metadata','Creatie plaats', array('delimiter' => ', '));?></td></tr>
 				<?php endif;?>
 			<!-- Uitgever -->
 				<?php if(item('Dublin Core','Publisher')):?>
-					<tr><td class="label">Uitgever</td>
+					<tr><td class="label"><?php echo __('Publisher')?></td>
 					<td><?php echo item('Dublin Core','Publisher', array('delimiter' => '<br />'));?>
 					</td></tr>
 				<?php endif;?>
 			<!-- Taal -->
 				<?php if(item('Dublin Core','Language')):?>
-					<tr><td class="label">Taal</td>
+					<tr><td class="label"><?php echo __('Language')?></td>
 					<td><?php echo item('Dublin Core','Language', array('delimiter' => ', '));?>
 					</td></tr>
 				<?php endif;?>
 			<!--Materiaal -->
 				<?php if(item('Item Type Metadata','Materiaal')):?>
-					<tr><td class="label">Materiaal</td>
+					<tr><td class="label"><?php echo _('Materiaal')?></td>
 					<td><?php echo item('Item Type Metadata','Materiaal', array('delimiter' => ', '));?>
 					</td></tr>
 				<?php endif;?>
 			<!-- Temporal Coverage-->
 				<?php if(item('Item Type Metadata','Periode')):?>
-					<tr><td class="label">Periode</td>
+					<tr><td class="label"><?php echo __('Periode')?></td>
 					<td><?php echo item('Item Type Metadata','Periode', array('delimiter' => ', '));?></td></tr>
 				<?php endif;?>
 			<!-- Onderwerp plaats -->
 				<?php if(item('Item Type Metadata','Onderwerp plaats')):?>
-					<tr><td class="label">Plaats (Onderwerp)</td>
+					<tr><td class="label"><?php echo __('Plaats (Onderwerp)')?></td>
 					<td><?php echo item('Item Type Metadata','Onderwerp plaats', array('delimiter' => ', '));?></td></tr>
 				<?php endif;?>
 			<!-- Links + erfgoedbibliotheek -->
 				<?php if(item('Item Type Metadata','Organisatie')):?>
-					<tr><td class="label">Erfgoedbibliotheek</td>
+					<tr><td class="label"><?php echo __('Erfgoedbibliotheek')?></td>
 					<td><a href="<?php echo item('Item Type Metadata','Link organisatie');?>">
 					<?php echo item('Item Type Metadata','Organisatie');?></a></td></tr>
 				<?php endif;?>
 			<!-- Catalogus -->
 				<?php if(item('Item Type Metadata','Catalogus')):?>
-				<tr><td class="label">Catalogus</td>
+				<tr><td class="label"><?php echo __('Catalogus')?></td>
 				<td>
 					<?php
 						$catArray = item('Item Type Metadata','Catalogus',array('all' => true));
@@ -162,7 +162,7 @@
 				<?php endif;?>
 			<!--digitale kopie -->
 				 <?php if(item('Item Type Metadata','Object instelling')): ?>
-				 <tr><td class="label">Digitale kopie</td>
+				 <tr><td class="label"><?php echo __('Digitale kopie')?></td>
 				<td>
 					<?php
 						$objArray = item('Item Type Metadata','Object instelling',array('all' => true));
@@ -174,31 +174,31 @@
 				<?php endif;?>
 				<!-- Zie ook -->
 				<?php if(item('Item Type Metadata','Zie ook')):?>
-					<tr><td class="label">Zie ook</td>
+					<tr><td class="label"><?php echo __('Zie ook')?></td>
 					<td><?php echo item('Item Type Metadata','Zie ook', array('delimiter' => ', '));?>
 					</td></tr>
 				<?php endif;?>
 				<!-- Literatuur -->
 				<?php if(item('Item Type Metadata','Literatuur')):?>
-					<tr><td class="label">Literatuurverwijzing</td>
+					<tr><td class="label"><?php echo __('Literatuurverwijzing')?></td>
 					<td><?php echo item('Item Type Metadata','Literatuur', array('delimiter' => ', '));?>
 					</td></tr>
 				<?php endif;?>
 				<!-- STCV-record, Abraham-record  -->
 				<?php if(item('Item Type Metadata','Extern systeem')):?>
-					<tr><td class="label">Referentiedatabank</td>
+					<tr><td class="label"><?php echo __('Referentiedatabank')?></td>
 					<td><a href="<?php echo item('Item Type Metadata','Extern systeem');?>"><?php echo item('Item Type Metadata','Extern systeem');?></a>
 					</td></tr>
 				<?php endif;?>
 				<!-- Toelichting -->
 				<?php if(item('Item Type Metadata','Toelichting')):?>
-					<tr><td class="label">Toelichting</td>
+					<tr><td class="label"><?php echo __('Toelichting')?></td>
 					<td><?php echo item('Item Type Metadata','Toelichting', array('delimiter' => ', '));?>
 					</td></tr>
 				<?php endif; ?>
 				<!-- Ander exemplaar -->
 				<?php if(item('Item Type Metadata','Ander exemplaar')):?>
-					<tr><td class="label">Ander exemplaar</td>
+					<tr><td class="label"><?php echo __('Ander exemplaar')?></td>
 					<td><a href="<?php echo item('Item Type Metadata','Ander exemplaar');?>"><?php echo item('Item Type Metadata','Ander exemplaar');?></a>
 					</td></tr>
 				<?php endif;?>

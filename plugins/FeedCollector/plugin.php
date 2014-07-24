@@ -23,14 +23,9 @@ function feedCollector_config_form() {
 //process the config_form
 function feedCollector_config() {
 	//get the POST variables from config_form and set them in the DB
-	if($_POST["rss"])
-		set_option('feedCollector_rss',$_POST['rss']);
-
-	if($_POST["proxy"])
-		set_option('feedCollector_proxy',$_POST['proxy']);
-
-	if($_POST["limit"])
-		set_option('feedCollector_limit',$_POST['limit']);
+	set_option('feedCollector_rss',$_POST['rss']);
+        set_option('feedCollector_proxy',$_POST['proxy']);
+        set_option('feedCollector_limit',$_POST['limit']);
 }
 
 //handle the installation
@@ -75,7 +70,7 @@ function feedCollector_show($class = "feed-box") {
 }
 
 function feedCollector_convertToHtml($feed,$proxy,$limit,$class) {
-	//$compression='gzip',$proxy='icts-http-gw.cc.kuleuven.be:8080') {
+	
 	$headers[] = 'Accept: text/html,application/xhtml+xml,application/xml';
 	$headers[] = 'Connection: Keep-Alive';
 	$headers[] = 'Content-type: application/xml;charset=UTF-8';
@@ -142,10 +137,10 @@ function parseRSS($xml,$cnt,$class)
 		*/
 
 		$html.= '<h2><a href="'.$url.'">'.$title.'</a></h2>';
-		$html.= '<div class="content"><p>'.$desc.'</p><h3><a class="more" href="'.$url.'">lees meer</a></h3></div>';
+		$html.= '<div class="content"><p>'.$desc.'</p><h3><a class="more" href="'.$url.'">'.__("lees meer").'</a></h3></div>';
 		$html.='</div>';
 	}
-	$html .= '<div class="blok meer"><p><a class="more" href="'.$xml->channel->link.'"><strong>meer nieuws</strong></a></p></div>';
+	$html .= '<div class="blok meer"><p><a class="more" href="'.$xml->channel->link.'"><strong>'.__('meer nieuws').'</strong></a></p></div>';
 	return $html;
 }
 
