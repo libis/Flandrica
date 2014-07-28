@@ -308,11 +308,15 @@ class Apache_Solr_Service
 		if ($this->_queryBracketsEscaped)
 		{
 			$queryString = http_build_query($params, null, $this->_queryStringDelimiter);
+                        $queryString = str_replace('%26', '%26amp%3B', $queryString);
+                        echo $queryString;
 			return preg_replace('/%5B(?:[0-9]|[1-9][0-9]+)%5D=/', '=', $queryString);
 		}
 		else
 		{
 			$queryString = http_build_query($params);
+                        $queryString = str_replace('%26', '%26amp%3B', $queryString);
+                        echo $queryString;
 			return preg_replace('/\\[(?:[0-9]|[1-9][0-9]+)\\]=/', '=', $queryString);
 		}
 	}
