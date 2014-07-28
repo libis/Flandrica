@@ -526,9 +526,9 @@ function digitool_simple_gallery_flandrica($item,$link_rood="#"){
 			//$html.= "<a  class='lightLink' alt='".digitool_get_image_from_file($u->pid)."' title='".$titel."' href='#'>";
 
 			$html.= "<img src='".$thumb."' alt='".$titel."' />";
-
+                        $html.= "</a>";    
 			$html.= "<div class='tooltip' ><div class='slideTitle'>".$titel."<span class='slideAuthor'></span></div><span class='slidePlace'></span></div>";
-			$html.= "</a>";
+			
 			$i++;                        
 		}
 	}
