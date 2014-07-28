@@ -508,7 +508,7 @@ function digitool_simple_gallery_flandrica($item,$link_rood="#"){
 		$html .= "<a href='".item('Item Type Metadata','Object instelling')."' target='_blank'><div class='bekijk-online'></div></a>
 			<a rel='lightbox[pages]' title='".$titel."' href='".digitool_get_image_from_file($url[0]->pid)."'>";
 		$html.= "<img src='".$thumb."' alt='".$titel."'/>";
-		$html.= "<div class='tooltip'><div class='slideTitle'>".$titel."<span class='slideAuthor'></div><span class='slidePlace'></span></div>";
+		$html.= "<div class='tooltip'><div class='slideTitle'>".$titel."<span class='slideAuthor'></span></div><span class='slidePlace'></span></div>";
 		$html.= "</a>";
 		return $html;
 	}else{
