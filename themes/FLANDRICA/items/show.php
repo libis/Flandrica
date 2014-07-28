@@ -254,9 +254,11 @@
    };
 
 	//fixes height problems with tags
-	if($('.extra-right').height() > $('.extra-left').height()){
-		$('.extra-left').height($('.extra-right').height());
-	}
+        jQuery(window).load(function(){
+            if(jQuery('.extra-right').height() > jQuery('.extra-left').height()){
+		jQuery('.extra-left').height(jQuery('.extra-right').height());
+            }
+        });
 
 
 
