@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flandrica-vertaling\n"
 "POT-Creation-Date: 2011-11-22 16:18-0500\n"
-"PO-Revision-Date: 2014-08-04 10:04+0100\n"
+"PO-Revision-Date: 2014-08-04 16:41+0100\n"
 "Last-Translator: \n"
 "Language-Team: English (http://www.transifex.com/projects/p/flandrica-"
 "vertaling/language/en/)\n"
@@ -55,7 +55,7 @@ msgid "Tours"
 msgstr "Guided Tours"
 
 msgid "SEARCH..."
-msgstr "SEARCHING..."
+msgstr "SEARCH..."
 
 # custom.php - Libis_getRondleidingen
 msgid "To the tour"
@@ -80,13 +80,13 @@ msgid "Ask extra information"
 msgstr "Request for additional information"
 
 msgid "Report copyright problem"
-msgstr "Reporting a copyright issue"
+msgstr "Report a copyright issue"
 
 msgid "Question about an object"
-msgstr "Inquiring about an object"
+msgstr "Inquire about an object"
 
 msgid "Report problems"
-msgstr "Reporting an issue"
+msgstr "Report an issue"
 
 msgid "Other"
 msgstr "Other"
@@ -110,7 +110,7 @@ msgid "Contact"
 msgstr "Contact us"
 
 msgid "Start the tour"
-msgstr "Start Guided Tour"
+msgstr "Start the guided tour"
 
 msgid "In this tour"
 msgstr "In this guided tour"
@@ -134,10 +134,10 @@ msgid "of"
 msgstr "of"
 
 msgid "Location (creation)"
-msgstr "Location (Creation)"
+msgstr "Place of Publication"
 
 msgid "Location (subject)"
-msgstr "Location (Subject)"
+msgstr "Geographical Terms"
 
 msgid "Period"
 msgstr "Period"
