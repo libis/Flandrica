@@ -2,22 +2,22 @@
 <?php if(item_has_type("Flandrica-object")){?>
   <div id="subnav">
     	<ul>
-            <li class="first back"><a href="javascript:history.go(-1)">Terug naar overzicht</a></li>
+            <li class="first back"><a href="javascript:history.go(-1)"><?php echo __('Terug naar overzicht')?></a></li>
             <?php if(item('Item Type Metadata','Object instelling')): 
                 $objArray = item('Item Type Metadata','Object instelling',array('all' => true));
                 if(sizeof($objArray)>1):?>
-                    <li class="raadplegen"><a class="raad-pop" href="#" >Online raadplegen</a></li>
+                    <li class="raadplegen"><a class="raad-pop" href="#" ><?php echo __('Online raadplegen')?></a></li>
                 <?php else:?>
-                    <li class="raadplegen"><a href="<?php echo item('Item Type Metadata','Object instelling')?>" target="_blank">Online raadplegen</a></li>
+                    <li class="raadplegen"><a href="<?php echo item('Item Type Metadata','Object instelling')?>" target="_blank"><?php echo __('Online raadplegen')?></a></li>
                     <?php endif;
                 
             endif;?>            
             
             <li class="share"><a href="http://www.addthis.com/bookmark.php" style="text-decoration:none;"
-        							class="addthis_button">Delen en opslaan</a>
+        							class="addthis_button"><?php echo __('Delen en opslaan')?></a>
         	</li>
-            <li class="print"><a href="#" onClick="window.print()">Afdrukken</a></li>
-            <li class="last comment"><a href="<?php echo uri('contact/?onderwerp=Vraag stellen over object&message=Reactie op '.item('Dublin Core', 'Title'))?>">Reageren</a></li>
+            <li class="print"><a href="#" onClick="window.print()"><?php echo __('Afdrukken')?></a></li>
+            <li class="last comment"><a href="<?php echo uri('contact/?onderwerp=Vraag stellen over object&message=Reactie op '.item('Dublin Core', 'Title'))?>"><?php echo __('Reageren')?></a></li>
         </ul>
     </div>
     <div class="clearfix"></div>
@@ -128,7 +128,7 @@
 				<?php endif;?>
 			<!--Materiaal -->
 				<?php if(item('Item Type Metadata','Materiaal')):?>
-					<tr><td class="label"><?php echo _('Materiaal')?></td>
+					<tr><td class="label"><?php echo __('Materiaal')?></td>
 					<td><?php echo item('Item Type Metadata','Materiaal', array('delimiter' => ', '));?>
 					</td></tr>
 				<?php endif;?>
