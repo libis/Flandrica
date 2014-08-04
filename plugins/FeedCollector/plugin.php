@@ -50,13 +50,8 @@ function feedCollector_show($class = "feed-box") {
 
 	$rss = get_option('feedCollector_rss');
         
-        if($_SESSION['lang'] == 'en'):
-            $rss = str_replace("/flandrica/nieuws/feed","/en/flandrica/nieuws/feed",$rss);
-        endif;
-        
 	$proxy = get_option('feedCollector_proxy');
 	$limit = get_option('feedCollector_limit');
-
 
 
 	if(!empty($rss))
