@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flandrica-vertaling\n"
 "POT-Creation-Date: 2011-11-22 16:18-0500\n"
-"PO-Revision-Date: 2014-07-24 15:29+0100\n"
+"PO-Revision-Date: 2014-08-04 10:04+0100\n"
 "Last-Translator: \n"
 "Language-Team: English (http://www.transifex.com/projects/p/flandrica-"
 "vertaling/language/en/)\n"
@@ -345,3 +345,81 @@ msgstr "read more"
 
 msgid "meer nieuws"
 msgstr "more news"
+
+msgid "Terug naar overzicht"
+msgstr "Back to results list"
+
+msgid "Online raadplegen"
+msgstr "Consult online"
+
+msgid "Delen en opslaan"
+msgstr "Share or Save"
+
+msgid "Afdrukken"
+msgstr "Print"
+
+msgid "Reageren"
+msgstr "Comment"
+
+msgid "Dit werk online raadplegen"
+msgstr "Consult this work online"
+
+msgid "Alternatieve titel"
+msgstr "Alternate Title"
+
+msgid "Auteur"
+msgstr "Author"
+
+msgid "Jaar"
+msgstr "Year"
+
+msgid "Plaats"
+msgstr "Place of Publicaton"
+
+msgid "Materiaal"
+msgstr "Type of Material"
+
+msgid "Periode"
+msgstr "Period"
+
+msgid "Plaats (Onderwerp)"
+msgstr "Geographical Terms"
+
+msgid "Erfgoedbibliotheek"
+msgstr "Heritage Library"
+
+msgid "Catalogus"
+msgstr "Catalogue"
+
+msgid "Digitale kopie"
+msgstr "Digital Copy"
+
+msgid "Zie ook"
+msgstr "See also"
+
+msgid "Literatuurverwijzing"
+msgstr "References"
+
+msgid "Referentiedatabank"
+msgstr "Bibliographic Repertory"
+
+msgid "Toelichting"
+msgstr "Notes"
+
+msgid "Ander exemplaar"
+msgstr "Alternate Copy"
+
+msgid "oude druk"
+msgstr "Handprint Edition"
+
+msgid "handschrift"
+msgstr "Manuscript"
+
+msgid "periodiek"
+msgstr "Periodical"
+
+msgid "grafisch en documentair materiaal"
+msgstr "Graphic and Documentary Material"
+
+msgid "moderne druk"
+msgstr "Modern Edition"
