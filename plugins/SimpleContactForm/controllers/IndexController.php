@@ -7,13 +7,16 @@ class SimpleContactForm_IndexController extends Omeka_Controller_Action
 
 		$email = isset($_POST['email']) ? $_POST['email'] : '';;
 		$message = isset($_POST['message']) ? $_POST['message'] : '';;
+                
+                $onderwerp = isset($_POST['onderwerp']) ? $_POST['onderwerp'] : '';;
+                $instelling = isset($_POST['instelling']) ? $_POST['instelling'] : '';;
 
 	    $captchaObj = $this->_setupCaptcha();
 
 	    if ($this->getRequest()->isPost()) {
     		// If the form submission is valid, then send out the email
     		if ($this->_validateFormSubmission($captchaObj)) {
-				$this->sendEmailNotification($_POST['email'], $_POST['name'], $_POST['message']);
+				$this->sendEmailNotification($_POST['email'], $_POST['name'], $_POST['message'],$onderwerp,$instelling);
 	            $this->redirect->gotoRoute(array(), 'simple_contact_form_thankyou');
     		}
 	    }
@@ -40,7 +43,7 @@ class SimpleContactForm_IndexController extends Omeka_Controller_Action
 	    $msg = $this->getRequest()->getPost('message');
 	    $email = $this->getRequest()->getPost('email');
 	    // ZF ReCaptcha ignores the 1st arg.
-	    if ($captcha and !$captcha->isValid('foo', $_POST)) {
+	   /* if ($captcha and !$captcha->isValid('foo', $_POST)) {
             $this->flashError('Your CAPTCHA submission was invalid, please try again.');
             $valid = false;
 	    } else if (!Zend_Validate::is($email, 'EmailAddress')) {
@@ -49,7 +52,7 @@ class SimpleContactForm_IndexController extends Omeka_Controller_Action
 	    } else if (empty($msg)) {
             $this->flashError('Please enter a message.');
             $valid = false;
-	    }
+	    }*/
 
 	    return $valid;
 	}
@@ -59,11 +62,18 @@ class SimpleContactForm_IndexController extends Omeka_Controller_Action
         return Omeka_Captcha::getCaptcha();
     }
 
-	protected function sendEmailNotification($formEmail, $formName, $formMessage) {
+	protected function sendEmailNotification($formEmail, $formName, $formMessage,$onderwerp,$instelling) {
 
-		//notify the admin
-		//use the admin email specified in the plugin configuration.
-        $forwardToEmail = get_option('simple_contact_form_forward_to_email');
+        if(empty($onderwerp)):
+            $onderwerp = get_option('site_title') . ' - ' . get_option('simple_contact_form_admin_notification_email_subject');
+        endif;    
+        
+        if($instelling = 'Algemeen'):
+            $forwardToEmail = get_option('simple_contact_form_forward_to_email');
+        else:
+            $forwardToEmail = get_option('simple_contact_form_mail-'.$instelling);
+        endif;
+		         
         $bcc = get_option('simple_contact_form_bcc');
 
         if (!empty($forwardToEmail)) {

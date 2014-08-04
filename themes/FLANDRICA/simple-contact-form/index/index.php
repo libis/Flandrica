@@ -52,7 +52,34 @@
 					        	echo $title;
 					        ?>
 					        </div>
-
+                                                                                                       
+                                                <?php
+                                                $collections = get_collections();
+                                                if($collections):
+                                                    asort($collections);
+                                                ?>        
+                                                <div class="field">
+							<?php
+								if($_GET['instelling'])
+									$value = $_GET['instelling'];
+								else
+									$value = __('Algemeen');
+                                                                
+                                                                $options = array();
+                                                                foreach ($collections as $collection):
+                                                                    $options[$collection->name] = $collection->name;
+                                                                endforeach;
+                                                                $options["Algemeen"] = __("Algemeen");
+                                                                
+								$title = new Zend_Form_Element_Select('instelling');
+                                                                $title->setLabel(__('Instelling'))
+					        			//hier een $_GET['onderwerp']
+					        			->setValue($value)
+					        	   	  	->setMultiOptions($options)				              		->setRequired(true)->addValidator('NotEmpty', true);
+					        	echo $title;
+					        ?>
+					        </div>
+                                                <?php endif;?>            
 							<div class="field">
 							  <?php
 							  	echo "<br>";

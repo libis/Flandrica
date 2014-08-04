@@ -62,6 +62,28 @@ $view = __v();
         </p>
     </div>
 </div>
+    
+<?php
+$collections = get_collections();
+if($collections):
+    asort($collections);
+endif;
+?>        
+
+    <?php     
+        foreach ($collections as $collection):
+            ?>
+            <div class="field">
+            <?php
+            echo $view->formLabel('mail-'.$collection->name, 'Email '.$collection->name);
+            ?>
+            <div class="inputs">
+            <?php echo $view->formText('mail-'.str_replace(' ', '',$collection->name), get_option('simple_contact_form_mail-'.$collection->name), array('class' => 'textinput')); ?>
+            
+            </div></div>
+           <?php
+        endforeach;        
+    ?>
 
  <div class="field">
     <?php echo $view->formLabel('admin_notification_email_subject', 'Email Subject (Admin Notification)'); ?>

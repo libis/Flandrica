@@ -106,6 +106,14 @@ function simple_contact_form_config()
 	set_option('simple_contact_form_thankyou_page_title', $_POST['thankyou_page_title']);
 	set_option('simple_contact_form_thankyou_page_message', $_POST['thankyou_page_message']);
 	set_option('simple_contact_form_add_to_main_navigation', $_POST['add_to_main_navigation']);
+        
+        $collections = get_collections();
+        if($collections):
+            asort($collections);
+        endif;
+        foreach ($collections as $collection):
+           set_option('simple_contact_form_mail-'.$collection->name, $_POST['mail-'.str_replace(' ', '',$collection->name)]);
+        endforeach;
 }
 
 function simple_contact_form_public_navigation_main($nav)
