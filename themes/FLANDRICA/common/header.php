@@ -116,7 +116,7 @@ session_start();
 		            <li class="plaats"><a href="<?php echo uri('geolocation/map/browse/')?>"><?php echo __('by');?> <strong><?php echo __('location');?></strong></a>
 
 		            </li>
-		            <li class="periode"><a href="<?php echo uri('neatline-time/timelines/show/1/')?>" ><?php echo __('by');?> <strong><?php echo __('periode');?></strong></a>
+		            <li class="periode"><a href="<?php echo uri('neatline-time/timelines/show/1/')?>" ><?php echo __('by');?> <strong><?php echo __('period');?></strong></a>
 
 		            </li>
 		            <li class="rondleiding last"><a href="<?php echo html_escape(uri('exhibits/browse/'));?>" class="dropdown"><?php echo __('the');?> <strong><?php echo __('tours');?></strong></a>
