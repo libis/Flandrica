@@ -73,6 +73,11 @@ class SimpleContactForm_IndexController extends Omeka_Controller_Action
         else:
             $forwardToEmail = get_option('simple_contact_form_mail-'.$instelling);
         endif;
+        
+        //if still empty send to default address
+        if(!$forwardToEmail):
+             $forwardToEmail = get_option('simple_contact_form_forward_to_email');
+        endif;
 		         
         $bcc = get_option('simple_contact_form_bcc');
 
