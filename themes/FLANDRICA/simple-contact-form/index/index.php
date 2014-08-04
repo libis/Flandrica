@@ -72,7 +72,7 @@
                                                                 $options["Algemeen"] = __("Algemeen");
                                                                 
 								$title = new Zend_Form_Element_Select('instelling');
-                                                                $title->setLabel(__('Instelling'))
+                                                                $title->setLabel(__('Erfgoedbibliotheek'))
 					        			//hier een $_GET['onderwerp']
 					        			->setValue($value)
 					        	   	  	->setMultiOptions($options)				              		->setRequired(true)->addValidator('NotEmpty', true);
