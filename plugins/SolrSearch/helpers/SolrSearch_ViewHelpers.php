@@ -250,7 +250,7 @@ class SolrSearch_ViewHelpers
             if (is_array($tags)) {
                 foreach ($tags as $key => $tag) {
                     $tagStrings[$key] = SolrSearch_ViewHelpers::tagToString(
-                        $uri, $current, $tag
+                        $uri, $current, __($tag)
                     );
                 }
 
@@ -258,7 +258,7 @@ class SolrSearch_ViewHelpers
                 $parts = explode(',', $tags);
                 foreach ($parts as $tag) {
                     $tagStrings[$tag] = SolrSearch_ViewHelpers::tagToString(
-                        $uri, $current, trim($tag)
+                        $uri, $current, __(trim($tag))
                     );
                 }
             }
