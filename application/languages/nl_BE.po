@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
 "POT-Creation-Date: 2011-11-22 16:18-0500\n"
-"PO-Revision-Date: 2014-08-07 10:34+0100\n"
+"PO-Revision-Date: 2014-08-07 16:11+0100\n"
 "Last-Translator: \n"
 "Language-Team: Dutch (Belgium) (http://www.transifex.net/projects/p/omeka/"
 "team/nl_BE/)\n"
@@ -3406,3 +3406,249 @@ msgstr "Toelichting"
 
 msgid "Ander exemplaar"
 msgstr "Ander exemplaar"
+
+msgid "oude druk"
+msgstr "oude druk"
+
+msgid "handschrift"
+msgstr "handschrift"
+
+msgid "periodiek"
+msgstr "periodiek"
+
+msgid "grafisch en documentair materiaal"
+msgstr "grafisch en documentair materiaal"
+
+msgid "moderne druk"
+msgstr "moderne druk"
+
+msgid "Nederlands"
+msgstr "Nederlands"
+
+msgid "Latijn"
+msgstr "Latijn"
+
+msgid "Frans"
+msgstr "Frans"
+
+msgid "Engels"
+msgstr "Engels"
+
+msgid "fre"
+msgstr "Frans"
+
+msgid "Middelnederlands"
+msgstr "Middelnederlands"
+
+msgid "dut"
+msgstr "Nederlands"
+
+msgid "Duits"
+msgstr "Duits"
+
+msgid "lat"
+msgstr "Latijn"
+
+msgid "9-onbekend"
+msgstr "9-onbekend"
+
+msgid "Italiaans"
+msgstr "Italiaans"
+
+msgid "Oudgrieks"
+msgstr "Oudgrieks"
+
+msgid "Arabisch"
+msgstr "Arabisch"
+
+msgid "Hebreeuws"
+msgstr "Hebreeuws"
+
+msgid "Japans"
+msgstr "Japans"
+
+msgid "Mantjsoe"
+msgstr "Mantjsoe"
+
+msgid "Slavische talen"
+msgstr "Slavische talen"
+
+msgid "Spaans"
+msgstr "Spaans"
+
+msgid "Antwerpen"
+msgstr "Antwerpen"
+
+msgid "Brugge"
+msgstr "Brugge"
+
+msgid "Leuven"
+msgstr "Leuven"
+
+msgid "Brussel"
+msgstr "Brussel"
+
+msgid "Gent"
+msgstr "Gent"
+
+msgid "Amsterdam"
+msgstr "Amsterdam"
+
+msgid "Vlaanderen"
+msgstr "Vlaanderen"
+
+msgid "Hasselt"
+msgstr "Hasselt"
+
+msgid "Luik"
+msgstr "Luik"
+
+msgid "Sint-Truiden"
+msgstr "Sint-Truiden"
+
+msgid "Parijs"
+msgstr "Parijs"
+
+msgid "Mechelen"
+msgstr "Mechelen"
+
+msgid "Roeselare"
+msgstr "Roeselare"
+
+msgid "Brabant"
+msgstr "Brabant"
+
+msgid "Brugge?"
+msgstr "Brugge?"
+
+msgid "Den Haag"
+msgstr "Den Haag"
+
+msgid "Basel"
+msgstr "Basel"
+
+msgid "Italië"
+msgstr "Italië"
+
+msgid "Londen"
+msgstr "Londen"
+
+msgid "Wittenberg"
+msgstr "Wittenberg"
+
+msgid "Beijing"
+msgstr "Beijing"
+
+msgid "Beringen"
+msgstr "Beringen"
+
+msgid "Frankrijk"
+msgstr "Frankrijk"
+
+msgid "Ieper"
+msgstr "Ieper"
+
+msgid "Koksijde"
+msgstr "Koksijde"
+
+msgid "Kortrijk"
+msgstr "Kortrijk"
+
+msgid "Leiden"
+msgstr "Leiden"
+
+msgid "Maastricht"
+msgstr "Maastricht"
+
+msgid "Nederland"
+msgstr "Nederland"
+
+msgid "Oost-Brabant"
+msgstr "Oost-Brabant"
+
+msgid "Oost-Vlaanderen"
+msgstr "Oost-Vlaanderen"
+
+msgid "'s-Hertogenbosch"
+msgstr "'s-Hertogenbosch"
+
+msgid "Aalst"
+msgstr "Aalst"
+
+msgid "Antwerpen?"
+msgstr "Antwerpen?"
+
+msgid "Atjeh"
+msgstr "Atjeh"
+
+msgid "België"
+msgstr "België"
+
+msgid "Limburg"
+msgstr "Limburg"
+
+msgid "Tongeren"
+msgstr "Tongeren"
+
+msgid "Genk"
+msgstr "Genk"
+
+msgid "Kempen"
+msgstr "Kempen"
+
+msgid "Luik (provincie)"
+msgstr "Luik (provincie)"
+
+msgid "Scherpenheuvel"
+msgstr "Scherpenheuvel"
+
+msgid "Dilsen-Stokkem"
+msgstr "Dilsen-Stokkem"
+
+msgid "Haspengouw"
+msgstr "Haspengouw"
+
+msgid "Heusden-Zolder"
+msgstr "Heusden-Zolder"
+
+msgid "Noord-Limburg"
+msgstr "Noord-Limburg"
+
+msgid "Zonhoven"
+msgstr "Zonhoven"
+
+msgid "Algerije"
+msgstr "Algerije"
+
+msgid "Artigat"
+msgstr "Artigat"
+
+msgid "Bilzen"
+msgstr "Bilzen"
+
+msgid "Duffel"
+msgstr "Duffel"
+
+msgid "Ekeren"
+msgstr "Ekeren"
+
+msgid "De partners van Flandrica.be"
+msgstr "De partners van Flandrica.be"
+
+msgid "Een initiatief van de Vlaamse Erfgoedbibliotheek"
+msgstr "Een initiatief van de Vlaamse Erfgoedbibliotheek"
+
+msgid "Met steun van de Vlaamse overheid"
+msgstr "Met steun van de Vlaamse overheid"
+
+msgid "Logo van de Vlaamse Erfgoedbibliotheek"
+msgstr "Logo van de Vlaamse Erfgoedbibliotheek"
+
+msgid "Logo's van de partners van Flandrica.be"
+msgstr "Logo's van de partners van Flandrica.be"
+
+msgid "Logo Met steun van de Vlaamse overheid"
+msgstr "Logo Met steun van de Vlaamse overheid"
+
+msgid "Vlaamse Erfgoedbibliotheek"
+msgstr "Vlaamse Erfgoedbibliotheek"

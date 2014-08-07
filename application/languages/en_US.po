@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flandrica-vertaling\n"
 "POT-Creation-Date: 2011-11-22 16:18-0500\n"
-"PO-Revision-Date: 2014-08-07 10:35+0100\n"
+"PO-Revision-Date: 2014-08-07 16:12+0100\n"
 "Last-Translator: \n"
 "Language-Team: English (http://www.transifex.com/projects/p/flandrica-"
 "vertaling/language/en/)\n"
@@ -426,3 +426,234 @@ msgstr "Graphic and Documentary Material"
 
 msgid "moderne druk"
 msgstr "Modern Edition"
+
+msgid "Nederlands"
+msgstr "Dutch"
+
+msgid "Latijn"
+msgstr "Latin"
+
+msgid "Frans"
+msgstr "French"
+
+msgid "Engels"
+msgstr "English"
+
+msgid "fre"
+msgstr "French"
+
+msgid "Middelnederlands"
+msgstr "Middle Dutch"
+
+msgid "dut"
+msgstr "Dutch"
+
+msgid "Duits"
+msgstr "German"
+
+msgid "lat"
+msgstr "Latin"
+
+msgid "9-onbekend"
+msgstr "Unknown"
+
+msgid "Italiaans"
+msgstr "Italian"
+
+msgid "Oudgrieks"
+msgstr "Ancient Greek"
+
+msgid "Arabisch"
+msgstr "Arabic"
+
+msgid "Hebreeuws"
+msgstr "Hebrew"
+
+msgid "Japans"
+msgstr "Japanese"
+
+msgid "Mantjsoe"
+msgstr "Manchu"
+
+msgid "Slavische talen"
+msgstr "Slavic languages"
+
+msgid "Spaans"
+msgstr "Spanish"
+
+msgid "Antwerpen"
+msgstr "Antwerp"
+
+msgid "Brugge"
+msgstr "Bruges"
+
+msgid "Leuven"
+msgstr "Leuven"
+
+msgid "Brussel"
+msgstr "Brussels"
+
+msgid "Gent"
+msgstr "Ghent"
+
+msgid "Amsterdam"
+msgstr "Amsterdam"
+
+msgid "Vlaanderen"
+msgstr "Flanders"
+
+msgid "Hasselt"
+msgstr "Hasselt"
+
+msgid "Luik"
+msgstr "Liège"
+
+msgid "Sint-Truiden"
+msgstr "Sint-Truiden"
+
+msgid "Parijs"
+msgstr "Paris"
+
+msgid "Mechelen"
+msgstr "Mechelen"
+
+msgid "Roeselare"
+msgstr "Roeselare"
+
+msgid "Brabant"
+msgstr "Brabant"
+
+msgid "Brugge?"
+msgstr "Bruges?"
+
+msgid "Den Haag"
+msgstr "The Hague"
+
+msgid "Basel"
+msgstr "Basle"
+
+msgid "Italië"
+msgstr "Italy"
+
+msgid "Londen"
+msgstr "London"
+
+msgid "Wittenberg"
+msgstr "Wittenberg"
+
+msgid "Beijing"
+msgstr "Beijing"
+
+msgid "Beringen"
+msgstr "Beringen"
+
+msgid "Frankrijk"
+msgstr "France"
+
+msgid "Ieper"
+msgstr "Ypres"
+
+msgid "Koksijde"
+msgstr "Koksijde"
+
+msgid "Kortrijk"
+msgstr "Kortrijk"
+
+msgid "Leiden"
+msgstr "Leiden"
+
+msgid "Maastricht"
+msgstr "Maastricht"
+
+msgid "Nederland"
+msgstr "Netherlands"
+
+msgid "Oost-Brabant"
+msgstr "East Brabant"
+
+msgid "Oost-Vlaanderen"
+msgstr "East Flanders"
+
+msgid "'s-Hertogenbosch"
+msgstr "'s-Hertogenbosch"
+
+msgid "Aalst"
+msgstr "Aalst"
+
+msgid "Antwerpen?"
+msgstr "Antwerp?"
+
+msgid "Atjeh"
+msgstr "Aceh"
+
+msgid "België"
+msgstr "Belgium"
+
+msgid "Limburg"
+msgstr "Limburg"
+
+msgid "Tongeren"
+msgstr "Tongeren"
+
+msgid "Genk"
+msgstr "Genk"
+
+msgid "Kempen"
+msgstr "Campine"
+
+msgid "Luik (provincie)"
+msgstr "Liège (provence)"
+
+msgid "Scherpenheuvel"
+msgstr "Scherpenheuvel"
+
+msgid "Dilsen-Stokkem"
+msgstr "Dilsen-Stokkem"
+
+msgid "Haspengouw"
+msgstr "Haspengouw"
+
+msgid "Heusden-Zolder"
+msgstr "Heusden-Zolder"
+
+msgid "Noord-Limburg"
+msgstr "North Limburg"
+
+msgid "Zonhoven"
+msgstr "Zonhoven"
+
+msgid "Algerije"
+msgstr "Algeria"
+
+msgid "Artigat"
+msgstr "Artigat"
+
+msgid "Bilzen"
+msgstr "Bilzen"
+
+msgid "Duffel"
+msgstr "Duffel"
+
+msgid "Ekeren"
+msgstr "Ekeren"
+
+msgid "De partners van Flandrica.be"
+msgstr "Partners of Flandrica.be"
+
+msgid "Een initiatief van de Vlaamse Erfgoedbibliotheek"
+msgstr "An initiative of Flanders Heritage Library"
+
+msgid "Met steun van de Vlaamse overheid"
+msgstr "With the support of the Flemish Authorities"
+
+msgid "Logo van de Vlaamse Erfgoedbibliotheek"
+msgstr "Logo of Flanders Heritage Library"
+
+msgid "Logo's van de partners van Flandrica.be"
+msgstr "Logos of the Flandrica.be partners"
+
+msgid "Logo Met steun van de Vlaamse overheid"
+msgstr "Logo With the support of the Flemish Authorities"
+
+msgid "Vlaamse Erfgoedbibliotheek"
+msgstr "Flanders Heritage Library"
