@@ -573,6 +573,10 @@ html #pages-thumbnails{*display:inline-block;*padding: 0 15px;*width:930px;}
     z-index: 1;
 }
 
+.bekijk-online-en {
+    background: url("../images/bekijk_online_en.png") no-repeat scroll right bottom transparent;
+}
+
 #searchForm form{
 	clear:both;
 }
