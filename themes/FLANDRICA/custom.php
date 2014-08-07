@@ -437,14 +437,14 @@ function Libis_link_to_related_exhibits_home($item) {
 	$exhibits = $db->getTable("Exhibit")->fetchObjects($select,$item->id);
         if(!empty($exhibits)){
             echo '<aside class="blok2 right background-gray">';
-            echo '<div class="subtitle">te zien in rondleiding</div>';
+            echo '<div class="subtitle">'.__('featured in guided tour').'</div>';
         
             foreach($exhibits as $exhibit){                
                 echo '<h2><a href="'.exhibit_builder_exhibit_uri($exhibit).'">'.$exhibit->title.'</a></h2>';
                 //echo '<img src="images/dummy.jpg" class="left" />';
                 echo '<a style="float:left;width:150px;" href="'.exhibit_builder_exhibit_uri($exhibit).'">' .Libis_get_first_image_exhibit($exhibit) .'</a>';
                 echo '<p>'.snippet_by_word_count($exhibit->description,20).'</p>';
-                echo '<p class="more" ><a href="'.exhibit_builder_exhibit_uri($exhibit).'">'.__('Rondleiding').'</a></p>';
+                echo '<p class="more" ><a href="'.exhibit_builder_exhibit_uri($exhibit).'">'.__('To the tour').'</a></p>';
             }    
             echo "</aside>";
         }else{

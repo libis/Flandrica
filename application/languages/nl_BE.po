@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: https://github.com/omeka/Omeka/issues\n"
 "POT-Creation-Date: 2011-11-22 16:18-0500\n"
-"PO-Revision-Date: 2014-07-24 15:29+0100\n"
+"PO-Revision-Date: 2014-08-07 10:34+0100\n"
 "Last-Translator: \n"
 "Language-Team: Dutch (Belgium) (http://www.transifex.net/projects/p/omeka/"
 "team/nl_BE/)\n"
@@ -3041,6 +3041,9 @@ msgstr "ZOEKEN..."
 # custom.php - Libis_getRondleidingen
 msgid "To the tour"
 msgstr "Naar de rondleiding"
+
+msgid "featured in guided tour"
+msgstr "te zien in rondleiding"
 
 msgid "more tours"
 msgstr "meer rondleidingen"
