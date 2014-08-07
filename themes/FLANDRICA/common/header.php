@@ -81,7 +81,7 @@ session_start();
 		            <?php echo Libis_language_widget();?>
                             <div class="search">
 		                <form  action="<?php echo uri('solr-search/results/')?>" method="GET">
-		                    <input type="text" class="searchfield" title="Zoeken..." alt="Zoeken..." value="<?php echo __('SEARCH...');?>" name="solrq" maxlength="128" onClick="this.value='';" />
+		                    <input type="text" class="searchfield" title="<?php echo __('SEARCH...');?>" alt="<?php echo __('SEARCH...');?>" value="<?php echo __('SEARCH...');?>" name="solrq" maxlength="128" onClick="this.value='';" />
 							<input class="submitSimple" type="submit" value="" />
 		                </form>
 
