@@ -423,13 +423,17 @@ function Libis_link_to_related_exhibits_home($item) {
 	require_once "Exhibit.php";
 	$db = get_db();
 
-	$select = "
-	SELECT e.* FROM {$db->prefix}exhibits e
-	INNER JOIN {$db->prefix}sections s ON s.exhibit_id = e.id
-	INNER JOIN {$db->prefix}section_pages sp on sp.section_id = s.id
-	INNER JOIN {$db->prefix}items_section_pages isp ON isp.page_id = sp.id
-	WHERE isp.item_id = ?";
-
+         $select = "
+            SELECT e.* FROM {$db->prefix}exhibits e
+            INNER JOIN {$db->prefix}sections s ON s.exhibit_id = e.id
+            INNER JOIN {$db->prefix}section_pages sp on sp.section_id = s.id
+            INNER JOIN {$db->prefix}items_section_pages isp ON isp.page_id = sp.id
+            WHERE isp.item_id = ?";
+        
+        if(libis_get_language()=='en'):        
+            $select .= " AND locate('en/',e.slug)>0";
+        endif;
+        
 	$exhibits = $db->getTable("Exhibit")->fetchObjects($select,$item->id);
         if(!empty($exhibits)){
             echo '<aside class="blok2 right background-gray">';
@@ -440,7 +444,7 @@ function Libis_link_to_related_exhibits_home($item) {
                 //echo '<img src="images/dummy.jpg" class="left" />';
                 echo '<a style="float:left;width:150px;" href="'.exhibit_builder_exhibit_uri($exhibit).'">' .Libis_get_first_image_exhibit($exhibit) .'</a>';
                 echo '<p>'.snippet_by_word_count($exhibit->description,20).'</p>';
-                echo '<p class="more" ><a href="'.exhibit_builder_exhibit_uri($exhibit).'">Rondleiding</a></p>';
+                echo '<p class="more" ><a href="'.exhibit_builder_exhibit_uri($exhibit).'">'.__('Rondleiding').'</a></p>';
             }    
             echo "</aside>";
         }else{
