@@ -432,6 +432,8 @@ function Libis_link_to_related_exhibits_home($item) {
         
         if(libis_get_language()=='en'):        
             $select .= " AND locate('en/',e.slug)>0";
+        else
+            $select .= " AND locate('en/',e.slug)=0";
         endif;
         
 	$exhibits = $db->getTable("Exhibit")->fetchObjects($select,$item->id);
