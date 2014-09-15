@@ -53,7 +53,7 @@
 		jQuery(".cycle-link").live("click", function(e){
 			//prevent the default event (the actual linking)
 			e.preventDefault();
-			var tagLink = jQuery(this).text();
+			var tagLink = jQuery(this).attr('name');
 			//remove the current slideshow
 			jQuery('.cycle').html('<ul class="rotator"></ul><a href="#" class="prev">Prev</a><a href="#" class="next">Next</a><div class="description"></div><div class="thumbnail"></div>');
 			//get new items using the code in getData div

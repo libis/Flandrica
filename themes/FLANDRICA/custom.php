@@ -414,6 +414,36 @@ function Libis_tag_string2($recordOrTags = null, $link=null)
 	return $tagString;
 }
 
+/**
+ * Output a tag string given an Item, Exhibit, or a set of tags. -> AANGEPAST VOOR FLANDRICA
+ *
+ * @internal Any record that has the Taggable module can be passed to this function *
+ * @param string|null $link The URL to use for links to the tags (if null, tags aren't linked) *
+ * @return string HTML
+ */
+function Libis_tag_string3($recordOrTags = null, $link=null)
+{
+	if (!$recordOrTags) {
+		$recordOrTags = array();
+	}
+
+	if ($recordOrTags instanceof Omeka_Record) {
+		$tags = $recordOrTags->Tags;
+	} else {
+		$tags = $recordOrTags;
+	}
+
+	$tagString = '';
+	if (!empty($tags)) {
+		$tagStrings = array();
+		foreach ($tags as $key=>$tag){
+			$tagStrings[$key] = html_escape($tag['name']);
+		}
+		$tagString = join("\",\"",$tagStrings);
+	}
+	return $tagString;
+}
+
 /*
  * function returns an exhibit in wich a given item is used
  * @param: the item object
@@ -506,7 +536,8 @@ function Libis_get_cycleData($tag = ""){
 		$html .= 'link:"'.item_uri().'",';
 		$html .= 'author:"'.item('Dublin Core','Creator').'",';
 		$html .= 'description:"'.$itemDescription.'",';
-		$html .= 'textData:["'.Libis_tag_string2($item,uri('items/browse/')).'"]';
+		$html .= 'textData:["'.Libis_tag_string2($item,uri('items/browse/')).'"],';
+                $html .= 'nameData:["'.Libis_tag_string3($item,uri('items/browse/')).'"]';
 		$html .= '},';
 	}
 	//remove last comma
