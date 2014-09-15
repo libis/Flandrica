@@ -17,14 +17,25 @@
 		</div>
     	<div id="container">
             <div id="content">
+                <?php if(libis_get_language()=='nl'):?>
                 <div id="right">
                   <div class="rubriek"><?php echo __('News');?></div>
                 	<?php echo feedCollector_show();?>
                 </div>
+              
+                <?php endif;?>
+                <?php if(libis_get_language()=='en'):?>
+                <div id="right">                  
+                    <div class="rubriek"><?php echo __('Explore');?></div>
+                	<div id="explore"></div>
+                        <script>jQuery("#explore").load('/explore_frame #themas_overview_mini');</script>
+                    </div>                              
+                <?php endif;?>
                 <div id="main">
                   <div class="rubriek"><?php echo __('Tours');?></div>
                 	<?php echo Libis_getRondleidingen(2);?>
                 </div>
+                
             </div>
         </div>
 

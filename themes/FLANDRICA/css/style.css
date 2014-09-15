@@ -987,6 +987,56 @@ div.black{
 	color: #E84427;
 }
 
+/* CSS VOOR HET BLOK MET MINI-THEMA'S */
+
+#themas_overview_mini {
+width: 285px;
+background-color:#FFFFFF;
+padding: 10px 20px 5px;
+}
+
+.themalist_mini_item {
+width: 125px;
+height: 156px;
+margin: 5px 20px 15px 0px;
+position: relative;
+float: left;
+}
+
+.themalist_mini_item:nth-child(even) { margin: 5px 0px 15px 0px; }
+
+.themalist_mini_item_title {
+background: none;
+color: #FFF;
+display: inline;
+font-size: 14px;
+right: -5px;
+line-height: 14px;
+padding: 3px 5px;
+margin:5px 0;
+position: absolute;
+bottom: 0px;
+display: block;
+text-align:right;
+}
+
+.themalist_mini_item h3 a {
+background-color: #E84427;
+padding: 2px 0px;
+line-height: 16px;
+box-shadow: 6px 0 0 #E84427, -6px 0 0 #E84427;
+text-align: right;
+color: #FFFFFF;
+text-transform: uppercase;
+text-decoration: none;
+}
+
+.themalist_mini_item_thumb {
+width: 125px;
+height:156px;
+border: none;
+}
+
 
 
 
