@@ -158,14 +158,8 @@
             <li class="last"><a href="<?php echo uri('contact/'); ?>"><?php echo __("Contact");?></a></li>
             
         </ul>
-        <?php                         
-        if($lang=='en/'):
-            $lib_link = 'http://www.flandersheritagelibrary.be';
-        else:
-            $lib_link = 'http://www.vlaamse-erfgoedbibliotheek.be/';
-        endif;                  
-        ?>
-        <div class="madeby">&copy; <a href="<?php echo $lib_link; ?>"><?php echo __('Vlaamse Erfgoedbibliotheek');?></a></div>
+       
+        <div class="madeby">&copy; <a href="<?php echo __("http://www.vlaamse-erfgoedbibliotheek.be"); ?>"><?php echo __('Vlaamse Erfgoedbibliotheek');?></a></div>
         	<div class="sponsors">
         		<div style="float:right;">
                             <a href="<?php echo uri($lang.'gebruiksvoorwaarden/'); ?>">
@@ -175,7 +169,7 @@
                                 <img style="padding-left:14px;" src="<?php echo img("footer_03.jpg");?>" title="<?php echo __("Met steun van de Vlaamse overheid");?>" alt="<?php echo __("Logo Met steun van de Vlaamse overheid");?>" /></a>
         		</div>
                         
-                        <a href="<?php echo $lib_link; ?>"><img src="<?php echo img("logobalk-veb.png");?>" title="<?php echo __("Een initiatief van de Vlaamse Erfgoedbibliotheek");?>" alt="<?php echo __('Logo van de Vlaamse Erfgoedbibliotheek');?>"></a>
+                        <a href="<?php echo __("http://www.vlaamse-erfgoedbibliotheek.be"); ?>"><img src="<?php echo img("logobalk-veb.png");?>" title="<?php echo __("Een initiatief van de Vlaamse Erfgoedbibliotheek");?>" alt="<?php echo __('Logo van de Vlaamse Erfgoedbibliotheek');?>"></a>
     			
                         <a href="<?php echo uri($lang.'partners/'); ?>"><img src="<?php echo img("logobalk-partners.png");?>" title="<?php echo __("De partners van Flandrica.be");?>" alt="<?php echo __("Logo's van de partners van Flandrica.be");?>"/></a>
     		</div>
