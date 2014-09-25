@@ -27,8 +27,8 @@
                 <?php if(libis_get_language()=='en'):?>
                 <div id="right">                  
                     <div class="rubriek"><?php echo __('Explore');?></div>
-                	<div id="explore"></div>
-                        <script>jQuery("#explore").load('/explore_frame #themas_overview_mini');</script>
+                	<div id="explore"></div>                       
+                        <script>jQuery("#explore").load('explore_frame #themas_overview_mini');</script>
                     </div>                              
                 <?php endif;?>
                 <div id="main">
