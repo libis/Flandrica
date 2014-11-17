@@ -251,7 +251,7 @@ var RoundAbout = (function () {
 
 	animateDescriptionLine = function (lineData,name, delay) {
 		var descContainer = jQuery(el).find(".description"),
-			lineElement = jQuery("<div><span><a href='#' rel='tag' name='"+ name +"' class='cycle-link'>" + lineData + "</a></span></div>");
+			lineElement = jQuery("<div><span><a href='#' rel='nofollow' name='"+ name +"' class='cycle-link'>" + lineData + "</a></span></div>");
 
 		jQuery(lineElement).css({
 			opacity : 0,
