@@ -188,3 +188,4 @@ pip-log.txt
 .DS_Store
 
 !/application/languages/en_US.mo
+/themes/FLANDRICA/images/
