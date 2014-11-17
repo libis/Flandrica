@@ -20,6 +20,7 @@
 /application/logs/errors.log
 /application/logs/processes.log.empty
 /Capfile
+/sitemap.xml
 
 #################
 ## Eclipse
