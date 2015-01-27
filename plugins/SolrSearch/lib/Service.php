@@ -476,12 +476,12 @@ class Apache_Solr_Service
 		// lazy load a default if one has not be set
 		if ($this->_httpTransport === false)
 		{
-			require_once(dirname(__FILE__) . '/HttpTransport/FileGetContents.php');
+			//require_once(dirname(__FILE__) . '/HttpTransport/FileGetContents.php');
 
-			$this->_httpTransport = new Apache_Solr_HttpTransport_FileGetContents();
+			//$this->_httpTransport = new Apache_Solr_HttpTransport_FileGetContents();
 			
-		//	require_once(dirname(__FILE__) .'/HttpTransport/Curl.php');
-		//	$this->_httpTransport = new Apache_Solr_HttpTransport_Curl();
+			require_once(dirname(__FILE__) .'/HttpTransport/Curl.php');
+			$this->_httpTransport = new Apache_Solr_HttpTransport_Curl();
 		}
 
 		return $this->_httpTransport;
