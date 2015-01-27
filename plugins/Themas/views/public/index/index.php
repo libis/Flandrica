@@ -175,6 +175,7 @@
                             <li><a href="<?php echo uri('solr-search/results/?sorlq=&solrfacet=tag:%22wetenschappen%22+AND+tag:%22fysica%22')?>"><?php echo __("Fysica");?>    </a></li>
                             <li><a href="<?php echo uri('solr-search/results/?sorlq=&solrfacet=tag:%22wetenschappen%22+AND+tag:%22geneeskunde%22')?>"><?php echo __("Geneeskunde");?>   </a></li>
                             <li><a href="<?php echo uri('solr-search/results/?sorlq=&solrfacet=tag:%22wetenschappen%22+AND+tag:%22plantkunde%22')?>"><?php echo __("Plantkunde");?>    </a></li>
+                            <li><a href="<?php echo uri('solr-search/results/?sorlq=&solrfacet=tag:%22wetenschappen%22+AND+tag:%22techniek%22')?>">Techniek    </a></li>
                             <li><a href="<?php echo uri('solr-search/results/?sorlq=&solrfacet=tag:%22wetenschappen%22+AND+tag:%22wiskunde%22')?>"><?php echo __("Wiskunde");?>    </a></li>
 
                         </ul>
