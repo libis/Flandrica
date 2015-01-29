@@ -1006,29 +1006,32 @@ float: left;
 .themalist_mini_item:nth-child(even) { margin: 5px 0px 15px 0px; }
 
 .themalist_mini_item_title {
-background: none;
-color: #FFF;
-display: inline;
-font-size: 14px;
-right: -5px;
-line-height: 14px;
-padding: 3px 5px;
-margin:5px 0;
-position: absolute;
-bottom: 0px;
-display: block;
-text-align:right;
+    background: none repeat scroll 0% 0% transparent;
+    color: #FFF;
+    right: -5px;
+    line-height: 14px;
+    padding: 3px 7px;
+    margin: 5px 0px;
+    position: absolute;
+    bottom: 0px;
+    display: block;
+    text-align: right;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-family: "proxima_nova_rgbold";
+    font-weight: bold;
 }
 
 .themalist_mini_item h3 a {
-background-color: #E84427;
-padding: 2px 0px;
-line-height: 16px;
-box-shadow: 6px 0 0 #E84427, -6px 0 0 #E84427;
-text-align: right;
-color: #FFFFFF;
-text-transform: uppercase;
-text-decoration: none;
+    background-color: #E84427;
+    padding: 2px 0px;
+    line-height: 16px;
+    box-shadow: 6px 0px 0px #E84427, -6px 0px 0px #E84427;
+    text-align: right;
+    color: #FFF;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-decoration-break: clone;
 }
 
 .themalist_mini_item_thumb {
