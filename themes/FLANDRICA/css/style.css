@@ -785,6 +785,7 @@ article > div{
 	background: #2f2828;
 	color: #fff;
 	padding: 15px;
+	max-width: 500px;
 }
 
 div.black{
