@@ -18,7 +18,8 @@ class DigitoolUrlTable extends Omeka_Db_Table
         }
         
         // Create a SELECT statement for the Location table
-        $select = $db->select()->from(array('d' => $db->DigitoolUrl), 'd.*');
+        $select = $db->select()->from(array('d' => $db->DigitoolUrl), 'd.*')
+        			->order('id ASC');
         
         // Create a WHERE condition that will pull down all the digitool info
         if (is_array($item)) {
