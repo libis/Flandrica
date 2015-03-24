@@ -166,7 +166,7 @@
                                 <img src="<?php echo img("logobalk-cc.png");?>" title="CC BY-NC-SA 2.0" alt="Logo CreativeCommons CC BY-NC-SA 2.0" /></a>
                             <br>
                             <a href="http://www.vlaanderen.be">
-                                <img style="padding-left:14px;" src="<?php echo img("footer_03.jpg");?>" title="<?php echo __("Met steun van de Vlaamse overheid");?>" alt="<?php echo __("Logo Met steun van de Vlaamse overheid");?>" /></a>
+                                <img src="<?php echo img("footer_03.jpg");?>" title="<?php echo __("Met steun van de Vlaamse overheid");?>" alt="<?php echo __("Logo Met steun van de Vlaamse overheid");?>" /></a>
         		</div>
                         
                         <a href="<?php echo __("http://www.vlaamse-erfgoedbibliotheek.be"); ?>"><img src="<?php echo img("logobalk-veb.png");?>" title="<?php echo __("Een initiatief van de Vlaamse Erfgoedbibliotheek");?>" alt="<?php echo __('Logo van de Vlaamse Erfgoedbibliotheek');?>"></a>
