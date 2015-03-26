@@ -69,7 +69,7 @@
 			jQuery('.cycle').html('<ul class="rotator"></ul><a href="#" class="prev">Prev</a><a href="#" class="next">Next</a><div class="description"></div><div class="thumbnail"></div>');
 			//get new items using the code in getData div
 			//alert(jQuery(this).text());
-			jQuery('#test').load('<?php echo WEB_ROOT;?>/ #getData',{tag: tagLink},function(data){
+			jQuery('#test').load(' <?php echo WEB_ROOT;?>/ #getData',{tag: tagLink},function(data){
 				var result = '['+jQuery("#test .result").html()+']';
 				//alert(jQuery("#test .result").html());
 				//change string into array
