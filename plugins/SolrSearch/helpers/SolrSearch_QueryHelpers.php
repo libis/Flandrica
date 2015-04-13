@@ -153,7 +153,7 @@ class SolrSearch_QueryHelpers
                         $cleaned = str_replace('\\', '', $label);
                         $html .= "<span class='appliedFilter constraint filter filter-subject_topic_facet'>";
                         $html .= "<span class='filterName'>$category</span>";
-                        $html .= "<span class='filterValue'>$cleaned</span> $link</span>";
+                        $html .= "<span class='filterValue'>".__($cleaned)."</span> $link</span>";
                     }
                 }
             }
