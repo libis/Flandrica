@@ -191,7 +191,7 @@
 		                <h3 style="clear:both;" class="facet"><?php echo __(SolrSearch_QueryHelpers::parseFacet($facet)); ?></h3>
 		                    <ul>
 							<?php foreach($values as $label => $count): ?>
-		                        <li><?php echo SolrSearch_QueryHelpers::createFacetHtml($query, $facet, __($label), $count); ?></li>
+		                        <li><?php echo SolrSearch_QueryHelpers::createFacetHtml($query, $facet, $label, $count); ?></li>
 							<?php endforeach; ?>
 		                    </ul>
 		            	</section>

@@ -96,7 +96,7 @@ class SolrSearch_QueryHelpers
 
             //otherwise just display a link to a new query with the facet count
             $html .= ""
-                . "<a style='width:80%;float:left;' href='$uri?{$q}solrfacet=$facetq'>$label</a>"
+                . "<a style='width:80%;float:left;' href='$uri?{$q}solrfacet=$facetq'>".__($label)."</a>"
                 . ""
                 . "<span class='cf' style='float:right;width:9%;text-align:right;'>".$count."</span>";
         }
