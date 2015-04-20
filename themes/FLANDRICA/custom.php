@@ -288,15 +288,15 @@ function Libis_getRondleidingen($number){
             $html .= "<h2>".exhibit_builder_link_to_exhibit($exhibit,$exhibit->title)."</h2>";
 
             if($exhibit->thumbnail){
-                $html .= "<div class='col>";
-                $html .= "<img width=140 src='".digitool_get_thumb_url_by_pid($exhibit->thumbnail)."'>";
-                $html .= "</div>";
+                $html .= '<div class="col">';
+                $html .= '<img src="'.digitool_get_thumb_url_by_pid($exhibit->thumbnail).'">';
+                $html .= '</div>';
             }else{
                 foreach($items as $item){
                     //get ONE thumb
                     if(digitool_item_has_digitool_url($item)){
                         $html .= "<div class='col>";
-                        $html .= digitool_get_thumb($item, true, false,140);
+                        $html .= digitool_get_thumb($item);
                         $html .= "</div>";
                         break;
                     }
