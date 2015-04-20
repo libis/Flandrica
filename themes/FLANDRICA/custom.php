@@ -259,44 +259,57 @@ function Libis_getRondleidingen($number){
 	$html ="";
         $i=0;
         $lang =  libis_get_language();
-	$exhibits = exhibit_builder_recent_exhibits(50);
+        $exhibits=array();
+        
+        //get featured exhibit in right language
+        $featured = exhibit_builder_get_exhibits(array('featured'=>'true','limit'=> 50));
+        foreach($featured as $exhibit):
+            if(substr( $exhibit->slug, 0, 2 ) === $lang || ($lang=='nl' && substr( $exhibit->slug, 0, 2 ) !== 'en')):
+                $exhibits[]= $exhibit;
+            endif;
+        endforeach;
+        
+        //add extra non-featured exhibit if needed
+        if(sizeof($exhibits) < $number):
+            $exhibits_extra = exhibit_builder_get_exhibits(array('recent'=>'true','featured'=>false,'limit'=> 50));
+            foreach($exhibits_extra as $exhibit):
+                if(substr( $exhibit->slug, 0, 2 ) === $lang || ($lang=='nl' && substr( $exhibit->slug, 0, 2 ) !== 'en')):
+                    $exhibits[]= $exhibit;
+                endif;
+            endforeach;            
+        endif;
+        
+        $exhibits = array_slice($exhibits,0,$number);       
+        
 	foreach($exhibits as $exhibit):
             //check language
-            if(substr( $exhibit->slug, 0, 2 ) === $lang || ($lang=='nl' && substr( $exhibit->slug, 0, 2 ) !== 'en')):
-                $items = get_items(array('exhibit'=> $exhibit->id));
-                $html .= "<div class='blok border-bottom'>";
-                $html .= "<h2>".exhibit_builder_link_to_exhibit($exhibit,$exhibit->title)."</h2>";
+            $items = get_items(array('exhibit'=> $exhibit->id));
+            $html .= "<div class='blok border-bottom'>";
+            $html .= "<h2>".exhibit_builder_link_to_exhibit($exhibit,$exhibit->title)."</h2>";
 
-                if($exhibit->thumbnail){
-                        $html .= "<div class='col>";
-                        $html .= "<img width=140 src='".digitool_get_thumb_url_by_pid($exhibit->thumbnail)."'>";
-                        $html .= "</div>";
-                }else{
-                        foreach($items as $item){
-                                //get ONE thumb
-                                if(digitool_item_has_digitool_url($item)){
-                                        $html .= "<div class='col>";
-                                        $html .= digitool_get_thumb($item, true, false,140);
-                                        $html .= "</div>";
-                                        break;break;
-                                }
-                        }
-                }               
-
-                $html .= "";
-                $html .= "<p>".snippet_by_word_count($exhibit->description,40)."</p>";
-                $html .= "<h3>" .exhibit_builder_link_to_exhibit($exhibit,__("To the tour"),array('class'=>'more')). "</h3>";
+            if($exhibit->thumbnail){
+                $html .= "<div class='col>";
+                $html .= "<img width=140 src='".digitool_get_thumb_url_by_pid($exhibit->thumbnail)."'>";
                 $html .= "</div>";
-                
-                $i++;
-                
-            endif;
-            
-            if($i==$number):
-                break;
-            endif;
+            }else{
+                foreach($items as $item){
+                    //get ONE thumb
+                    if(digitool_item_has_digitool_url($item)){
+                        $html .= "<div class='col>";
+                        $html .= digitool_get_thumb($item, true, false,140);
+                        $html .= "</div>";
+                        break;
+                    }
+                }
+            }               
 
-	endforeach;
+            $html .= "";
+            $html .= "<p>".snippet_by_word_count($exhibit->description,40)."</p>";
+            $html .= "<h3>" .exhibit_builder_link_to_exhibit($exhibit,__("To the tour"),array('class'=>'more')). "</h3>";
+            $html .= "</div>";
+                      
+        endforeach;
+        
 	return $html;       
 }
 
