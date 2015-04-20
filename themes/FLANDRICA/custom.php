@@ -294,9 +294,9 @@ function Libis_getRondleidingen($number){
             }else{
                 foreach($items as $item){
                     //get ONE thumb
-                    if(digitool_item_has_digitool_url($item,true)){
+                    if(digitool_item_has_digitool_url($item)){
                         $html .= '<div class="col">';
-                        $html .= digitool_get_thumb($item);
+                        $html .= digitool_get_thumb($item,true);
                         $html .= '</div>';
                         break;
                     }
