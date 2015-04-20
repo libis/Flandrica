@@ -250,7 +250,7 @@ class SolrSearch_ViewHelpers
             if (is_array($tags)) {
                 foreach ($tags as $key => $tag) {
                     $tagStrings[$key] = SolrSearch_ViewHelpers::tagToString(
-                        $uri, $current, __($tag)
+                        $uri, $current, $tag
                     );
                 }
 
@@ -258,7 +258,7 @@ class SolrSearch_ViewHelpers
                 $parts = explode(',', $tags);
                 foreach ($parts as $tag) {
                     $tagStrings[$tag] = SolrSearch_ViewHelpers::tagToString(
-                        $uri, $current, __(trim($tag))
+                        $uri, $current, trim($tag)
                     );
                 }
             }
@@ -293,7 +293,7 @@ class SolrSearch_ViewHelpers
         echo"_________--";
         echo htmlspecialchars($facetq, ENT_QUOTES)."<br>";*/
         $searchpath = $uri . '?solrq=' . $params['q'] . '&solrfacet=' . htmlspecialchars($facetq, ENT_QUOTES);
-        $a = '<a href="' . $searchpath .'" reg="tag" rel="nofollow">' . $label . '</a>';
+        $a = '<a href="' . $searchpath .'" reg="tag" rel="nofollow">' . __($label) . '</a>';
 
         return $a;
     }
