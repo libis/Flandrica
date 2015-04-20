@@ -244,6 +244,7 @@ img,.first,.last{border:none}
 h4,.large{font-size:14px}
 table p,#mainNav ul li.home a,#style_two #main{margin:0}
 .col,[class^=sidebar-],.left{float:left}
+.col img{padding-right:10px;}
 #mainNav li:hover ul,#mainNav li.sfhover ul,footer li:hover ul,footer li.sfhover ul{left:auto}
 #sidebar .content,.blok .content{margin-left:160px}
 .zebra .blok .content{width:450px;}
