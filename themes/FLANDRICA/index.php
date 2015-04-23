@@ -28,7 +28,7 @@
                 <div id="right">                  
                     <div class="rubriek"><?php echo __('Explore');?></div>
                 	<div id="explore"></div>                       
-                        <script>jQuery("#explore").load('explore_frame #themas_overview_mini');</script>
+                        <script>jQuery("#explore").load('<?php echo WEB_ROOT.'/';?>explore_frame #themas_overview_mini');</script>
                     </div>                              
                 <?php endif;?>
                 <div id="main">
