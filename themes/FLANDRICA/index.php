@@ -28,7 +28,7 @@
                 <div id="right">                  
                     <div class="rubriek"><?php echo __('Explore');?></div>
                     <div id="explore">
-                        <?php echo libis_get_simple_page_content_by_id(29);?>
+                        <?php echo libis_get_simple_page_content_by_id(60);?>
                     </div>                      
                 </div>                              
                 <?php endif;?>
