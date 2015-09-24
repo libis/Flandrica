@@ -22,6 +22,15 @@ function Libis_get_featured_items($num = '10', $withImage = true)
     return $items;
 }
 
+function libis_get_simple_page_content_by_id($id){
+    $db = get_db();
+    $page = $db->getTable('SimplePagesPage')->find($id);
+    if($page):
+        return $page->text;
+    endif;
+    return false;
+}
+
 //get current url
 function curPageURL() {
 	$pageURL = 'http';

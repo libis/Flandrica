@@ -27,9 +27,10 @@
                 <?php if(libis_get_language()=='en'):?>
                 <div id="right">                  
                     <div class="rubriek"><?php echo __('Explore');?></div>
-                	<div id="explore"></div>                       
-                        <script>jQuery("#explore").load('<?php echo WEB_ROOT.'/';?>explore_frame #themas_overview_mini');</script>
-                    </div>                              
+                    <div id="explore">
+                        <?php echo libis_get_simple_page_content_by_id(29);?>
+                    </div>                      
+                </div>                              
                 <?php endif;?>
                 <div id="main">
                   <div class="rubriek"><?php echo __('Tours');?></div>
