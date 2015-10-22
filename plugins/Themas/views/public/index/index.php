@@ -96,6 +96,7 @@
                             <li><a href="<?php echo uri('solr-search/results/?sorlq=&solrfacet=tag:%22kunst%22+AND+tag:%22algemeen%22')?>"><?php echo __("Algemeen");?>    </a></li>
                             <li><a href="<?php echo uri('solr-search/results/?sorlq=&solrfacet=tag:%22kunst%22+AND+tag:%22architectuur%22')?>"><?php echo __("Architectuur");?>     </a></li>
                             <li><a href="<?php echo uri('solr-search/results/?sorlq=&solrfacet=tag:%22kunst%22+AND+tag:%22beeldende kunsten%22')?>"><?php echo __("Beeldende kunsten");?>  </a></li>
+                            <li><a href="<?php echo uri('solr-search/results/?sorlq=&solrfacet=tag:%22kunst%22+AND+tag:%22toegepaste kunsten%22')?>"><?php echo __("Toegepaste kunsten");?>  </a></li>
                             <li><a href="<?php echo uri('solr-search/results/?sorlq=&solrfacet=tag:%22kunst%22+AND+tag:%22kunstenaarsboeken%22')?>"><?php echo __("Kunstenaarsboeken");?>      </a></li>
 
                         </ul>
