@@ -212,8 +212,8 @@ lightbox = new Lightbox options
         //w = preloader.width;
         //h = preloader.height;
         h = $image.height/$image.width;
-        h = h*400;
-        return _this.sizeContainer(400,h);
+        h = h*800;
+        return _this.sizeContainer(800,h);
       };
       preloader.src = this.album[imageNumber].link;
       this.currentImageIndex = imageNumber;
