@@ -571,7 +571,7 @@ function digitool_get_metadata($pid,$text){
 		$namespaces = $entry->getNameSpaces(true);
 		//Now we don't have the URL hard-coded
 		$dc = $entry->children($namespaces['dc']);
-                if($dc->$text):
+                if(isset($dc->$text)):
                     return $dc->$text;
                 else:
                     return '';
