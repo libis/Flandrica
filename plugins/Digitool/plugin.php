@@ -567,15 +567,15 @@ function digitool_get_metadata($pid,$text){
 		$entry = $xml->metadata->record;
 		// aangepast door Sam om geen exception te krijgen
 		if($entry != null){
-		//Use that namespace
-		$namespaces = $entry->getNameSpaces(true);
-		//Now we don't have the URL hard-coded
-		$dc = $entry->children($namespaces['dc']);
-                if(isset($dc->$text)):
-                    return $dc->$text;
-                else:
-                    return '';
-                endif;
+                    //Use that namespace
+                    $namespaces = $entry->getNameSpaces(true);
+                    //Now we don't have the URL hard-coded
+                    $dc = $entry->children($namespaces['dc']);
+                    if($dc->$text->Count()==0):
+                        return $dc->$text;
+                    else:
+                        return '';
+                    endif;
                     
 		} else {
 			return "";
