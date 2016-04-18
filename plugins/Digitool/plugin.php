@@ -566,18 +566,18 @@ function digitool_get_metadata($pid,$text){
 		$xml = simplexml_load_string($data);
 		$entry = $xml->metadata->record;
 		// aangepast door Sam om geen exception te krijgen
-		if($entry != null){
+		if(count($entry) > 0){
                     //Use that namespace
                     $namespaces = $entry->getNameSpaces(true);
                     //Now we don't have the URL hard-coded
-                    if(count($entry->children($namespaces['dc']))>0){
+                    if(count($entry->children($namespaces['dc']))->$text >0){
                         $dc = $entry->children($namespaces['dc']);
                         return $dc->$text;
                     }else{
                         return '';
                     }
 		} else {
-			return "";
+                    return '';
 		}
 	}
 	//die(curl_error($ch));
