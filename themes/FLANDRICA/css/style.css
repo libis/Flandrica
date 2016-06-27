@@ -777,6 +777,10 @@ article figure{
     width:500px;    
 }
 
+.blok2 img{
+    width:140px;
+}
+
 article > div{
 	margin-bottom: 10px;
 }
