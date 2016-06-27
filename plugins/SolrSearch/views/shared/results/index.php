@@ -62,7 +62,7 @@
 							<?php $item = get_item_by_id(preg_replace ( '/[^0-9]/', '', $doc->__get('id')));?>
 							<?php if($item){?>
 						    <div class="cell" id="solr_<?php echo $doc->__get('id'); ?>">
-						    	<?php echo link_to_item(digitool_get_thumb($item,true,false,'140'),array(),'show',$item);?>
+						    	<?php echo link_to_item(libis_get_image($item),array(),'show',$item);?>
 								<?php
 						          //auteur
 						          $itemDescription = item('Dublin Core', 'Creator',array(),$item) ? item('Dublin Core', 'Creator',array('delimiter'=>', '),$item)."<br>" : '';
@@ -114,7 +114,7 @@
 						<?php $item = get_item_by_id(preg_replace ( '/[^0-9]/', '', $doc->__get('id')));?>
 					    <?php if($item){?>
 					    <div class="blok  <?php if ($count%2==1) echo ' even'; else echo ' odd'; ?>" id="solr_<?php echo $doc->__get('id'); ?>">
-					    	<div class="col"><?php echo digitool_get_thumb($item,true,false,'140');?></div>
+					    	<div class="col"><?php echo libis_get_image($item);?></div>
 					        <div class="content">
 					          <h2><a href="<?php echo item_uri('show',$item);?>" ><?php echo item('Dublin Core', 'Title',array(),$item);?></a></h2>
 					          <?php

@@ -1,6 +1,6 @@
 <!-- aangepast door Sam was 336 ipv 536 -->
 <div class="left" width="536">
-	<figure class="black">
+	<figure class="black exhibit-image">
 		<?php
 			if(exhibit_builder_use_exhibit_page_item(1)):
 				$pid = exhibit_builder_get_current_page()->ExhibitPageEntry[(int) 1]->thumbnail;

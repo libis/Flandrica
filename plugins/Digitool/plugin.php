@@ -404,6 +404,11 @@ function digitool_get_view($item, $findOnlyOne = false, $linkToView = false,$wid
  * @return html of the views
  **/
 function digitool_get_view_for_exhibit($item, $pid = null, $width="",$class="",$alt=""){
+    
+        if (item_has_thumbnail($item)):        
+            $files = $item->Files;        
+            return "<img src='".uri('/archive/fullsize/'.$files[0]->archive_filename)."' alt='".item("Dublin Core","Title",array(),$item)."'>";
+        endif;
 
 	if($pid){
 		return "<img src='".digitool_get_image_from_file($pid)."' width='".$width."' class='".$class."' alt='".item("Dublin Core","Title",array(),$item)."'>";
@@ -494,6 +499,32 @@ function digitool_simple_gallery($item){
 
 //gallery for items/show in flandrica
 function digitool_simple_gallery_flandrica($item,$link_rood="#"){
+        $i=0;
+        //if item has files
+        if (item_has_files()):
+            while(loop_files_for_item()):
+                $file = get_current_file();
+        
+                if(!$titel = item_file('Dublin Core','Title',array(),$file)):  
+                    $titel = ""; 
+                endif;
+                
+                if($i==0){
+                    $html .= "<a class='bekijk-online bekijk-online-".libis_get_language()."' href='".item('Item Type Metadata','Object instelling')."' target='_blank'></a>";
+                }
+               
+                $html .= "<a rel='lightbox[pages]' title='".$titel."' href='".uri('/archive/fullsize/'.$file->archive_filename)."'>";
+                
+                $html.= "<img src='".uri('/archive/thumbnails/'.$file->archive_filename)."' alt='".$titel."' />";
+                $html.= "</a>";    
+                $html.= "<div class='tooltip' ><div class='slideTitle'>".$titel."<span class='slideAuthor'></span></div><span class='slidePlace'></span></div>";
+
+                $i++;
+            
+            endwhile;
+            
+            return $html;
+        endif;
         
         $thumb_url = get_option('digitool_thumb');
         $view_url = get_option('digitool_view');
@@ -617,7 +648,7 @@ function digitool_get_thumbnail_array($item){
 function digitool_get_image_from_file($pid){
         $settings = array('w'=>800,'scale'=>true);
         //also returns the file when already exists
-	return "http://".$_SERVER['HTTP_HOST'].resize($pid,$settings);
+	return WEB_ROOT.resize($pid,$settings);
 }
 
 /**

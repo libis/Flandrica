@@ -98,6 +98,7 @@ blockquote .hr{clear:left;float:left;width:60%;height:22px;background:transparen
 #gallery-container{margin:10px 12px;width:650px;}
 .gallery .cell{width:140px;margin:0 8px;float:left;height:280px;overflow:hidden;}
 .cell h2 {font-size:11px;margin:0;}
+.cell img {width:140px;}
 
 header{font-size:.8em;clear:both}
 header .logo{width:72%}
@@ -739,6 +740,10 @@ html #pages-thumbnails{*display:inline-block;*padding: 0 15px;*width:930px;}
 	float: left;
 }
 
+.rondleidingStart figure img{
+    width:270px;    
+}
+
 .rondleidingStart .start_btn{
 	position: absolute;
 	bottom: 30px;
@@ -766,6 +771,10 @@ article header, section header{
 article figure{
 	margin: 0;
 	clear: left;
+}
+
+.exhibit-image img{
+    width:500px;    
 }
 
 article > div{

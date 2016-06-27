@@ -213,7 +213,7 @@ define('CURRENT_BASE_URL', $currentPath);
 
 /* toegevoegd door Sam */
 
-$_ENV['MAGIC'] = "/www/libis/vol03/omeka/flandrica/magic.mime";
+//$_ENV['MAGIC'] = "/www/libis/vol03/omeka/flandrica/magic.mime";
 /* einde toevoegeing door Sam */
 
 // Set up the Zend_Loader autoloader to work for all classes.

@@ -512,6 +512,7 @@ function Libis_get_first_image_exhibit($exhibit,$width=140,$type="",$fromFile=fa
 	$page="";
 	$section = $exhibit->getFirstSection();
 	if(!empty($section)){
+            
 		$page= $exhibit->getFirstSection()->getPageByOrder(1);
 		$itemcount = count($page['ExhibitPageEntry']);
 
@@ -520,13 +521,11 @@ function Libis_get_first_image_exhibit($exhibit,$width=140,$type="",$fromFile=fa
 		if($itemcount>0){
 			for ($i=1; $i <= $itemcount; $i++) {
 				$item = $itempageobject[$i]['Item'];
-				if(!empty($item)){
-					if (digitool_item_has_digitool_url($item)):
-						if($type=='view'){
-							return digitool_get_view($item, true, false,$width);
-						}
-						return digitool_get_thumb($item, true, false,$width);
-					endif;
+				if(!empty($item)){                                    
+                                    if($type=='view'):                                        
+					return libis_get_image_exhibit($item);
+                                    endif;
+                                    return libis_get_image($item);                                    
 				}
 			}
 		}
@@ -553,7 +552,7 @@ function Libis_get_cycleData($tag = ""){
 
 
 		$html .= '{';
-		$html .= 'image:"'.digitool_get_thumb_url($item).'",';
+		$html .= 'image:"'.libis_get_image_url($item).'",';
 		$html .= 'title:"'.item('Dublin Core','Title',array('snippet'=>'35')).'",';
 		$html .= 'link:"'.item_uri().'",';
 		$html .= 'author:"'.item('Dublin Core','Creator').'",';
@@ -679,4 +678,39 @@ function libis_get_language(){
         return $_SESSION['lang'];
     }
 }
+
+function libis_get_image($item){
+    if (item_has_thumbnail($item)):
+        return item_thumbnail(array(),'0',$item);
+    endif;
+    
+    if(digitool_item_has_digitool_url($item)):
+        return digitool_get_thumb($item,true,false,'140');
+    endif;
+    
+    return false;
+}
+
+function libis_get_image_exhibit($item){
+    
+    if (item_has_thumbnail($item)):
+        
+        $files = $item->Files;        
+        return "<img src='".uri('/archive/fullsize/'.$files[0]->archive_filename)."'>";
+    else:
+        return digitool_get_view($item, true, false,270);
+    endif;
+    
+    return false;
+}
+
+function libis_get_image_url($item){
+    if (item_has_thumbnail($item)):
+        $files = $item->Files;        
+        return uri('/archive/thumbnails/'.$files[0]->archive_filename);
+    else:
+        return digitool_get_thumb_url($item);
+    endif;
+}
+
 ?>
