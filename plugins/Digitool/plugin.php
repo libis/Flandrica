@@ -648,7 +648,7 @@ function digitool_get_thumbnail_array($item){
 function digitool_get_image_from_file($pid){
         $settings = array('w'=>800,'scale'=>true);
         //also returns the file when already exists
-	return $_SERVER['HTTP_HOST'].resize($pid,$settings);
+	return "http://".$_SERVER['HTTP_HOST'].resize($pid,$settings);
 }
 
 /**
