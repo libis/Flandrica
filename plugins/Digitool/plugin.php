@@ -500,14 +500,15 @@ function digitool_simple_gallery($item){
 //gallery for items/show in flandrica
 function digitool_simple_gallery_flandrica($item,$link_rood="#"){
         $i=0;
+        
         //if item has files
         if (item_has_files()):
             while(loop_files_for_item()):
                 $file = get_current_file();
-        
-                if(!$titel = item_file('Dublin Core','Title',array(),$file)):  
-                    $titel = ""; 
-                endif;
+                if(!$titel = item('Item Type Metadata', 'Titel afbeelding', array('index' => $i))):
+                    $titel = item_file('Dublin Core','Title',array(),$file);
+                endif;  
+                        
                 
                 if($i==0){
                     $html .= "<a class='bekijk-online bekijk-online-".libis_get_language()."' href='".item('Item Type Metadata','Object instelling')."' target='_blank'></a>";
