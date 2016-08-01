@@ -508,15 +508,15 @@ function digitool_simple_gallery_flandrica($item,$link_rood="#"){
                 if(!$titel = item('Item Type Metadata', 'Titel afbeelding', array('index' => $i))):
                     $titel = item_file('Dublin Core','Title',array(),$file);
                 endif;  
-                        
+                       //echo $file->getWebPath('fullsize');
                 
                 if($i==0){
                     $html .= "<a class='bekijk-online bekijk-online-".libis_get_language()."' href='".item('Item Type Metadata','Object instelling')."' target='_blank'></a>";
                 }
                
-                $html .= "<a rel='lightbox[pages]' title='".$titel."' href='".uri('/archive/fullsize/'.$file->archive_filename)."'>";
+                $html .= "<a rel='lightbox[pages]' title='".$titel."' href='".$file->getWebPath('fullsize')."'>";
                 
-                $html.= "<img src='".uri('/archive/thumbnails/'.$file->archive_filename)."' alt='".$titel."' />";
+                $html.= "<img src='".$file->getWebPath('thumbnail')."' alt='".$titel."' />";
                 $html.= "</a>";    
                 $html.= "<div class='tooltip' ><div class='slideTitle'>".$titel."<span class='slideAuthor'></span></div><span class='slidePlace'></span></div>";
 
