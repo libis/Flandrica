@@ -1,3 +1,6 @@
+/* Stylesheet Flandrica.be */
+/* 2016-08-03 13:18 */
+
 @font-face {
     font-family: 'proxima_nova_rgbold';
     src: url('fonts/proximanova-bold-webfont.eot');
@@ -20,15 +23,27 @@
     font-style: normal;
 }
 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic&subset=latin,greek,greek-ext,latin-ext);
+
+
 *{margin:0;padding:0}
 html{overflow-y:scroll;font-size:100%;line-height:1.5;color:#666; height:100%;}
-body{ font-family:"proxima_nova_rgregular", Verdana, Arial, sans-serif;font-size:13px;background:#e2e2e2 url(images/bg.png) repeat-x 0 0;margin:0;padding:0}
+body{ 	font-family: "Open Sans",Verdana,Helvetica,Arial,sans-serif;
+;font-size:13px;background:#e2e2e2 url(images/bg.png) repeat-x 0 0;margin:0;padding:0}
 body.home{background:#e2e2e2 url(images/bg_home.png) repeat-x 0 -84px}
-p{margin-bottom:16px}
+p{margin-bottom:16px;line-height:19px;}
+p:empty {
+  display: none;
+}
 em,i, blockquote{font-style:italic}
 a{text-decoration:none;color:#e84427}
 a:active, a:focus, input[type="image"] {outline: 0;}
 a strong{color:#e84427}
+p > a {
+    text-decoration: none;
+    color: #666;
+    border-bottom: 1px dotted #666;
+}
 h1,h2{font-size:16px;color:#E84427;text-transform:uppercase;margin:0 0 10px;font-family:"proxima_nova_rgbold"}
 h3{font-size:16px;font-weight:400}
 h4{ font-family:"proxima_nova_rgregular"; margin-bottom: 5px;}
@@ -60,10 +75,10 @@ caption, figcaption{
 .xxlarge{font-size:18px}
 strong{font-family: 'proxima_nova_rgbold';}
 hr{border-bottom:1px solid #FFF;border-top:1px solid #DDD;margin:15px 0}
-ul li{list-style:square;list-style-image:url(images/li.gif);margin:0;padding:0}
+ul li{list-style:square;list-style-image:url(images/li.gif);margin:0;padding:0;}
 table{margin:10px 0}
 table td{vertical-align:top}
-table td.label{border-right:1px solid #ebebec; padding-left: 0 !important; font-weight: bold;}
+table td.label{border-right:1px solid #ebebec; padding-left: 0 !important;font-family:"proxima_nova_rgbold"}
 table.datatable,table.datatable tr,table.datatable td{border-color:#ebebec}
 table.datatable thead{background-color:#ebebec; color:#666; font-family: 'proxima_nova_rgbold'; text-transform: uppercase;}
 table.datatable td{padding:14px}
@@ -169,7 +184,7 @@ ul,li{margin:0;padding:0}
 .fadein { position:relative; width:280px; height:390px; }
 .fadein img { position:absolute; left:0; top:0; }
 
-#style_three #main{padding-top:10px; position: relative;}
+#style_three #main{padding-top:10px; position: relative;margin-bottom: 20px;}
 #style_three h2{margin: 5px 0;}
 
 #sidebar-left{width:270px;float:left;padding:10px 20px 0;}
@@ -181,7 +196,7 @@ ul,li{margin:0;padding:0}
 .blok.meer p{margin-bottom: 0;}
 .zebra .blok{padding:10px 20px;clear:both;}
 .blok a strong{text-transform:uppercase}
-.extra-left{background-color:#ebebec;width:62%;float:left;padding:10px 3% 10px 10px; margin-bottom: 20px; line-height: 16px;}
+.extra-left{background-color:#ebebec;width:62%;float:left;padding:10px 3% 10px 10px; margin-bottom: 20px; line-height: 16px;margin-top:8px}
 .extra-right{
 	clear:right;
 	margin-left:-14px;
@@ -222,7 +237,7 @@ aside .subtitle{
 	margin: 0 0 5px;
 }
 
-footer{clear:both;color:#FFF;background-color: #E84427; height: 40px; width: 100%; padding-top: 5px;}
+footer{clear:both;color:#FFF;background-color: #E84427; height: 40px; width: 100%; padding-top: 3px;}
 footer ul{list-style:none;display:inline;margin:0;padding:0}
 footer ul li{float:left;border-right:1px solid #e7e7e7;background-color:#e84427;line-height:14px;list-style:none;margin:12px 0;padding:0 14px}
 footer ul li a{color:#FFF;display:block}
@@ -1068,4 +1083,3 @@ border: none;
   .headerstuff, #mainNav, #subnav, .bekijk-online{display:none;}
   footer{display:none;}
 }
-
