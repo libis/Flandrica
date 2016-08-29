@@ -70,7 +70,14 @@ while (loop_items()) {
                 if(digitool_item_has_digitool_url(get_current_item())){
                 	$imgUrl = digitool_get_thumb_url(get_current_item());
                 }
-
+                
+                
+                $item = get_current_item();
+                $files = $item->Files;
+                if($files) {
+                    $imgUrl = $files[0]->getWebPath('thumbnail');                    
+                }
+                     
                 $neatlineTimeEvent['image'] = $imgUrl;
 
                 //icon - Joris
