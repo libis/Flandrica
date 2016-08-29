@@ -508,7 +508,8 @@ function digitool_simple_gallery_flandrica($item,$link_rood="#"){
                 if(!$titel = item('Item Type Metadata', 'Titel afbeelding', array('index' => $i))):
                     $titel = item_file('Dublin Core','Title',array(),$file);
                 endif;  
-                       //echo $file->getWebPath('fullsize');
+                 
+                $titel = strp_tags($titel);//echo $file->getWebPath('fullsize');
                 
                 if($i==0){
                     $html .= "<a class='bekijk-online bekijk-online-".libis_get_language()."' href='".item('Item Type Metadata','Object instelling')."' target='_blank'></a>";
