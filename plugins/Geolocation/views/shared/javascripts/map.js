@@ -22,29 +22,9 @@ OmekaMap.prototype = {
             options = {};
         }
 
-        if(this.mapDivId == 'map_canvas'){
-	        // add this inside your loop - looping over your marker locations
-	        var coordinates_str, actual_lat, actual_lon, adjusted_lat, adjusted_lon;
-
-	        actual_lat = lat;
-	        actual_lon = lng;
-	        coordinates_str = actual_lat + actual_lon;
-
-	        while (this.coordinates_hash[coordinates_str] != null) {
-	        	// adjust coord by 50m or so
-	        	adjusted_lat = parseFloat(actual_lat) + (Math.random() -.5) / 50;
-	        	adjusted_lon = parseFloat(actual_lon) + (Math.random() -.5) / 50;
-	        	coordinates_str = String(adjusted_lat) + String(adjusted_lon);
-	        }
-	        this.coordinates_hash[coordinates_str] = 1;
-
-	        //var myLatLng = new google.maps.LatLng(adjusted_lat, adjusted_lon);
-
-
-	        options.position = new google.maps.LatLng(adjusted_lat, adjusted_lon);
-        }else{
-        	options.position = new google.maps.LatLng(lat, lng);
-        }
+       
+        options.position = new google.maps.LatLng(lat, lng);
+        
 
         options.map = this.map;
 
@@ -133,7 +113,7 @@ OmekaMap.prototype = {
         if(pathArray[1].search("test")>=0){
             url = 'http://'+window.location.hostname+'/flandrica_test/themes/FLANDRICA/images/cluster.png'
         }else{
-            url = '/themes/FLANDRICA/images/cluster.png'
+            url = 'themes/FLANDRICA/images/cluster.png'
         }
         
         //The markercluster's options
