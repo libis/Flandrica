@@ -144,7 +144,7 @@ echo $auteurs;
                                 <!-- Topstuk -->
                                 <?php if(item('Item Type Metadata', 'Topstuk')): ?>
                                 <tr><td class="label"><?php echo __('Topstuk') ?></td>
-                                    <td><?php echo item('Item Type Metadata', 'Topstuk'); ?></td></tr>
+                                    <td><?php echo __(item('Item Type Metadata', 'Topstuk')); ?></td></tr>
                                 <?php endif; ?>                                    
 
                                 <!-- Links + erfgoedbibliotheek -->
