@@ -141,6 +141,12 @@ echo $auteurs;
                                 <tr><td class="label"><?php echo __('Plaats (Onderwerp)') ?></td>
                                     <td><?php echo item('Item Type Metadata', 'Onderwerp plaats', array('delimiter' => ', ')); ?></td></tr>
                                             <?php endif; ?>
+                                <!-- Topstuk -->
+                                <?php if(item('Item Type Metadata', 'Topstuk')): ?>
+                                <tr><td class="label"><?php echo __('Topstuk') ?></td>
+                                    <td><?php echo item('Item Type Metadata', 'Topstuk'); ?></td></tr>
+                                <?php endif; ?>                                    
+
                                 <!-- Links + erfgoedbibliotheek -->
                                 <?php if(item('Item Type Metadata', 'Organisatie')): ?>
                                 <tr><td class="label"><?php echo __('Erfgoedbibliotheek') ?></td>

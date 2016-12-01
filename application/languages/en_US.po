@@ -663,3 +663,12 @@ msgstr "Flanders Heritage Library"
 
 msgid "http://www.vlaamse-erfgoedbibliotheek.be"
 msgstr "http://www.flandersheritagelibrary.be"
+
+msgid "Topstuk"
+msgstr "Masterpiece"
+
+msgid "Ja"
+msgstr "Yes"
+
+msgid "Nee"
+msgstr "No"

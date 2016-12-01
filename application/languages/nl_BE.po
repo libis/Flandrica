@@ -3658,3 +3658,12 @@ msgstr "Vlaamse Erfgoedbibliotheek"
 
 msgid "http://www.vlaamse-erfgoedbibliotheek.be"
 msgstr "http://www.vlaamse-erfgoedbibliotheek.be"
+
+msgid "Topstuk"
+msgstr "Topstuk"
+
+msgid "Ja"
+msgstr "Ja"
+
+msgid "Nee"
+msgstr "Nee"
