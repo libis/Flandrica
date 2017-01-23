@@ -3667,3 +3667,9 @@ msgstr "Ja"
 
 msgid "Nee"
 msgstr "Nee"
+
+msgid "Vlaams topstuk"
+msgstr "Vlaams topstuk"
+
+msgid "Topstukkenlijst Vlaamse Gemeenschap"
+msgstr "Topstukkenlijst Vlaamse Gemeenschap"

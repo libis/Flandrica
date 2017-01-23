@@ -672,3 +672,9 @@ msgstr "Yes"
 
 msgid "Nee"
 msgstr "No"
+
+msgid "Vlaams topstuk"
+msgstr "Flemish Masterpiece"
+
+msgid "Topstukkenlijst Vlaamse Gemeenschap"
+msgstr "Flemish Community List of Masterpieces"
