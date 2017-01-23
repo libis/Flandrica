@@ -309,14 +309,14 @@ class Apache_Solr_Service
 		{
 			$queryString = http_build_query($params, null, $this->_queryStringDelimiter);
                         $queryString = str_replace('%26', '%26amp%3B', $queryString);
-                        
+
 			return preg_replace('/%5B(?:[0-9]|[1-9][0-9]+)%5D=/', '=', $queryString);
 		}
 		else
 		{
 			$queryString = http_build_query($params);
                         $queryString = str_replace('%26', '%26amp%3B', $queryString);
-                       
+
 			return preg_replace('/\\[(?:[0-9]|[1-9][0-9]+)\\]=/', '=', $queryString);
 		}
 	}
@@ -483,7 +483,7 @@ class Apache_Solr_Service
 			//require_once(dirname(__FILE__) . '/HttpTransport/FileGetContents.php');
 
 			//$this->_httpTransport = new Apache_Solr_HttpTransport_FileGetContents();
-			
+
 			require_once(dirname(__FILE__) .'/HttpTransport/Curl.php');
 			$this->_httpTransport = new Apache_Solr_HttpTransport_Curl();
 		}
@@ -1172,6 +1172,13 @@ class Apache_Solr_Service
 		$params['q'] = $query;
 		$params['start'] = $offset;
 		$params['rows'] = $limit;
+
+		//sort hack
+		$terms = explode(" ",$query);
+		if($terms[1] == 'AND' || $terms[1] == null):
+			$params['sort'] ='id desc';
+		endif;
+		//end sort hack
 
 		$queryString = $this->_generateQueryString($params);
 
