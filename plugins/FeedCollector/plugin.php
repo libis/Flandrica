@@ -49,7 +49,7 @@ function feedCollector_show($class = "feed-box") {
 	$html="";
 
 	$rss = get_option('feedCollector_rss');
-        
+
 	$proxy = get_option('feedCollector_proxy');
 	$limit = get_option('feedCollector_limit');
 
@@ -65,7 +65,7 @@ function feedCollector_show($class = "feed-box") {
 }
 
 function feedCollector_convertToHtml($feed,$proxy,$limit,$class) {
-	
+
 	$headers[] = 'Accept: text/html,application/xhtml+xml,application/xml';
 	$headers[] = 'Connection: Keep-Alive';
 	$headers[] = 'Content-type: application/xml;charset=UTF-8';
@@ -135,7 +135,7 @@ function parseRSS($xml,$cnt,$class)
 		$html.= '<div class="content"><p>'.$desc.'</p><h3><a class="more" href="'.$url.'">'.__("lees meer").'</a></h3></div>';
 		$html.='</div>';
 	}
-	$html .= '<div class="blok meer"><p><a class="more" href="'.$xml->channel->link.'"><strong>'.__('meer nieuws').'</strong></a></p></div>';
+	$html .= '<div class="blok meer"><p><a class="more" href="'.$xml->channel->link.'nieuws/search/results/taxonomy%3A519"><strong>'.__('meer nieuws').'</strong></a></p></div>';
 	return $html;
 }
 
