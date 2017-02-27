@@ -398,7 +398,7 @@ function Libis_tag_string($recordOrTags = null, $link=null)
 			if (!$link) {
 				$tagStrings[$key] = html_escape($tag['name']);
 			} else {
-				$tagStrings[$key] = "<li><a href='" . html_escape($link.urlencode('"'.$tag['name'].'"')) . "' rel='tag'>".html_escape(__(strtolower($tag['name'])))."</a></li><br>";
+				$tagStrings[$key] = "<li><a href='" . html_escape($link.urlencode('"'.$tag['name'].'"')) . "' rel='tag'>".html_escape(__($tag['name']))."</a></li><br>";
 			}
 		}
 		$tagString = join("",$tagStrings);
