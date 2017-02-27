@@ -111,7 +111,7 @@ echo $auteurs;
                                 <!-- Creatie plaats -->
                                 <?php if(item('Item Type Metadata', 'Creatie plaats')): ?>
                                 <tr><td class="label"><?php echo __('Plaats') ?></td>
-                                    <td><?php echo item('Item Type Metadata', 'Creatie plaats', array('delimiter' => ', ')); ?></td></tr>
+                                    <td><?php echo __(item('Item Type Metadata', 'Creatie plaats', array('delimiter' => ', '))); ?></td></tr>
                                 <?php endif; ?>
                                 <!-- Uitgever -->
                                 <?php if(item('Dublin Core', 'Publisher')): ?>
@@ -122,13 +122,13 @@ echo $auteurs;
                                 <!-- Taal -->
                                 <?php if(item('Dublin Core', 'Language')): ?>
                                 <tr><td class="label"><?php echo __('Language') ?></td>
-                                    <td><?php echo item('Dublin Core', 'Language', array('delimiter' => ', ')); ?>
+                                    <td><?php echo __(item('Dublin Core', 'Language', array('delimiter' => ', '))); ?>
                                     </td></tr>
                                 <?php endif; ?>
                                 <!--Materiaal -->
                                 <?php if(item('Item Type Metadata', 'Materiaal')): ?>
                                 <tr><td class="label"><?php echo __('Materiaal') ?></td>
-                                    <td><?php echo item('Item Type Metadata', 'Materiaal', array('delimiter' => ', ')); ?>
+                                    <td><?php echo __(item('Item Type Metadata', 'Materiaal', array('delimiter' => ', '))); ?>
                                     </td></tr>
                                 <?php endif; ?>
                                 <!-- Temporal Coverage-->
@@ -139,13 +139,13 @@ echo $auteurs;
                                 <!-- Onderwerp plaats -->
                                 <?php if(item('Item Type Metadata', 'Onderwerp plaats')): ?>
                                 <tr><td class="label"><?php echo __('Plaats (Onderwerp)') ?></td>
-                                    <td><?php echo item('Item Type Metadata', 'Onderwerp plaats', array('delimiter' => ', ')); ?></td></tr>
+                                    <td><?php echo __(item('Item Type Metadata', 'Onderwerp plaats', array('delimiter' => ', '))); ?></td></tr>
                                             <?php endif; ?>
                                 <!-- Topstuk -->
                                 <?php if(item('Item Type Metadata', 'Topstuk')): ?>
                                 <tr><td class="label"><?php echo __('Topstuk') ?></td>
                                     <td><?php echo __(item('Item Type Metadata', 'Topstuk')); ?></td></tr>
-                                <?php endif; ?>                                    
+                                <?php endif; ?>
 
                                 <!-- Links + erfgoedbibliotheek -->
                                 <?php if(item('Item Type Metadata', 'Organisatie')): ?>
@@ -346,7 +346,7 @@ echo $auteurs;
             <?php
             $items = get_items(array('recent' => 'true', 'type' => '15'), 1);
             if($items):
-           
+
             echo "<h1>".link_to_item(item('Dublin Core', 'Title', array(), $items[0]), array(), 'show', $items[0])."</h1>";
             echo "<p>".digitool_get_thumb($items[0], true, false, 140)."<p>";
             echo "<p>".item("Item Type Metadata", "Verantwoording", array('snippet' => '300'), $items[0])."</p>";
