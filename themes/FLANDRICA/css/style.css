@@ -58,7 +58,7 @@ figure{
 	border: 3px solid #fff;
 	box-shadow: 0 0 3px #CCC;
 }*/
-/* einde aanpassingen  */ 
+/* einde aanpassingen  */
 caption, figcaption{
 	font-style: italic;
 }
@@ -499,7 +499,7 @@ form label{line-height:25px;}
 	margin-left:-15px;
 	line-height: 15px;
   }
-  
+
   .slideTitle{
   	color: #E84427;
   	font-family: 'proxima_nova_rgbold';
@@ -756,7 +756,7 @@ html #pages-thumbnails{*display:inline-block;*padding: 0 15px;*width:930px;}
 }
 
 .rondleidingStart figure img{
-    width:270px;    
+    width:270px;
 }
 
 .rondleidingStart .start_btn{
@@ -789,7 +789,7 @@ article figure{
 }
 
 .exhibit-image img{
-    width:500px;    
+    width:500px;
 }
 
 .blok2 img{
@@ -925,7 +925,7 @@ div.black{
         	padding: 10px;
         	border:1px solid #EEE;
                 height:150px;
-                
+
         }
 
         .timeline .timeline-event-bubble-title{
@@ -1069,7 +1069,19 @@ height:156px;
 border: none;
 }
 
-
+.more {
+border-bottom: none;
+}
+p.more a {
+border-bottom: none;
+}
+body.browse a {
+border-bottom: none;
+color: #E84427;
+}
+body.browse a.more {
+color: #666;
+}
 
 
 @media (max-width 720px) {
