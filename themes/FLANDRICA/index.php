@@ -11,7 +11,7 @@
     <div id="wrapper" class="cf">
     	<div id="sidebar-left">
     		<div class="rubriek-l"><?php echo __('Info');?></div>
-                
+
     		<?php echo Libis_getNieuws(1,libis_get_language());?>
 
 		</div>
@@ -22,21 +22,25 @@
                   <div class="rubriek"><?php echo __('News');?></div>
                 	<?php echo feedCollector_show();?>
                 </div>
-              
+
                 <?php endif;?>
                 <?php if(libis_get_language()=='en'):?>
-                <div id="right">                  
+                <div id="right">
                     <div class="rubriek"><?php echo __('Explore');?></div>
                     <div id="explore">
                         <?php echo libis_get_simple_page_content_by_id(60);?>
-                    </div>                      
-                </div>                              
+                    </div>
+                </div>
                 <?php endif;?>
                 <div id="main">
                   <div class="rubriek"><?php echo __('Tours');?></div>
                 	<?php echo Libis_getRondleidingen(4);?>
+                  <div class="blok meer">
+                    <p><a class="more" href="<?php echo uri('exhibits/browse');?>"><strong><?php echo __('more tours');?></strong></a></p>
+                  </div>
                 </div>
-                
+
+
             </div>
         </div>
 
@@ -85,5 +89,5 @@
 	});
 </script>
 
-<?php 
+<?php
 foot(); ?>
