@@ -230,11 +230,11 @@ function Libis_set_images(){
 
 function Libis_getNieuws($number,$lang = 'nl'){
     $type="Nieuwsbericht";
-    
+
     if($lang == 'en'):
-        $type="Nieuwsbericht-en";        
+        $type="Nieuwsbericht-en";
     endif;
-    
+
 	$items = get_items(array('type'=> $type,'recent'=>true),$number);
 	//get current date
 	$now= strtotime(date('Y-m-d'));
@@ -269,7 +269,7 @@ function Libis_getRondleidingen($number){
         $i=0;
         $lang =  libis_get_language();
         $exhibits=array();
-        
+
         //get featured exhibit in right language
         $featured = exhibit_builder_get_exhibits(array('featured'=>'true','limit'=> 50));
         foreach($featured as $exhibit):
@@ -277,7 +277,7 @@ function Libis_getRondleidingen($number){
                 $exhibits[]= $exhibit;
             endif;
         endforeach;
-        
+
         //add extra non-featured exhibit if needed
         if(sizeof($exhibits) < $number):
             $exhibits_extra = exhibit_builder_get_exhibits(array('recent'=>'true','featured'=>false,'limit'=> 50));
@@ -285,11 +285,11 @@ function Libis_getRondleidingen($number){
                 if(substr( $exhibit->slug, 0, 2 ) === $lang || ($lang=='nl' && substr( $exhibit->slug, 0, 2 ) !== 'en')):
                     $exhibits[]= $exhibit;
                 endif;
-            endforeach;            
+            endforeach;
         endif;
-        
-        $exhibits = array_slice($exhibits,0,$number);       
-        
+
+        $exhibits = array_slice($exhibits,0,$number);
+
 	foreach($exhibits as $exhibit):
             //check language
             $items = get_items(array('exhibit'=> $exhibit->id));
@@ -310,16 +310,16 @@ function Libis_getRondleidingen($number){
                         break;
                     }
                 }
-            }               
+            }
 
             $html .= "";
             $html .= "<p>".snippet_by_word_count($exhibit->description,40)."</p>";
             $html .= "<h3>" .exhibit_builder_link_to_exhibit($exhibit,__("To the tour"),array('class'=>'more')). "</h3>";
             $html .= "</div>";
-                      
+
         endforeach;
-        
-	return $html;       
+
+	return $html;
 }
 
 /**
@@ -398,7 +398,7 @@ function Libis_tag_string($recordOrTags = null, $link=null)
 			if (!$link) {
 				$tagStrings[$key] = html_escape($tag['name']);
 			} else {
-				$tagStrings[$key] = "<li><a href='" . html_escape($link.urlencode('"'.$tag['name'].'"')) . "' rel='tag'>".html_escape(__($tag['name']))."</a></li><br>";
+				$tagStrings[$key] = "<li><a href='" . html_escape($link.urlencode('"'.$tag['name'].'"')) . "' rel='tag'>".html_escape(__(strtolower($tag['name'])))."</a></li><br>";
 			}
 		}
 		$tagString = join("",$tagStrings);
@@ -481,25 +481,25 @@ function Libis_link_to_related_exhibits_home($item) {
             INNER JOIN {$db->prefix}section_pages sp on sp.section_id = s.id
             INNER JOIN {$db->prefix}items_section_pages isp ON isp.page_id = sp.id
             WHERE isp.item_id = ?";
-        
-        if(libis_get_language()=='en'):        
+
+        if(libis_get_language()=='en'):
             $select .= " AND locate('en-',e.slug)=1";
         else:
             $select .= " AND locate('en-',e.slug)!=1";
         endif;
-        
+
 	$exhibits = $db->getTable("Exhibit")->fetchObjects($select,$item->id);
         if(!empty($exhibits)){
             echo '<aside class="blok2 right background-gray">';
             echo '<div class="subtitle">'.__('featured in guided tour').'</div>';
-        
-            foreach($exhibits as $exhibit){                
+
+            foreach($exhibits as $exhibit){
                 echo '<h2><a href="'.exhibit_builder_exhibit_uri($exhibit).'">'.$exhibit->title.'</a></h2>';
                 //echo '<img src="images/dummy.jpg" class="left" />';
                 echo '<a style="float:left;width:150px;" href="'.exhibit_builder_exhibit_uri($exhibit).'">' .Libis_get_first_image_exhibit($exhibit) .'</a>';
                 echo '<p>'.snippet_by_word_count($exhibit->description,20).'</p>';
                 echo '<p class="more" ><a href="'.exhibit_builder_exhibit_uri($exhibit).'">'.__('To the tour').'</a></p>';
-            }    
+            }
             echo "</aside>";
         }else{
             return false;
@@ -512,7 +512,7 @@ function Libis_get_first_image_exhibit($exhibit,$width=140,$type="",$fromFile=fa
 	$page="";
 	$section = $exhibit->getFirstSection();
 	if(!empty($section)){
-            
+
 		$page= $exhibit->getFirstSection()->getPageByOrder(1);
 		$itemcount = count($page['ExhibitPageEntry']);
 
@@ -521,11 +521,11 @@ function Libis_get_first_image_exhibit($exhibit,$width=140,$type="",$fromFile=fa
 		if($itemcount>0){
 			for ($i=1; $i <= $itemcount; $i++) {
 				$item = $itempageobject[$i]['Item'];
-				if(!empty($item)){                                    
-                                    if($type=='view'):                                        
+				if(!empty($item)){
+                                    if($type=='view'):
 					return libis_get_image_exhibit($item);
                                     endif;
-                                    return libis_get_image($item);                                    
+                                    return libis_get_image($item);
 				}
 			}
 		}
@@ -668,7 +668,7 @@ function Libis_language_widget(){
         $html = "EN";
         $html .= " | <a href='".uri("/?lang=nl")."'>NL</a><br>";
         return $html;
-    }   
+    }
 }
 
 function libis_get_language(){
@@ -683,30 +683,30 @@ function libis_get_image($item){
     if (item_has_thumbnail($item)):
         return item_thumbnail(array(),'0',$item);
     endif;
-    
+
     if(digitool_item_has_digitool_url($item)):
         return digitool_get_thumb($item,true,false,'140');
     endif;
-    
+
     return false;
 }
 
 function libis_get_image_exhibit($item){
-    
+
     if (item_has_thumbnail($item)):
-        
-        $files = $item->Files;        
+
+        $files = $item->Files;
         return "<img src='".uri('/archive/fullsize/'.$files[0]->archive_filename)."'>";
     else:
         return digitool_get_view($item, true, false,270);
     endif;
-    
+
     return false;
 }
 
 function libis_get_image_url($item){
     if (item_has_thumbnail($item)):
-        $files = $item->Files;        
+        $files = $item->Files;
         return uri('/archive/thumbnails/'.$files[0]->archive_filename);
     else:
         return digitool_get_thumb_url($item);
