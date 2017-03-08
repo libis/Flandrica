@@ -135,7 +135,7 @@ function parseRSS($xml,$cnt,$class)
 		$html.= '<div class="content"><p>'.$desc.'</p><h3><a class="more" href="'.$url.'">'.__("lees meer").'</a></h3></div>';
 		$html.='</div>';
 	}
-	$html .= '<div class="blok meer"><p><a class="more" href="'.$xml->channel->link.'nieuws/search/results/taxonomy%3A519"><strong>'.__('meer nieuws').'</strong></a></p></div>';
+	$html .= '<div class="blok meer"><p><a class="more" href="'.$xml->channel->link.'flandrica/nieuws"><strong>'.__('meer nieuws').'</strong></a></p></div>';
 	return $html;
 }
 
