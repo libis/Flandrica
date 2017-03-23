@@ -1075,10 +1075,7 @@ border-bottom: none;
 p.more a {
 border-bottom: none;
 }
-body.browse a {
-border-bottom: none;
-color: #E84427;
-}
+
 body.browse a.more {
 color: #666;
 }
