@@ -23,7 +23,7 @@ function digitool_install()
     `pid` VARCHAR(100) NOT NULL ,
     INDEX (`item_id`)) ENGINE = MYISAM";
     $db->query($sql);
-    
+
     set_option('digitool_proxy','');
     set_option('digitool_cgi','');
     set_option('digitool_thumb','');
@@ -38,7 +38,7 @@ function digitool_uninstall(){
     // Drop the url table.
     $db = get_db();
     $db->query("DROP TABLE $db->DigitoolUrl");
-    
+
     delete_option('digitool_proxy');
     delete_option('digitool_cgi');
     delete_option('digitool_thumb');
@@ -59,10 +59,10 @@ function digitool_config() {
 
 	if($_POST["cgi"])
 		set_option('digitool_cgi',$_POST['cgi']);
-        
+
         if($_POST["thumb"])
                 set_option('digitool_thumb',$_POST['thumb']);
-        
+
         if($_POST["view"])
                 set_option('digitool_view',$_POST['view']);
         if($_POST["save"])
@@ -329,7 +329,7 @@ function digitool_get_thumb_url($item){
 
 	$url = get_db()->getTable('DigitoolUrl')->findDigitoolUrlByItem($item, true);
         $thumb_url = get_option('digitool_thumb');
-        
+
 	//print_r($url);
 
 	if(!empty($url)){
@@ -350,9 +350,9 @@ function digitool_get_thumb_url_by_pid($pid){
 function digitool_get_view_url($item){
 
 	$url = get_db()->getTable('DigitoolUrl')->findDigitoolUrlByItem($item, true);
-       
+
         $view_url = get_option('digitool_view');
-	
+
 	if(!empty($url)){
 		$view = $view_url.$url->pid."&custom_att_3=stream";
 		return $view;
@@ -371,13 +371,13 @@ function digitool_get_view_url($item){
 function digitool_get_view($item, $findOnlyOne = false, $linkToView = false,$width="",$class="",$alt=""){
 
 	$url = get_db()->getTable('DigitoolUrl')->findDigitoolUrlByItem($item, $findOnlyOne);
-	
+
         $view_url = get_option('digitool_view');
 
 	if(!empty($url)){
 
 		if(!$linkToView){
-			if($findOnlyOne){				
+			if($findOnlyOne){
 				return "<img src='".digitool_get_image_from_file($url->pid)."' width='".$width."' class='".$class."' alt='".item("Dublin Core","Title",array(),$item)."'>";
 			}
 			//if more then one thumbnail was found
@@ -404,9 +404,9 @@ function digitool_get_view($item, $findOnlyOne = false, $linkToView = false,$wid
  * @return html of the views
  **/
 function digitool_get_view_for_exhibit($item, $pid = null, $width="",$class="",$alt=""){
-    
-        if (item_has_thumbnail($item)):        
-            $files = $item->Files;        
+
+        if (item_has_thumbnail($item)):
+            $files = $item->Files;
             return "<img src='".uri('/archive/fullsize/'.$files[0]->archive_filename)."' alt='".item("Dublin Core","Title",array(),$item)."'>";
         endif;
 
@@ -469,7 +469,7 @@ function digitool_simple_gallery($item){
 	$url = get_db()->getTable('DigitoolUrl')->findDigitoolUrlByItem($item, false);
         $thumb_url = get_option('digitool_thumb');
         $view_url = get_option('digitool_view');
-        
+
 	if(sizeof($url)==1){
 		$digi = $view_url.$url[0]->pid;
 		$html.= "<center class='noprint'><a href='".$digi."'>Dit werk online raadplegen</a></center><br>";
@@ -500,34 +500,34 @@ function digitool_simple_gallery($item){
 //gallery for items/show in flandrica
 function digitool_simple_gallery_flandrica($item,$link_rood="#"){
         $i=0;
-        
+
         //if item has files
         if (item_has_files()):
             while(loop_files_for_item()):
                 $file = get_current_file();
                 if(!$titel = item('Item Type Metadata', 'Titel afbeelding', array('index' => $i))):
                     $titel = item_file('Dublin Core','Title',array(),$file);
-                endif;  
-                 
+                endif;
+
                 $titel = strip_tags($titel);//echo $file->getWebPath('fullsize');
-                
+
                 if($i==0){
                     $html .= "<a class='bekijk-online bekijk-online-".libis_get_language()."' href='".item('Item Type Metadata','Object instelling')."' target='_blank'></a>";
                 }
-               
+
                 $html .= "<a rel='lightbox[pages]' title='".$titel."' href='".$file->getWebPath('fullsize')."'>";
-                
+
                 $html.= "<img src='".$file->getWebPath('thumbnail')."' alt='".$titel."' />";
-                $html.= "</a>";    
+                $html.= "</a>";
                 $html.= "<div class='tooltip' ><div class='slideTitle'>".$titel."<span class='slideAuthor'></span></div><span class='slidePlace'></span></div>";
 
                 $i++;
-            
+
             endwhile;
-            
+
             return $html;
         endif;
-        
+
         $thumb_url = get_option('digitool_thumb');
         $view_url = get_option('digitool_view');
 	$i=0;
@@ -535,7 +535,7 @@ function digitool_simple_gallery_flandrica($item,$link_rood="#"){
 	if(sizeof($url)==1){
 		$digi = $view_url.$url[0]->pid;
 		$thumb = $thumb_url.$url[0]->pid."&custom_att_3=stream";
-		
+
 		$titel = digitool_get_metadata($url[0]->pid,'title');
 		//html
 		$html .= "<a class='bekijk-online bekijk-online-".libis_get_language()."' href='".item('Item Type Metadata','Object instelling')."' target='_blank'></a>
@@ -543,7 +543,7 @@ function digitool_simple_gallery_flandrica($item,$link_rood="#"){
 		$html.= "<img src='".$thumb."' alt='".$titel."'/>";
                 $html.= "</a>";
 		$html.= "<div class='tooltip'><div class='slideTitle'>".$titel."<span class='slideAuthor'></span></div><span class='slidePlace'></span></div>";
-		
+
 		return $html;
 	}else{
 		foreach($url as $u){
@@ -559,10 +559,10 @@ function digitool_simple_gallery_flandrica($item,$link_rood="#"){
 			//$html.= "<a  class='lightLink' alt='".digitool_get_image_from_file($u->pid)."' title='".$titel."' href='#'>";
 
 			$html.= "<img src='".$thumb."' alt='".$titel."' />";
-                        $html.= "</a>";    
+                        $html.= "</a>";
 			$html.= "<div class='tooltip' ><div class='slideTitle'>".$titel."<span class='slideAuthor'></span></div><span class='slidePlace'></span></div>";
-			
-			$i++;                        
+
+			$i++;
 		}
 	}
 	return $html;
@@ -575,7 +575,7 @@ function digitool_get_metadata($pid,$text){
 	$user_agent = 'Mozilla/5.0 (Windows NT 6.1; rv:10.0) Gecko/20100101 Firefox/10.0';
 
 
-	$ch = curl_init("http://resolver.lias.be/get_metadata?pid=".$pid);
+	$ch = curl_init("http://resolver.libis.be/".$pid."/metadata");
 
 	//set options
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -590,28 +590,23 @@ function digitool_get_metadata($pid,$text){
 
 	//get data and close connection
 	$data = curl_exec($ch);
-	// Sam: status toegevoegd voor geen foutmeldingen 
+	// Sam: status toegevoegd voor geen foutmeldingen
 	$status = curl_getinfo($ch,CURLINFO_HTTP_CODE);
 	if($status ==200)
 	{
 		//die(curl_error($ch));
 		curl_close($ch);
-		$xml = simplexml_load_string($data);
-		$entry = $xml->metadata->record;
-		// aangepast door Sam om geen exception te krijgen
-		if(count($entry) > 0){
-                    //Use that namespace
-                    $namespaces = $entry->getNameSpaces(true);
-                    //Now we don't have the URL hard-coded
-                    if(count($entry->children($namespaces['dc'])->$text) >0){
-                        $dc = $entry->children($namespaces['dc']);
-                        return $dc->$text;
-                    }else{
-                        return '';
-                    }
-		} else {
-                    return '';
-		}
+
+    $data = json_decode($data);
+
+    if(isset($data->status)):
+        return false;
+    endif;
+
+    $id = key($data);
+    $data = (array)$data->$id;
+    $title = $data['title'];
+    return $title;
 	}
 	//die(curl_error($ch));
 	curl_close($ch);
@@ -620,9 +615,9 @@ function digitool_get_metadata($pid,$text){
 }
 //returns a list of all thumbnails related to an item
 function digitool_get_thumbnail_array($item){
-        
+
         $thumb_url = get_option('digitool_thumb');
-            
+
 	$array = array();
 	$url = get_db()->getTable('DigitoolUrl')->findDigitoolUrlByItem($item, false);
 	if(sizeof($url)==1){
@@ -681,10 +676,10 @@ function digitool_get_image_from_file($pid){
 function resize($pid,$opts=null){
         if($pid == "")
             return false;
-    
+
         $view_url = get_option('digitool_view');
 	$imagePath = urldecode($view_url.$pid."&custom_att_3=stream");
-        
+
 	# start configuration
 	$cacheFolder = get_option('digitool_save'); # path to your cache folder, must be writeable by web server
         $remoteFolder = get_option('digitool_save'); # path to the folder you wish to download remote images into
@@ -713,7 +708,7 @@ function resize($pid,$opts=null){
 	$filename = $pid.".jpg";
 	$local_filepath = $remoteFolder.$filename;
 	$download_image = true;
-	if(file_exists($remoteFolder.$pid."_w800.jpg")):           
+	if(file_exists($remoteFolder.$pid."_w800.jpg")):
             // Sam: if file exists toegevoegd anders een exception
             if(file_exists($local_filepath)):
                 if(filemtime($local_filepath) < strtotime('+'.$opts['cache_http_minutes'].' minutes')):
@@ -725,8 +720,8 @@ function resize($pid,$opts=null){
             // Sam: toegevoegd anders werden de bestanden altijd gedownload
             $download_image = false;
 	endif;
-        
-	if($download_image == true):            
+
+	if($download_image == true):
             $vo_http_client = new Zend_Http_Client();
             $config = array(
                             'adapter'    => 'Zend_Http_Client_Adapter_Proxy',
@@ -776,7 +771,7 @@ function resize($pid,$opts=null){
 
 	$create = true;
 
-	if(file_exists($newPath) == true):            
+	if(file_exists($newPath) == true):
             $create = false;
             $origFileTime = date("YmdHis",filemtime($imagePath));
             $newFileTime = date("YmdHis",filemtime($newPath));
@@ -831,21 +826,21 @@ function resize($pid,$opts=null){
 	return str_replace($_SERVER['DOCUMENT_ROOT'],'',$newPath);
 }
 
-// Calculates restricted dimensions with a maximum of $goal_width by $goal_height 
-function digitool_resize_dimensions($goal_width,$goal_height,$width,$height) { 
-    $return = array('width' => $width, 'height' => $height); 
+// Calculates restricted dimensions with a maximum of $goal_width by $goal_height
+function digitool_resize_dimensions($goal_width,$goal_height,$width,$height) {
+    $return = array('width' => $width, 'height' => $height);
 
-    // If the ratio > goal ratio and the width > goal width resize down to goal width 
-    if ($width/$height > $goal_width/$goal_height && $width > $goal_width) { 
-        $return['width'] = $goal_width; 
-        $return['height'] = $goal_width/$width * $height; 
-    } 
-    // Otherwise, if the height > goal, resize down to goal height 
-    else if ($height > $goal_height) { 
-        $return['width'] = $goal_height/$height * $width; 
-        $return['height'] = $goal_height; 
-    } 
+    // If the ratio > goal ratio and the width > goal width resize down to goal width
+    if ($width/$height > $goal_width/$goal_height && $width > $goal_width) {
+        $return['width'] = $goal_width;
+        $return['height'] = $goal_width/$width * $height;
+    }
+    // Otherwise, if the height > goal, resize down to goal height
+    else if ($height > $goal_height) {
+        $return['width'] = $goal_height/$height * $width;
+        $return['height'] = $goal_height;
+    }
 
-    return $return; 
+    return $return;
 }
 ?>
