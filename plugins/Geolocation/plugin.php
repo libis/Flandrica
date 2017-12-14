@@ -272,7 +272,7 @@ function geolocation_scripts()
  */
 function geolocation_load_google_maps()
 {
-    return '<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>';
+    return '<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCdugHnnsWwYecCS4olLPEvt-Y-M5eZvZM"></script>';
 }
 
 /**
