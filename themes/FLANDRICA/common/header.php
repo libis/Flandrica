@@ -19,7 +19,7 @@ session_start();
 	<link rel="alternate" type="application/atom+xml" title="Flandrica Atom Tentoonstellingen" href="/items/browse?output=atom&amp;type=tentoon" />
 	<link rel="alternate" type="application/rss+xml" title="Flandrica RSS Objecten" href="/items/browse?output=rss2&amp;type=object" />
 	<link rel="alternate" type="application/atom+xml" title="Flandrica Atom Objecten" href="/items/browse?output=atom&amp;type=object" />
-    -->    
+    -->
 	<!-- YAHOO RESET CSS -->
     <!-- removes and neutralizes the inconsistent default styling of HTML elements -->
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css" />
@@ -43,10 +43,10 @@ session_start();
     ?>
     <!-- JavaScripts -->
 
-	<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-tools/1.2.7/jquery.tools.min.js"></script>
 	<?php queue_js('modernizr.custom.56255');?>
 	<?php queue_js('jquery.roundabout.min');?>
-	<?php queue_js('jquery.roundabout-shapes.min');?>	
+	<?php queue_js('jquery.roundabout-shapes.min');?>
 	<?php queue_js('custom_form_elements');?>
 	<?php queue_js('lightbox');?>
 	<script>function LightboxDelegate(url,caption) {
