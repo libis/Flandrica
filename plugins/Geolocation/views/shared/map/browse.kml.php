@@ -18,9 +18,9 @@
         //Zend_Session::start();
         $session = new Zend_Session_Namespace('style');
         $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-        
+
         if ($session->from == 'solr' || $session->from == 'show') {
-            $locationSolr = array();        
+            $locationSolr = array();
             if($session->items){
                 $locations = $session->locations;
                 foreach($session->items as $id){
@@ -30,11 +30,11 @@
                     if(!empty($locs)){
                         if(sizeof($locs)>1){
                             foreach($locs as $loc){
-                                $locationsSolr = $locationSolr + $loc; 
+                                $locationsSolr = $locationSolr + $loc;
                             }
                         }else{
                              $locationsSolr = $locationSolr + $locs;
-                        }    
+                        }
                     }
                 }
 
@@ -43,16 +43,16 @@
                 set_items_for_loop($items);
             }
         }
-       
+
         while(loop_items()):
         $item = get_current_item();
         $locationR = $locations[$item->id];
         foreach($locationR as $location){
         ?>
         <Placemark>
-            
+
             <description><![CDATA[<?php
-	           echo $item->id;
+	          echo '<div class="item_id" style="display:hidden">'.$item->id.'</div>';
 	            //echo "<div class='bookYear'>".item('Item Type Metadata', 'Periode')."</div>";
 	            ?>
             ]]></description>

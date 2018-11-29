@@ -7,168 +7,157 @@ function OmekaMap(mapDivId, center, options) {
 OmekaMap.prototype = {
 
     map: null,
-    mc: null,
-    oms: null,
     mapDivId: null,
-    mapSize: 'small',
     markers: [],
     options: {},
     center: null,
-    coordinates_hash : [],
+    markerBounds: null,
+    clusterGroup: null,
 
-    addMarker: function (lat, lng, options, bindHtml)
+    addMarker: function (latLng, options, bindHtml)
     {
-        if (!options) {
-            options = {};
+        var map = this.map;
+        var marker = L.marker(latLng, options);
+
+        if (this.clusterGroup) {
+            this.clusterGroup.addLayer(marker);
+        } else {
+            marker.addTo(map);
         }
 
-       
-        options.position = new google.maps.LatLng(lat, lng);
-        
+        if (bindHtml) {
+            //create popup and load images on click to save load time
+            marker.on('click', function(e) {
+              var mark = this;
+              var html = jQuery(bindHtml);
+              console.log(html.find('.item_id').html());
+              var popup = e.target.getPopup();
+              var item = html.find('.item_id').html();
+              var url = 'http://'+window.location.hostname+'/flandrica/items/map/bubble/'+item+'#mapsInfoWindow';
 
-        options.map = this.map;
+              jQuery.get(url).done(function(data) {
+                mark.bindPopup(data, {autoPanPadding: [50, 50]});
+                mark.openPopup();
+              });
+            });
 
-        bindHtml = bindHtml.replace(/(<([^>]+)>)/ig,"");
-        bindHtml = bindHtml.replace(/ /g,'');
-        //options.title = bindHtml;
-        options.snippet = bindHtml;
-        
-        var marker = new google.maps.Marker(options);
-        
-        //for clusterer
-        this.mc.addMarker(marker);
-        //spider
-        this.oms.addMarker(marker);
+            // Fit images on the map on first load
+            marker.once('popupopen', function (event) {
+                var popup = event.popup;
+                var imgs = popup.getElement().getElementsByTagName('img');
+                for (var i = 0; i < imgs.length; i++) {
+                    imgs[i].addEventListener('load', function imgLoadListener(event) {
+                        event.target.removeEventListener('load', imgLoadListener);
+                        // Marker autopan is disabled during panning, so defer
+                        if (map._panAnim && map._panAnim._inProgress) {
+                            map.once('moveend', function () {
+                                popup.update();
+                            });
+                        } else {
+                            popup.update();
+                        }
+                    });
+                }
+
+            });
+        }
+
+        this.markers.push(marker);
+        this.markerBounds.extend(latLng);
+        return marker;
+    },
+
+    fitMarkers: function () {
+        if (this.markers.length == 1) {
+            this.map.panTo(this.markers[0].getLatLng());
+        } else if (this.markers.length > 0) {
+            this.map.fitBounds(this.markerBounds, {padding: [25, 25]});
+        }
     },
 
     initMap: function () {
-
-        // Build the map.
-        var mapOptions = {
-            zoom: this.center.zoomLevel,
-            streetViewControl: false,
-            center: new google.maps.LatLng(this.center.latitude, this.center.longitude),
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            styles: [
-                    {
-                      "stylers": [
-                        { "invert_lightness": true }
-                      ]
-                    },{
-                      "featureType": "road",
-                      "stylers": [
-                        { "visibility": "off" }
-                      ]
-                    },{
-                      "featureType": "administrative.country",
-                      "stylers": [
-                        { "visibility": "on" },
-                        { "color": "#f05133" },
-                        { "weight": 0.7 }
-                      ]
-                    },{
-                    	"featureType": "transit.station",
-                    	"stylers": [
-                    	{ "visibility": "off" }
-                    	]
-                    }, {
-            		"featureType": "poi.business",
-            		"stylers": [
-            		{ "visibility": "off" }
-            	    ]
-            	   }
-                  ],
-            navigationControl: true,
-            mapTypeControl: true
-        };
-        switch (this.mapSize) {
-        case 'small':
-            mapOptions.navigationControlOptions = {
-                style: google.maps.NavigationControlStyle.ZOOM_PAN
-            };
-            break;
-        case 'large':
-        default:
-            mapOptions.navigationControlOptions = {
-                style: google.maps.NavigationControlStyle.DEFAULT
-            };
-        }
-
-        this.map = new google.maps.Map(document.getElementById(this.mapDivId), mapOptions);
-
         if (!this.center) {
             alert('Error: The center of the map has not been set!');
             return;
         }
 
+        this.map = L.map(this.mapDivId).setView([this.center.latitude, this.center.longitude], this.center.zoomLevel);
+        this.markerBounds = L.latLngBounds();
+
+        L.tileLayer.provider('OpenStreetMap.BlackAndWhite', {
+  maxZoom: 19,
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(this.map);
+
+        if (this.options.cluster) {
+            this.clusterGroup = L.markerClusterGroup({
+                showCoverageOnHover: false
+            });
+            this.map.addLayer(this.clusterGroup);
+        }
+
+        jQuery(this.map.getContainer()).trigger('o:geolocation:init_map', this);
+
         // Show the center marker if we have that enabled.
         if (this.center.show) {
-            this.addMarker(this.center.latitude,
-                           this.center.longitude,
+            this.addMarker([this.center.latitude, this.center.longitude],
                            {title: "(" + this.center.latitude + ',' + this.center.longitude + ")"},
                            this.center.markerHtml);
         }
-        
-        var pathArray = window.location.pathname.split( '/' );
-        if(pathArray[1].search("test")>=0){
-            url = 'http://'+window.location.hostname+'/flandrica_test/themes/FLANDRICA/images/cluster.png'
-        }else{
-            url = '/themes/FLANDRICA/images/cluster.png'
-        }
-        
-        //The markercluster's options
-        var mcOptions = {gridSize: 50, maxZoom: 15, styles: [{
-            height: 53,
-            url: url,
-            width: 53
-            }]};
-        //Construct an empty markerclusterer object
-        this.mc = new MarkerClusterer(this.map, [], mcOptions);
-        this.oms = new OverlappingMarkerSpiderfier(this.map);
-        
-        this.oms.addListener('click', function(marker) {
-            //bindHtml = bindHtml.replace(/(<([^>]+)>)/ig,"");
-              //  bindHtml = bindHtml.replace(/ /g,'');
-                //alert(document.location.hostname);
-                var infowindow = null;
-                
-                var pathArray = window.location.pathname.split( '/' );
-                if(pathArray[1].search("test")>=0){
-                    url = 'http://'+window.location.hostname+'/flandrica_test/items/map/'
-                }else{
-                    url = 'http://'+window.location.hostname+'/geolocation/map/browse/'
-                }
-                                
-                var request = jQuery.ajax(
-                    {
-                        url: url,
-                        type: 'POST',                        
-                        data: {id:marker.snippet},
-                        async: false,                       
-                        success: function(data){
-                            var result = jQuery(data).filter('div.mapsInfoWindow').html();
-                                infowindow = new google.maps.InfoWindow({
-                                content: result
-                            });
-                            infowindow.open(marker.getMap(), marker);
-                        }
-                    }
-                );
-          });
+
+        /*this.marker.addListener('click', function(marker) {
+           //bindHtml = bindHtml.replace(/(<([^>]+)>)/ig,"");
+             //  bindHtml = bindHtml.replace(/ /g,'');
+               //alert(document.location.hostname);
+               var infowindow = null;
+
+               var pathArray = window.location.pathname.split( '/' );
+               if(pathArray[1].search("test")>=0){
+                   url = 'http://'+window.location.hostname+'/cag_test/items/map/bubble #mapsInfoWindow'
+               }else{
+                   url = 'http://'+window.location.hostname+'/items/map/bubble #mapsInfoWindow'
+               }
+
+               jQuery("#handle").load(url, { id: marker.snippet }, function(data) {
+                   infowindow = new google.maps.InfoWindow({
+                       content: data
+                   });
+                   infowindow.open(marker.getMap(), marker);
+               });
+        });*/
     }
 };
 
 function OmekaMapBrowse(mapDivId, center, options) {
     var omekaMap = new OmekaMap(mapDivId, center, options);
     jQuery.extend(true, this, omekaMap);
-    var bmap = this.initMap();
+    this.initMap();
 
     //XML loads asynchronously, so need to call for further config only after it has executed
     this.loadKmlIntoMap(this.options.uri, this.options.params);
 }
 
 OmekaMapBrowse.prototype = {
-	/* Need to parse KML manually b/c Google Maps API cannot access the KML
+
+    afterLoadItems: function () {
+        if (this.options.fitMarkers) {
+            this.fitMarkers();
+        }
+
+        if (!this.options.list) {
+            return;
+        }
+        var listDiv = jQuery('#' + this.options.list);
+
+        if (!listDiv.size()) {
+            alert('Error: You have no map links div!');
+        } else {
+            //Create HTML links for each of the markers
+            this.buildListLinks(listDiv);
+        }
+    },
+
+    /* Need to parse KML manually b/c Google Maps API cannot access the KML
        behind the admin interface */
     loadKmlIntoMap: function (kmlUrl, params) {
         var that = this;
@@ -201,17 +190,13 @@ OmekaMapBrowse.prototype = {
                     });
 
                     // We have successfully loaded some map points, so continue setting up the map object
-                    return that;
+                    return that.afterLoadItems();
                 } else {
                     // @todo Elaborate with an error message
                     return false;
                 }
-
-
             }
         });
-
-
     },
 
     getBalloonStyling: function (xml) {
@@ -228,6 +213,11 @@ OmekaMapBrowse.prototype = {
         var snippet = placeMark.find('Snippet').text();
         var icon = placeMark.find('Icon href').text();
 
+        var iconObj = L.icon({
+          iconUrl: icon,
+          shadowSize: [1,1],
+        });
+
         // Extract the lat/long from the KML-formatted data
         var coordinates = placeMark.find('Point coordinates').text().split(',');
         var longitude = coordinates[0];
@@ -238,15 +228,45 @@ OmekaMapBrowse.prototype = {
         balloon = balloon.replace('$[namewithlink]', titleWithLink).replace('$[description]', body).replace('$[Snippet]', snippet);
 
         // Build a marker, add HTML for it
-        this.addMarker(latitude, longitude, {icon:icon, title: title}, balloon);
+        this.addMarker([latitude, longitude], {icon:iconObj,title: title}, balloon);
     },
 
-    // Calculate the zoom level given the 'range' value
-    // Not currently used by this class, but possibly useful
-    // http://throwless.wordpress.com/2008/02/23/gmap-geocoding-zoom-level-and-accuracy/
-    calculateZoom: function (range, width, height) {
-        var zoom = 18 - Math.log(3.3 * range / Math.sqrt(width * width + height * height)) / Math.log(2);
-        return zoom;
+    buildListLinks: function (container) {
+        var that = this;
+        var list = jQuery('<ul></ul>');
+        list.appendTo(container);
+
+        // Loop through all the markers
+        jQuery.each(this.markers, function (index, marker) {
+            var listElement = jQuery('<li></li>');
+
+            // Make an <a> tag, give it a class for styling
+            var link = jQuery('<a></a>');
+            link.addClass('item-link');
+
+            // Links open up the markers on the map, clicking them doesn't actually go anywhere
+            link.attr('href', 'javascript:void(0);');
+
+            // Each <li> starts with the title of the item
+            link.html(marker.options.title);
+
+            // Clicking the link should take us to the map
+            link.bind('click', {}, function (event) {
+                if (that.clusterGroup) {
+                    that.clusterGroup.zoomToShowLayer(marker, function () {
+                        marker.fire('click');
+                    });
+                } else {
+                    that.map.once('moveend', function () {
+                        marker.fire('click');
+                    });
+                    that.map.flyTo(marker.getLatLng());
+                }
+            });
+
+            link.appendTo(listElement);
+            listElement.appendTo(list);
+        });
     }
 };
 
@@ -255,9 +275,6 @@ function OmekaMapSingle(mapDivId, center, options) {
     jQuery.extend(true, this, omekaMap);
     this.initMap();
 }
-OmekaMapSingle.prototype = {
-    mapSize: 'small'
-};
 
 function OmekaMapForm(mapDivId, center, options) {
     var that = this;
@@ -268,99 +285,50 @@ function OmekaMapForm(mapDivId, center, options) {
     this.formDiv = jQuery('#' + this.options.form.id);
 
     // Make the map clickable to add a location point.
-    google.maps.event.addListener(this.map, 'click', function (event) {
+    this.map.on('click', function (event) {
         // If we are clicking a new spot on the map
-        if (!that.options.confirmLocationChange || that.markers.length === 0 || confirm('Are you sure you want to change the location of the item?')) {
-            var point = event.latLng;
-            var marker = that.setMarker(point);
+        var marker = that.setMarker(event.latlng);
+        if (marker) {
             jQuery('#geolocation_address').val('');
         }
     });
 
     // Make the map update on zoom changes.
-    google.maps.event.addListener(this.map, 'zoom_changed', function () {
+    this.map.on('zoomend', function () {
         that.updateZoomForm();
-    });
-
-    // Make the Find By Address button lookup the geocode of an address and add a marker.
-    jQuery('#geolocation_find_location_by_address').bind('click', function (event) {
-        var address = jQuery('#geolocation_address').val();
-        that.findAddress(address);
-
-        //Don't submit the form
-        event.stopPropagation();
-        return false;
-    });
-
-    // Make the return key in the geolocation address input box click the button to find the address.
-    jQuery('#geolocation_address').bind('keydown', function (event) {
-        if (event.which == 13) {
-            jQuery('#geolocation_find_location_by_address').click();
-            event.stopPropagation();
-            return false;
-        }
     });
 
     // Add the existing map point.
     if (this.options.point) {
-        this.map.setZoom(this.options.point.zoomLevel);
-
-        var point = new google.maps.LatLng(this.options.point.latitude, this.options.point.longitude);
-        var marker = this.setMarker(point);
-        this.map.setCenter(marker.getPosition());
+        var point = L.latLng(this.options.point.latitude, this.options.point.longitude);
+        this.setMarker(point);
+        this.map.setView(point, this.options.point.zoomLevel);
     }
 }
 
 OmekaMapForm.prototype = {
-    mapSize: 'large',
-
-    /* Get the geolocation of the address and add marker. */
-    findAddress: function (address) {
-        var that = this;
-        if (!this.geocoder) {
-            this.geocoder = new google.maps.Geocoder();
-        }
-        this.geocoder.geocode({'address': address}, function (results, status) {
-            // If the point was found, then put the marker on that spot
-            if (status == google.maps.GeocoderStatus.OK) {
-                var point = results[0].geometry.location;
-
-                // If required, ask the user if they want to add a marker to the geolocation point of the address.
-                // If so, add the marker, otherwise clear the address.
-                if (!that.options.confirmLocationChange || that.markers.length === 0 || confirm('Are you sure you want to change the location of the item?')) {
-                    var marker = that.setMarker(point);
-                } else {
-                    jQuery('#geolocation_address').val('');
-                    jQuery('#geolocation_address').focus();
-                }
-            } else {
-                // If no point was found, give us an alert
-                alert('Error: "' + address + '" was not found!');
-                return null;
-            }
-        });
-    },
-
     /* Set the marker to the point. */
     setMarker: function (point) {
         var that = this;
 
-
-
+        if (this.options.confirmLocationChange
+            && this.markers.length > 0
+            && !confirm('Are you sure you want to change the location of the item?')
+        ) {
+            return false;
+        }
 
         // Get rid of existing markers.
         this.clearForm();
 
         // Add the marker
-        var marker = this.addMarker(point.lat(), point.lng());
-
-
+        var marker = this.addMarker(point);
 
         // Pan the map to the marker
-        that.map.panTo(point);
+        this.map.panTo(point);
 
         //  Make the marker clear the form if clicked.
-        google.maps.event.addListener(marker, 'click', function (event) {
+        marker.on('click', function (event) {
             if (!that.options.confirmLocationChange || confirm('Are you sure you want to remove the location of the item?')) {
                 that.clearForm();
             }
@@ -372,14 +340,14 @@ OmekaMapForm.prototype = {
 
     /* Update the latitude, longitude, and zoom of the form. */
     updateForm: function (point) {
-        var latElement = document.getElementsByName('geolocation[0][latitude]')[0];
-        var lngElement = document.getElementsByName('geolocation[0][longitude]')[0];
-        var zoomElement = document.getElementsByName('geolocation[0][zoom_level]')[0];
+        var latElement = document.getElementsByName('geolocation[latitude]')[0];
+        var lngElement = document.getElementsByName('geolocation[longitude]')[0];
+        var zoomElement = document.getElementsByName('geolocation[zoom_level]')[0];
 
         // If we passed a point, then set the form to that. If there is no point, clear the form
         if (point) {
-            latElement.value = point.lat();
-            lngElement.value = point.lng();
+            latElement.value = point.lat;
+            lngElement.value = point.lng;
             zoomElement.value = this.map.getZoom();
         } else {
             latElement.value = '';
@@ -390,7 +358,7 @@ OmekaMapForm.prototype = {
 
     /* Update the zoom input of the form to be the current zoom on the map. */
     updateZoomForm: function () {
-        var zoomElement = document.getElementsByName('geolocation[0][zoom_level]')[0];
+        var zoomElement = document.getElementsByName('geolocation[zoom_level]')[0];
         zoomElement.value = this.map.getZoom();
     },
 
@@ -398,7 +366,7 @@ OmekaMapForm.prototype = {
     clearForm: function () {
         // Remove the markers from the map
         for (var i = 0; i < this.markers.length; i++) {
-            this.markers[i].setMap(null);
+            this.markers[i].remove();
         }
 
         // Clear the markers array
@@ -410,14 +378,6 @@ OmekaMapForm.prototype = {
 
     /* Resize the map and center it on the first marker. */
     resize: function () {
-        google.maps.event.trigger(this.map, 'resize');
-        var point;
-        if (this.markers.length) {
-            var marker = this.markers[0];
-            point = marker.getPosition();
-        } else {
-            point = new google.maps.LatLng(this.center.latitude, this.center.longitude);
-        }
-        this.map.setCenter(point);
+        this.map.invalidateSize();
     }
 };

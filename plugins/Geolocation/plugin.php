@@ -147,6 +147,14 @@ function geolocation_add_routes($router)
                                                  array('page' => '\d+'));
     $router->addRoute('items_map', $mapRoute);
 
+    $bubbleRoute = new Zend_Controller_Router_Route('items/map/bubble/*',
+                    array('controller' => 'map',
+                            'action'     => 'bubble',
+                            'module'     => 'geolocation'
+                            ),
+                        array('id'          => '\d+'));
+    $router->addRoute('items_map_bubble', $bubbleRoute);
+
     // Trying to make the route look like a KML file so google will eat it.
     // @todo Include page parameter if this works.
     $kmlRoute = new Zend_Controller_Router_Route_Regex('geolocation/map\.kml',
@@ -256,10 +264,14 @@ function geolocation_item_form_tabs($tabs)
 function geolocation_scripts()
 {
     $ht = '';
-    $ht .= geolocation_load_google_maps();
+    $ht .= js('leaflet/leaflet');
+    $ht .= js('leaflet/leaflet-providers');
+
+    if (get_option('geolocation_cluster')) {
+        $ht .= js('leaflet-markercluster/leaflet.markercluster');
+    }
+
     $ht .= js('map');
-    $ht .= js('spider');
-    $ht .= js('markerclusterer');
     return $ht;
 }
 
@@ -310,6 +322,8 @@ function geolocation_header($request)
 	<!-- Styles for the Geolocation items/map page -->
     <link rel="stylesheet" href="<?php echo css('geolocation-items-map'); ?>" />
     <link rel="stylesheet" href="<?php echo css('geolocation-marker'); ?>" />
+    <link rel="stylesheet" href="<?php echo css('leaflet'); ?>" />
+    <link rel="stylesheet" href="<?php echo css('MarkerCluster'); ?>" />
 <?php
   //  endif;
 }
@@ -323,6 +337,7 @@ function geolocation_header($request)
  * @return array
  **/
 function geolocation_google_map($divId = 'map', $options = array()) {
+
 
     $ht = '';
     $ht .= '<div id="' . $divId . '" class="map"></div>';
