@@ -87,12 +87,11 @@ OmekaMap.prototype = {
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(this.map);
 
-        if (this.options.cluster) {
-            this.clusterGroup = L.markerClusterGroup({
+        this.clusterGroup = L.markerClusterGroup({
                 showCoverageOnHover: false
             });
             this.map.addLayer(this.clusterGroup);
-        }
+        
 
         jQuery(this.map.getContainer()).trigger('o:geolocation:init_map', this);
 

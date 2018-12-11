@@ -267,9 +267,7 @@ function geolocation_scripts()
     $ht .= js('leaflet/leaflet');
     $ht .= js('leaflet/leaflet-providers');
 
-    if (get_option('geolocation_cluster')) {
-        $ht .= js('leaflet-markercluster/leaflet.markercluster');
-    }
+    $ht .= js('leaflet-markercluster/leaflet.markercluster');
 
     $ht .= js('map');
     return $ht;
@@ -324,6 +322,7 @@ function geolocation_header($request)
     <link rel="stylesheet" href="<?php echo css('geolocation-marker'); ?>" />
     <link rel="stylesheet" href="<?php echo css('leaflet'); ?>" />
     <link rel="stylesheet" href="<?php echo css('MarkerCluster'); ?>" />
+    <link rel="stylesheet" href="<?php echo css('MarkerCluster.Default'); ?>" />
 <?php
   //  endif;
 }
