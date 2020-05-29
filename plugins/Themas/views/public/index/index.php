@@ -78,7 +78,7 @@
                             <li><a href="<?php echo uri('solr-search/results/?sorlq=&solrfacet=tag:%22geschiedenis%22+AND+tag:%22conflicten%22')?>"><?php echo __("Conflicten");?>    </a></li>
                             <li><a href="<?php echo uri('solr-search/results/?sorlq=&solrfacet=tag:%22geschiedenis%22+AND+tag:%22gedenkschriften%22')?>"><?php echo __("Gedenkschriften");?>    </a></li>
                             <li><a href="<?php echo uri('solr-search/results/?sorlq=&solrfacet=tag:%22geschiedenis%22+AND+tag:%22heraldiek%22')?>"><?php echo __("Heraldiek");?>    </a></li>
-                            <li><a href="<?php echo uri('solr-search/results/?sorlq=&solrfacet=tag:%22geschiedenis%22+AND+tag:%22kerkgeschiedenis%22')?>"><?php echo __("History of the church");?>    </a></li>
+                            <li><a href="<?php echo uri('solr-search/results/?sorlq=&solrfacet=tag:%22geschiedenis%22+AND+tag:%22kerkgeschiedenis%22')?>"><?php echo __("Kerkgeschiedenis");?>    </a></li>
                             <li><a href="<?php echo uri('solr-search/results/?sorlq=&solrfacet=tag:%22geschiedenis%22+AND+tag:%22kronieken%22')?>"><?php echo __("Kronieken");?>    </a></li>
                             <li><a href="<?php echo uri('solr-search/results/?sorlq=&solrfacet=tag:%22geschiedenis%22+AND+tag:%22missies%22')?>"><?php echo __("Missies");?>    </a></li>
                             <li><a href="<?php echo uri('solr-search/results/?sorlq=&solrfacet=tag:%22geschiedenis%22+AND+tag:%22numismatiek%22')?>"><?php echo __("Numismatiek");?>    </a></li>
